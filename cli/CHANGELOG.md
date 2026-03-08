@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.2](https://github.com/first-fluke/oh-my-ag/compare/cli-v1.26.1...cli-v1.26.2) (2026-03-08)
+
+
+### Refactoring
+
+* rename terraform-infra-engineer to tf-infra-agent ([3c03852](https://github.com/first-fluke/oh-my-ag/commit/3c03852ef473a5e307ce7d497e15d16bbf89b468))
+
 ## [1.26.1](https://github.com/first-fluke/oh-my-ag/compare/cli-v1.26.0...cli-v1.26.1) (2026-03-08)
 
 
