@@ -13,6 +13,14 @@ import path from "node:path";
 
 const AGENT_DIR = ".agent";
 const MANIFEST_FILE = "prompt-manifest.json";
+const EXCLUDED_PATTERNS = [
+  "__pycache__/",
+  ".pyc",
+  ".log",
+  ".DS_Store",
+  "results/",
+  "plan.json",
+];
 
 interface FileInfo {
   path: string;
@@ -56,6 +64,10 @@ function getAllFiles(
   for (const file of files) {
     const fullPath = path.join(dirPath, file);
     const relativePath = path.join(basePath, file);
+
+    if (EXCLUDED_PATTERNS.some((p) => fullPath.includes(p))) {
+      continue;
+    }
 
     if (fs.statSync(fullPath).isDirectory()) {
       getAllFiles(fullPath, arrayOfFiles, relativePath);
