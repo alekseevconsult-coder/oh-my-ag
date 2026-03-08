@@ -50,14 +50,7 @@ flowchart TD
         DBG[debug-agent]
     end
 
-    subgraph Ideation["Ideation & DevOps"]
-        direction TB
-        BS[brainstorm]
-        DW[developer-workflow]
-    end
-
-    Workflows --> Ideation
-    Ideation --> Orchestration
+    Workflows --> Orchestration
     Orchestration --> Domain
     Domain --> Quality
     Quality --> CMT([commit])
@@ -77,7 +70,6 @@ A collection of **Antigravity Skills** enabling collaborative multi-agent develo
 | **Mobile Agent** | Flutter cross-platform development | "mobile app", "iOS/Android" |
 | **QA Agent** | OWASP Top 10 security, performance, accessibility | "review security", "audit", "check performance" |
 | **Debug Agent** | Bug diagnosis, root cause analysis, regression tests | "bug", "error", "crash" |
-| **Brainstorm** | Design-first ideation, exploring intent and constraints before planning | "I have an idea", "let's design", "explore approaches" |
 | **Developer Workflow** | Monorepo task automation, mise tasks, CI/CD, migrations, release | "dev workflow", "mise tasks", "CI/CD pipeline" |
 | **TF Infra Agent** | Multi-cloud IaC provisioning (AWS, GCP, Azure, OCI) | "infrastructure", "terraform", "cloud setup" |
 | **Orchestrator** | CLI-based parallel agent execution with Serena Memory | "spawn agent", "parallel execution" |

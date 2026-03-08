@@ -51,14 +51,8 @@ flowchart TD
         DBG[debug-agent]
     end
 
-    subgraph Ideation["创意 & DevOps"]
-        direction TB
-        BS[brainstorm]
-        DW[developer-workflow]
-    end
 
-    Workflows --> Ideation
-    Ideation --> Orchestration
+    Workflows --> Orchestration
     Orchestration --> Domain
     Domain --> Quality
     Quality --> CMT([commit])
@@ -78,7 +72,6 @@ flowchart TD
 | **Mobile Agent** | Flutter 跨平台开发 | "mobile app", "iOS/Android" |
 | **QA Agent** | OWASP Top 10 安全、性能、可访问性 | "review security", "audit", "check performance" |
 | **Debug Agent** | Bug 诊断、根因分析、回归测试 | "bug", "error", "crash" |
-| **Brainstorm** | 设计优先的构思，在规划前探索意图与约束 | "我有个想法"、"来设计"、"探索方案" |
 | **Developer Workflow** | 单仓库任务自动化、mise 任务、CI/CD、迁移、发布 | "开发工作流"、"mise 任务"、"CI/CD 管道" |
 | **TF Infra Agent** | 多云 IaC 基础设施配置（AWS、GCP、Azure、OCI） | "基础设施"、"terraform"、"云部署" |
 | **Orchestrator** | 基于 CLI 的并行代理执行，使用 Serena Memory | "spawn agent", "parallel execution" |
