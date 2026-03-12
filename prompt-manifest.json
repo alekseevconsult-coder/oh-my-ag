@@ -1,7 +1,7 @@
 {
   "name": "oh-my-ag",
-  "version": "1.28.0",
-  "releaseDate": "2026-03-12T00:00:43.200Z",
+  "version": "1.29.0",
+  "releaseDate": "2026-03-12T00:17:12.108Z",
   "repository": "https://github.com/first-fluke/oh-my-ag",
   "files": [
     {
@@ -96,8 +96,8 @@
     },
     {
       "path": ".agent/skills/_version.json",
-      "sha256": "2a8c8d075776e2f33011f33559a7519dc8a1fe940621acd300118e0039e9bd65",
-      "size": 25
+      "sha256": "86916d098412785dfc3e2a87f2415041e8d4c008976377dc0ecef1165daf3aad",
+      "size": 26
     },
     {
       "path": ".agent/skills/backend-agent/SKILL.md",
