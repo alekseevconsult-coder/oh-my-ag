@@ -15,12 +15,12 @@
       "extra-files": [
         {
           "type": "json",
-          "path": "prompt-manifest.json",
+          "path": "/prompt-manifest.json",
           "jsonpath": "$.version"
         },
         {
           "type": "json",
-          "path": ".agent/skills/_version.json",
+          "path": "/.agent/skills/_version.json",
           "jsonpath": "$.version"
         }
       ]
