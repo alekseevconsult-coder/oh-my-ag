@@ -95,5 +95,5 @@ export function slugify(text: string) {
 
 export const TOP_LINKS = {
   sponsor: "https://github.com/sponsors/first-fluke",
-  github: "https://github.com/first-fluke/oh-my-ag",
+  github: "https://github.com/first-fluke/oh-my-agent",
 };

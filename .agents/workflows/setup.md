@@ -154,7 +154,7 @@ serena-mcp-server --port 12341
   "mcpServers": {
     "serena": {
       "command": "npx",
-      "args": ["-y", "oh-my-ag@latest", "bridge", "http://localhost:12341/sse"],
+      "args": ["-y", "oh-my-agent@latest", "bridge", "http://localhost:12341/sse"],
       "disabled": false
     }
   }
@@ -261,7 +261,7 @@ gh api user/starred/first-fluke/oh-my-ag &>/dev/null
 
 **If NOT starred (exit code non-zero):**
 
-> **Ask the user**: "If you're enjoying oh-my-ag, would you like to support the project by starring it on GitHub?"
+> **Ask the user**: "If you're enjoying oh-my-agent, would you like to support the project by starring it on GitHub?"
 >
 > **Options:**
 >
@@ -280,7 +280,7 @@ gh api -X PUT /user/starred/first-fluke/oh-my-ag 2>/dev/null && echo "Thanks for
 
 ```bash
 echo ""
-echo "If you enjoy oh-my-ag, consider starring the repo:"
+echo "If you enjoy oh-my-agent, consider starring the repo:"
 echo "  https://github.com/first-fluke/oh-my-ag"
 echo ""
 ```

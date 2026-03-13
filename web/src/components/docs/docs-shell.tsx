@@ -96,7 +96,7 @@ function Brand() {
       <span className="overflow-hidden rounded-lg shadow-[0_0_28px_rgba(178,58,52,0.45)]">
         <Image
           src={`${basePath}/icons/android/android-launchericon-192-192.png`}
-          alt="oh-my-ag icon"
+          alt="oh-my-agent icon"
           width={36}
           height={36}
           className="size-9"

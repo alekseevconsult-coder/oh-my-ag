@@ -9,7 +9,7 @@ description: Volledige gebruiksgids met voorbeelden, workflows, dashboardbewerki
 
 1. **Open in Antigravity IDE**
    ```bash
-   antigravity open /path/to/oh-my-ag
+   antigravity open /path/to/oh-my-agent
    ```
 
 2. **Skills worden automatisch gedetecteerd.** Antigravity scant `.agents/skills/` en indexeert alle beschikbare skills.
@@ -85,10 +85,10 @@ wait
 **Monitor in realtime:**
 ```bash
 # Terminal (apart terminal venster)
-bunx oh-my-ag dashboard
+bunx oh-my-agent dashboard
 
 # Of browser
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard:web
 # → http://localhost:9847
 ```
 
@@ -99,7 +99,7 @@ bunx oh-my-ag dashboard:web
 ### Terminal dashboard
 
 ```bash
-bunx oh-my-ag dashboard
+bunx oh-my-agent dashboard
 ```
 
 Monitort `.serena/memories/` met `fswatch` (macOS) of `inotifywait` (Linux). Toont een live tabel met sessie status, agent states, turns en laatste activiteit. Update automatisch wanneer memory bestanden veranderen.
@@ -112,7 +112,7 @@ Monitort `.serena/memories/` met `fswatch` (macOS) of `inotifywait` (Linux). Too
 
 ```bash
 npm install          # alleen eerste keer
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard:web
 ```
 
 Open `http://localhost:9847` in je browser. Functies:
@@ -241,7 +241,7 @@ Jij: "Login knop gooit TypeError"
 ### Workflow D: CLI orkestratie met dashboard
 
 ```
-Terminal 1: bunx oh-my-ag dashboard:web
+Terminal 1: bunx oh-my-agent dashboard:web
 Terminal 2: oh-my-ag agent:spawn backend "taak" session-01 &
             oh-my-ag agent:spawn frontend "taak" session-01 &
 Browser:    http://localhost:9847 → realtime status
@@ -255,7 +255,7 @@ Browser:    http://localhost:9847 → realtime status
 2. **Gebruik CLI spawning** voor multi-domein projecten — probeer niet alles in één chat te doen
 3. **Review Knowledge Base** — controleer `.agents/brain/` voor API consistentie
 4. **Itereer met re-spawns** — verfijn instructies, begin niet opnieuw
-5. **Gebruik dashboards** — `bunx oh-my-ag dashboard` of `bunx oh-my-ag dashboard:web` om orchestrator sessies te monitoren
+5. **Gebruik dashboards** — `bunx oh-my-agent dashboard` of `bunx oh-my-agent dashboard:web` om orchestrator sessies te monitoren
 6. **Aparte workspaces** — wijs elke agent zijn eigen directory toe
 
 ---
@@ -277,16 +277,16 @@ Browser:    http://localhost:9847 → realtime status
 ## CLI commando's
 
 ```bash
-bunx oh-my-ag                # Interactieve skill installer
-bunx oh-my-ag doctor         # Controleer setup & repareer ontbrekende skills
-bunx oh-my-ag doctor --json  # JSON output voor CI/CD
-bunx oh-my-ag update         # Update skills naar laatste versie
-bunx oh-my-ag stats          # Bekijk productiviteitsmetrieken
-bunx oh-my-ag stats --reset  # Reset metrieken
-bunx oh-my-ag retro          # Sessie retrospective (lessen & volgende stappen)
-bunx oh-my-ag dashboard      # Terminal realtime dashboard
-bunx oh-my-ag dashboard:web  # Web dashboard (http://localhost:9847)
-bunx oh-my-ag help           # Toon help
+bunx oh-my-agent                # Interactieve skill installer
+bunx oh-my-agent doctor         # Controleer setup & repareer ontbrekende skills
+bunx oh-my-agent doctor --json  # JSON output voor CI/CD
+bunx oh-my-agent update         # Update skills naar laatste versie
+bunx oh-my-agent stats          # Bekijk productiviteitsmetrieken
+bunx oh-my-agent stats --reset  # Reset metrieken
+bunx oh-my-agent retro          # Sessie retrospective (lessen & volgende stappen)
+bunx oh-my-agent dashboard      # Terminal realtime dashboard
+bunx oh-my-agent dashboard:web  # Web dashboard (http://localhost:9847)
+bunx oh-my-agent help           # Toon help
 ```
 
 ---

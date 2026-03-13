@@ -1,6 +1,6 @@
 ---
 title: 기존 프로젝트 통합
-description: 기존 Antigravity 프로젝트에 oh-my-ag 스킬을 안전하고 비파괴적으로 통합하는 가이드.
+description: 기존 Antigravity 프로젝트에 oh-my-agent 스킬을 안전하고 비파괴적으로 통합하는 가이드.
 ---
 
 # 기존 프로젝트에 통합하기
@@ -9,14 +9,14 @@ description: 기존 Antigravity 프로젝트에 oh-my-ag 스킬을 안전하고 
 
 ## 목표
 
-기존 프로젝트 자산을 덮어쓰지 않고 `oh-my-ag` 스킬을 추가합니다.
+기존 프로젝트 자산을 덮어쓰지 않고 `oh-my-agent` 스킬을 추가합니다.
 
 ## 권장 경로 (CLI)
 
 대상 프로젝트 루트에서 실행:
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 실행 시 작업:
@@ -40,12 +40,12 @@ mkdir -p .agents/skills .agents/skills .agents/workflows .agents/config .claude/
 # 없는 스킬만 복사 (예시)
 for skill in workflow-guide pm-agent frontend-agent backend-agent mobile-agent qa-agent debug-agent orchestrator commit; do
   if [ ! -d ".agents/skills/$skill" ]; then
-    cp -r /path/to/oh-my-ag/.agents/skills/$skill .agents/skills/$skill
+    cp -r /path/to/oh-my-agent/.agents/skills/$skill .agents/skills/$skill
   fi
 done
 
 # 공통 리소스가 없으면 복사
-[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-ag/.agents/skills/_shared .agents/skills/_shared
+[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-agent/.agents/skills/_shared .agents/skills/_shared
 
 # 호환 심링크 생성
 for skill in workflow-guide pm-agent frontend-agent backend-agent mobile-agent qa-agent debug-agent orchestrator commit _shared; do
@@ -55,11 +55,11 @@ done
 
 # 워크플로우가 없으면 복사
 for wf in coordinate.md orchestrate.md plan.md review.md debug.md setup.md tools.md; do
-  [ -f ".agents/workflows/$wf" ] || cp /path/to/oh-my-ag/.agents/workflows/$wf .agents/workflows/$wf
+  [ -f ".agents/workflows/$wf" ] || cp /path/to/oh-my-agent/.agents/workflows/$wf .agents/workflows/$wf
 done
 
 # 기본 사용자 설정이 없으면 복사
-[ -f .agents/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agents/config/user-preferences.yaml .agents/config/user-preferences.yaml
+[ -f .agents/config/user-preferences.yaml ] || cp /path/to/oh-my-agent/.agents/config/user-preferences.yaml .agents/config/user-preferences.yaml
 ```
 
 ## 검증 체크리스트
@@ -75,7 +75,7 @@ find .agents/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
 find .agents/workflows -maxdepth 1 -name '*.md' | wc -l
 
 # 기본 상태 점검
-bunx oh-my-ag doctor
+bunx oh-my-agent doctor
 ```
 
 ## 선택 기능: 대시보드
@@ -83,8 +83,8 @@ bunx oh-my-ag doctor
 대시보드는 선택 기능이며 설치된 CLI로 실행합니다.
 
 ```bash
-bunx oh-my-ag dashboard
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard
+bunx oh-my-agent dashboard:web
 ```
 
 웹 대시보드 기본 주소: `http://localhost:9847`
@@ -95,14 +95,14 @@ bunx oh-my-ag dashboard:web
 
 ```bash
 git add -A
-git commit -m "chore: checkpoint before oh-my-ag integration"
+git commit -m "chore: checkpoint before oh-my-agent integration"
 ```
 
 되돌려야 하면 팀 표준 절차에 맞춰 해당 커밋을 롤백하세요.
 
 ## 멀티 CLI 심링크 지원
 
-`bunx oh-my-ag`를 실행하면 스킬 선택 후 다음과 같은 프롬프트가 표시됩니다:
+`bunx oh-my-agent`를 실행하면 스킬 선택 후 다음과 같은 프롬프트가 표시됩니다:
 
 ```text
 다른 CLI 도구용 심링크도 만드시겠어요?

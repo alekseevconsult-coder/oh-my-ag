@@ -1,4 +1,4 @@
-# oh-my-ag: Orquestrador Multi-Agente para Antigravity
+# oh-my-agent: Orquestrador Multi-Agente para Antigravity
 
 [English](../README.md) | [한국어](./README.ko.md) | [中文](./README.zh.md) | [日本語](./README.ja.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Nederlands](./README.nl.md) | [Polski](./README.pl.md) | [Українська](./README.uk.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md)
 
@@ -9,7 +9,7 @@ Orquestre 9 agentes especializados de domínio (PM, Frontend, Backend, Mobile, Q
 > **Gostou deste projeto?** Dê uma estrela!
 >
 > ```bash
-> gh api --method PUT /user/starred/first-fluke/oh-my-ag
+> gh api --method PUT /user/starred/first-fluke/oh-my-agent
 > ```
 >
 > Experimente nosso template inicial otimizado: [fullstack-starter](https://github.com/first-fluke/fullstack-starter)
@@ -101,7 +101,7 @@ Uma coleção de **Habilidades Antigravity** que permite o desenvolvimento colab
 # Instale o uv se você não tiver:
 # curl -LsSf https://astral.sh/uv/install.sh | sh
 
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 Selecione seu tipo de projeto e as habilidades serão instaladas em `.agents/skills/`.
@@ -119,7 +119,7 @@ Selecione seu tipo de projeto e as habilidades serão instaladas em `.agents/ski
 Para usar as ferramentas principais globalmente ou executar o SubAgent Orchestrator:
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 Você também precisará de pelo menos uma ferramenta CLI:
@@ -138,10 +138,10 @@ Você também precisará de pelo menos uma ferramenta CLI:
 Execute o seguinte comando na raiz do seu projeto para instalar/atualizar automaticamente habilidades e fluxos de trabalho:
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
-> **Dica:** Execute `bunx oh-my-ag doctor` após a instalação para verificar se tudo está configurado corretamente (incluindo fluxos de trabalho globais).
+> **Dica:** Execute `bunx oh-my-agent doctor` após a instalação para verificar se tudo está configurado corretamente (incluindo fluxos de trabalho globais).
 
 ### 2. Chat
 
@@ -206,7 +206,7 @@ Veja [SPONSORS.md](./SPONSORS.md) para uma lista completa de apoiadores.
 
 ## Histórico de Estrelas
 
-[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-ag&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-ag&type=date&legend=bottom-right)
+[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-agent&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-agent&type=date&legend=bottom-right)
 
 ## Licença
 

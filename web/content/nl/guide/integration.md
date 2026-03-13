@@ -1,6 +1,6 @@
 ---
 title: Integratie in bestaand project
-description: Veilige en niet-destructieve integratieworkflow voor het toevoegen van oh-my-ag-skills aan een bestaand Antigravity-project.
+description: Veilige en niet-destructieve integratieworkflow voor het toevoegen van oh-my-agent-skills aan een bestaand Antigravity-project.
 ---
 
 # Integratie in een bestaand project
@@ -9,14 +9,14 @@ Deze handleiding vervangt de verouderde root `AGENT_GUIDE.md`-workflow en weersp
 
 ## Doel
 
-Voeg `oh-my-ag`-skills toe aan een bestaand project zonder bestaande bestanden te overschrijven.
+Voeg `oh-my-agent`-skills toe aan een bestaand project zonder bestaande bestanden te overschrijven.
 
 ## Aanbevolen pad (CLI)
 
 Voer dit uit in de hoofdmap van het doelproject:
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 Wat het doet:
@@ -39,20 +39,20 @@ mkdir -p .agents/skills .agents/workflows .agents/config
 # Kopieer alleen ontbrekende skillmappen (voorbeeld)
 for skill in workflow-guide pm-agent frontend-agent backend-agent mobile-agent qa-agent debug-agent orchestrator commit; do
   if [ ! -d ".agents/skills/$skill" ]; then
-    cp -r /path/to/oh-my-ag/.agents/skills/$skill .agents/skills/$skill
+    cp -r /path/to/oh-my-agent/.agents/skills/$skill .agents/skills/$skill
   fi
 done
 
 # Kopieer gedeelde resources als ze ontbreken
-[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-ag/.agents/skills/_shared .agents/skills/_shared
+[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-agent/.agents/skills/_shared .agents/skills/_shared
 
 # Kopieer workflows als ze ontbreken
 for wf in coordinate.md orchestrate.md plan.md review.md debug.md setup.md tools.md; do
-  [ -f ".agents/workflows/$wf" ] || cp /path/to/oh-my-ag/.agents/workflows/$wf .agents/workflows/$wf
+  [ -f ".agents/workflows/$wf" ] || cp /path/to/oh-my-agent/.agents/workflows/$wf .agents/workflows/$wf
 done
 
 # Kopieer standaard gebruikersvoorkeuren alleen als ze ontbreken
-[ -f .agents/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agents/config/user-preferences.yaml .agents/config/user-preferences.yaml
+[ -f .agents/config/user-preferences.yaml ] || cp /path/to/oh-my-agent/.agents/config/user-preferences.yaml .agents/config/user-preferences.yaml
 ```
 
 ## Verificatiechecklist
@@ -68,7 +68,7 @@ find .agents/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
 find .agents/workflows -maxdepth 1 -name '*.md' | wc -l
 
 # Basis commandogezondheidscontrole
-bunx oh-my-ag doctor
+bunx oh-my-agent doctor
 ```
 
 ## Optionele dashboards
@@ -76,8 +76,8 @@ bunx oh-my-ag doctor
 Dashboards zijn optioneel en gebruiken de geïnstalleerde CLI:
 
 ```bash
-bunx oh-my-ag dashboard
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard
+bunx oh-my-agent dashboard:web
 ```
 
 Standaard URL webdashboard: `http://localhost:9847`
@@ -88,14 +88,14 @@ Maak voor de integratie een checkpointcommit aan in uw project:
 
 ```bash
 git add -A
-git commit -m "chore: checkpoint before oh-my-ag integration"
+git commit -m "chore: checkpoint before oh-my-agent integration"
 ```
 
 Als u de integratie ongedaan moet maken, draai die commit dan terug via uw gebruikelijke teamproces.
 
 ## Multi-CLI-symlinkondersteuning
 
-Wanneer u `bunx oh-my-ag` uitvoert, ziet u na het selecteren van skills deze prompt:
+Wanneer u `bunx oh-my-agent` uitvoert, ziet u na het selecteren van skills deze prompt:
 
 ```text
 Also develop with other CLI tools?

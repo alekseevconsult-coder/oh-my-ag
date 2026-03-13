@@ -8,8 +8,8 @@ description: 使用终端/Web 仪表盘和可操作的运维手册信号来运�
 ## 启动命令
 
 ```bash
-bunx oh-my-ag dashboard
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard
+bunx oh-my-agent dashboard:web
 ```
 
 Web 仪表盘默认 URL：`http://localhost:9847`

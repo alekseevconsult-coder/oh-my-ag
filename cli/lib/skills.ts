@@ -3,7 +3,7 @@ import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { SkillInfo, SkillsRegistry } from "../types/index.js";
 
-export const REPO = "first-fluke/oh-my-ag";
+export const REPO = "first-fluke/oh-my-agent";
 export const GITHUB_RAW = `https://raw.githubusercontent.com/${REPO}/main/.agents/skills`;
 export const GITHUB_AGENT_ROOT = `https://raw.githubusercontent.com/${REPO}/main/.agents`;
 export const INSTALLED_SKILLS_DIR = ".agents/skills";

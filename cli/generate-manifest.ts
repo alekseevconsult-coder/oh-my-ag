@@ -134,10 +134,10 @@ function main(): void {
   }));
 
   const manifest: Manifest = {
-    name: "oh-my-ag",
+    name: "oh-my-agent",
     version: version,
     releaseDate: new Date().toISOString(),
-    repository: "https://github.com/first-fluke/oh-my-ag",
+    repository: "https://github.com/first-fluke/oh-my-agent",
     files: filesWithChecksums,
     checksums: {
       algorithm: "sha256",

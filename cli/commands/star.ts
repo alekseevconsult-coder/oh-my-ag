@@ -42,7 +42,7 @@ function getInstallCommand(): string {
 
 export async function star(): Promise<void> {
   console.clear();
-  p.intro(pc.bgMagenta(pc.white(" ⭐ oh-my-ag star ")));
+  p.intro(pc.bgMagenta(pc.white(" ⭐ oh-my-agent star ")));
 
   if (!isGhInstalled()) {
     const installCmd = getInstallCommand();

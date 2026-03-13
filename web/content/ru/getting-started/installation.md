@@ -14,7 +14,7 @@ description: Предварительные требования, вариант
 ## Вариант 1: Интерактивная установка
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 Устанавливает навыки и рабочие процессы в `.agents/` в текущем проекте.
@@ -22,7 +22,7 @@ bunx oh-my-ag
 ## Вариант 2: Глобальная установка
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 Рекомендуется, если вы часто используете команды оркестратора.
@@ -32,16 +32,16 @@ bun install --global oh-my-ag
 ### Через CLI
 
 ```bash
-bunx oh-my-ag
-bunx oh-my-ag doctor
+bunx oh-my-agent
+bunx oh-my-agent doctor
 ```
 
 ### Ручное копирование
 
 ```bash
-cp -r oh-my-ag/.agents/skills /path/to/project/.agents/
-cp -r oh-my-ag/.agents/workflows /path/to/project/.agents/
-cp -r oh-my-ag/.agents/config /path/to/project/.agents/
+cp -r oh-my-agent/.agents/skills /path/to/project/.agents/
+cp -r oh-my-agent/.agents/workflows /path/to/project/.agents/
+cp -r oh-my-agent/.agents/config /path/to/project/.agents/
 ```
 
 ## Команда первоначальной настройки

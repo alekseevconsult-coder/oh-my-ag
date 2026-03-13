@@ -35,7 +35,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
-          package-name: oh-my-ag
+          package-name: oh-my-agent
 ```
 
 ## Mise Tasks for Release Management

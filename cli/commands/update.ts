@@ -11,7 +11,7 @@ import { migrateToAgents } from "../lib/migrate.js";
 
 export async function update(): Promise<void> {
   console.clear();
-  p.intro(pc.bgMagenta(pc.white(" 🛸 oh-my-ag update ")));
+  p.intro(pc.bgMagenta(pc.white(" 🛸 oh-my-agent update ")));
 
   const cwd = process.cwd();
 

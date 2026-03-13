@@ -1,6 +1,6 @@
 ---
 title: Integration in ein bestehendes Projekt
-description: Sicherer und zerstörungsfreier Integrations-Workflow zum Hinzufügen von oh-my-ag-Skills zu einem bestehenden Antigravity-Projekt.
+description: Sicherer und zerstörungsfreier Integrations-Workflow zum Hinzufügen von oh-my-agent-Skills zu einem bestehenden Antigravity-Projekt.
 ---
 
 # Integration in ein bestehendes Projekt
@@ -9,14 +9,14 @@ Dieser Leitfaden ersetzt den veralteten Root-`AGENT_GUIDE.md`-Workflow und spieg
 
 ## Ziel
 
-`oh-my-ag`-Skills zu einem bestehenden Projekt hinzufügen, ohne vorhandene Assets zu überschreiben.
+`oh-my-agent`-Skills zu einem bestehenden Projekt hinzufügen, ohne vorhandene Assets zu überschreiben.
 
 ## Empfohlener Weg (CLI)
 
 Führen Sie dies im Stammverzeichnis des Zielprojekts aus:
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 Was es tut:
@@ -39,20 +39,20 @@ mkdir -p .agents/skills .agents/workflows .agents/config
 # Nur fehlende Skill-Verzeichnisse kopieren (Beispiel)
 for skill in workflow-guide pm-agent frontend-agent backend-agent mobile-agent qa-agent debug-agent orchestrator commit; do
   if [ ! -d ".agents/skills/$skill" ]; then
-    cp -r /path/to/oh-my-ag/.agents/skills/$skill .agents/skills/$skill
+    cp -r /path/to/oh-my-agent/.agents/skills/$skill .agents/skills/$skill
   fi
 done
 
 # Gemeinsame Ressourcen kopieren, falls fehlend
-[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-ag/.agents/skills/_shared .agents/skills/_shared
+[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-agent/.agents/skills/_shared .agents/skills/_shared
 
 # Workflows kopieren, falls fehlend
 for wf in coordinate.md orchestrate.md plan.md review.md debug.md setup.md tools.md; do
-  [ -f ".agents/workflows/$wf" ] || cp /path/to/oh-my-ag/.agents/workflows/$wf .agents/workflows/$wf
+  [ -f ".agents/workflows/$wf" ] || cp /path/to/oh-my-agent/.agents/workflows/$wf .agents/workflows/$wf
 done
 
 # Standard-Benutzereinstellungen nur kopieren, falls fehlend
-[ -f .agents/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agents/config/user-preferences.yaml .agents/config/user-preferences.yaml
+[ -f .agents/config/user-preferences.yaml ] || cp /path/to/oh-my-agent/.agents/config/user-preferences.yaml .agents/config/user-preferences.yaml
 ```
 
 ## Verifizierungs-Checkliste
@@ -68,7 +68,7 @@ find .agents/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
 find .agents/workflows -maxdepth 1 -name '*.md' | wc -l
 
 # Grundlegender Zustandscheck
-bunx oh-my-ag doctor
+bunx oh-my-agent doctor
 ```
 
 ## Optionale Dashboards
@@ -76,8 +76,8 @@ bunx oh-my-ag doctor
 Dashboards sind optional und verwenden die installierte CLI:
 
 ```bash
-bunx oh-my-ag dashboard
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard
+bunx oh-my-agent dashboard:web
 ```
 
 Standard-URL des Web-Dashboards: `http://localhost:9847`
@@ -88,14 +88,14 @@ Erstellen Sie vor der Integration einen Checkpoint-Commit in Ihrem Projekt:
 
 ```bash
 git add -A
-git commit -m "chore: checkpoint before oh-my-ag integration"
+git commit -m "chore: checkpoint before oh-my-agent integration"
 ```
 
 Falls Sie rückgängig machen müssen, setzen Sie diesen Commit mit Ihrem normalen Teamprozess zurück.
 
 ## Multi-CLI-Symlink-Unterstützung
 
-Wenn Sie `bunx oh-my-ag` ausführen, sehen Sie nach der Skill-Auswahl diese Abfrage:
+Wenn Sie `bunx oh-my-agent` ausführen, sehen Sie nach der Skill-Auswahl diese Abfrage:
 
 ```text
 Also develop with other CLI tools?

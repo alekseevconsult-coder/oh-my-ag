@@ -14,7 +14,7 @@ description: Voraussetzungen, Installationsoptionen und Ersteinrichtung.
 ## Option 1: Interaktive Installation
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 Installiert Skills und Workflows in `.agents/` im aktuellen Projekt.
@@ -22,7 +22,7 @@ Installiert Skills und Workflows in `.agents/` im aktuellen Projekt.
 ## Option 2: Globale Installation
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 Empfohlen, wenn Sie häufig Orchestrator-Befehle verwenden.
@@ -32,16 +32,16 @@ Empfohlen, wenn Sie häufig Orchestrator-Befehle verwenden.
 ### CLI-Weg
 
 ```bash
-bunx oh-my-ag
-bunx oh-my-ag doctor
+bunx oh-my-agent
+bunx oh-my-agent doctor
 ```
 
 ### Manueller Kopierweg
 
 ```bash
-cp -r oh-my-ag/.agents/skills /path/to/project/.agents/
-cp -r oh-my-ag/.agents/workflows /path/to/project/.agents/
-cp -r oh-my-ag/.agents/config /path/to/project/.agents/
+cp -r oh-my-agent/.agents/skills /path/to/project/.agents/
+cp -r oh-my-agent/.agents/workflows /path/to/project/.agents/
+cp -r oh-my-agent/.agents/config /path/to/project/.agents/
 ```
 
 ## Ersteinrichtungsbefehl

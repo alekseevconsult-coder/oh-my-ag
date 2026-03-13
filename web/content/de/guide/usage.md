@@ -9,7 +9,7 @@ description: Vollständige Nutzungsanleitung mit Beispielen, Workflows, Dashboar
 
 1. **In Antigravity IDE öffnen**
    ```bash
-   antigravity open /path/to/oh-my-ag
+   antigravity open /path/to/oh-my-agent
    ```
 
 2. **Skills werden automatisch erkannt.** Antigravity scannt `.agents/skills/` und indiziert alle verfügbaren Skills.
@@ -85,10 +85,10 @@ wait
 **Echtzeit-Überwachung:**
 ```bash
 # Terminal (separates Terminalfenster)
-bunx oh-my-ag dashboard
+bunx oh-my-agent dashboard
 
 # Oder Browser
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard:web
 # → http://localhost:9847
 ```
 
@@ -99,7 +99,7 @@ bunx oh-my-ag dashboard:web
 ### Terminal-Dashboard
 
 ```bash
-bunx oh-my-ag dashboard
+bunx oh-my-agent dashboard
 ```
 
 Beobachtet `.serena/memories/` mit `fswatch` (macOS) oder `inotifywait` (Linux). Zeigt eine Live-Tabelle mit Session-Status, Agent-Zuständen, Turns und letzter Aktivität. Aktualisiert automatisch, wenn Memory-Dateien sich ändern.
@@ -112,7 +112,7 @@ Beobachtet `.serena/memories/` mit `fswatch` (macOS) oder `inotifywait` (Linux).
 
 ```bash
 npm install          # nur beim ersten Mal
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard:web
 ```
 
 Öffnen Sie `http://localhost:9847` in Ihrem Browser. Features:
@@ -247,7 +247,7 @@ Sie: "Login-Button wirft TypeError"
 ### Workflow D: CLI-Orchestrierung mit Dashboard
 
 ```
-Terminal 1: bunx oh-my-ag dashboard:web
+Terminal 1: bunx oh-my-agent dashboard:web
 Terminal 2: oh-my-ag agent:spawn backend "task" session-01 &
             oh-my-ag agent:spawn frontend "task" session-01 &
 Browser:    http://localhost:9847 → Echtzeit-Status
@@ -261,7 +261,7 @@ Browser:    http://localhost:9847 → Echtzeit-Status
 2. **Verwenden Sie CLI-Spawning** für Multi-Domain-Projekte — versuchen Sie nicht, alles in einem Chat zu machen
 3. **Überprüfen Sie Knowledge Base** — prüfen Sie `.agents/brain/` auf API-Konsistenz
 4. **Iterieren Sie mit Re-Spawns** — verfeinern Sie Anweisungen, starten Sie nicht von vorne
-5. **Verwenden Sie Dashboards** — `bunx oh-my-ag dashboard` oder `bunx oh-my-ag dashboard:web` zur Überwachung von Orchestrator-Sessions
+5. **Verwenden Sie Dashboards** — `bunx oh-my-agent dashboard` oder `bunx oh-my-agent dashboard:web` zur Überwachung von Orchestrator-Sessions
 6. **Separate Workspaces** — weisen Sie jedem Agenten sein eigenes Verzeichnis zu
 
 ---
@@ -283,16 +283,16 @@ Browser:    http://localhost:9847 → Echtzeit-Status
 ## CLI-Befehle
 
 ```bash
-bunx oh-my-ag                # Interaktiver Skill-Installer
-bunx oh-my-ag doctor         # Setup überprüfen & fehlende Skills reparieren
-bunx oh-my-ag doctor --json  # JSON-Output für CI/CD
-bunx oh-my-ag update         # Skills auf neueste Version aktualisieren
-bunx oh-my-ag stats          # Produktivitätsmetriken anzeigen
-bunx oh-my-ag stats --reset  # Metriken zurücksetzen
-bunx oh-my-ag retro          # Session-Retrospektive (Learnings & nächste Schritte)
-bunx oh-my-ag dashboard      # Terminal-Echtzeit-Dashboard
-bunx oh-my-ag dashboard:web  # Web-Dashboard (http://localhost:9847)
-bunx oh-my-ag help           # Hilfe anzeigen
+bunx oh-my-agent                # Interaktiver Skill-Installer
+bunx oh-my-agent doctor         # Setup überprüfen & fehlende Skills reparieren
+bunx oh-my-agent doctor --json  # JSON-Output für CI/CD
+bunx oh-my-agent update         # Skills auf neueste Version aktualisieren
+bunx oh-my-agent stats          # Produktivitätsmetriken anzeigen
+bunx oh-my-agent stats --reset  # Metriken zurücksetzen
+bunx oh-my-agent retro          # Session-Retrospektive (Learnings & nächste Schritte)
+bunx oh-my-agent dashboard      # Terminal-Echtzeit-Dashboard
+bunx oh-my-agent dashboard:web  # Web-Dashboard (http://localhost:9847)
+bunx oh-my-agent help           # Hilfe anzeigen
 ```
 
 ---

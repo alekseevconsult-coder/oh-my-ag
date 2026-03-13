@@ -1,8 +1,8 @@
-# oh-my-ag: Multi-Agent Orchestrator for Antigravity
+# oh-my-agent: Multi-Agent Orchestrator
 
 [한국어](./docs/README.ko.md) | [中文](./docs/README.zh.md) | [Português](./docs/README.pt.md) | [日本語](./docs/README.ja.md) | [Français](./docs/README.fr.md) | [Español](./docs/README.es.md) | [Nederlands](./docs/README.nl.md) | [Polski](./docs/README.pl.md) | [Українська](./docs/README.uk.md) | [Русский](./docs/README.ru.md) | [Deutsch](./docs/README.de.md)
 
-The Ultimate Multi-Agent Harness for Google Antigravity and beyond.
+The Ultimate Multi-Agent Harness for agentic coding.
 
 Orchestrate 9 specialized domain agents (PM, Frontend, Backend, Mobile, QA, Debug, Brainstorm, DevWorkflow, Terraform) via **Serena Memory**. Features parallel CLI execution, real-time observability dashboards, and zero-config progressive skill loading. The batteries-included solution for agentic coding.
 
@@ -58,7 +58,7 @@ flowchart TD
 
 ## What Is This?
 
-A collection of **Antigravity Skills** enabling collaborative multi-agent development. Work is distributed across expert agents:
+A collection of **Agent Skills** enabling collaborative multi-agent development. Work is distributed across expert agents:
 
 | Agent | Specialization | Triggers |
 |-------|---------------|----------|
@@ -79,7 +79,7 @@ A collection of **Antigravity Skills** enabling collaborative multi-agent develo
 
 ### Prerequisites
 
-- **Google Antigravity** (2026+)
+- **AI IDE** (Amp, Claude Code, Gemini CLI, etc.)
 - **Bun** (for CLI and dashboards)
 - **uv** (for Serena setup)
 
@@ -92,7 +92,7 @@ A collection of **Antigravity Skills** enabling collaborative multi-agent develo
 # Install uv if you don't have it:
 # curl -LsSf https://astral.sh/uv/install.sh | sh
 
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 Select your project type and skills will be installed to `.agents/skills/`, with compatibility symlinks created under `.agents/skills/` and `.claude/skills/`.
@@ -110,7 +110,7 @@ Select your project type and skills will be installed to `.agents/skills/`, with
 To use the core tools globally or run the SubAgent Orchestrator:
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 You'll also need at least one CLI tool:
@@ -129,10 +129,10 @@ You'll also need at least one CLI tool:
 Run the following command in your project root to automatically install/update skills and workflows:
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
-> **Tip:** Run `bunx oh-my-ag doctor` after installation to verify everything is set up correctly (including global workflows).
+> **Tip:** Run `bunx oh-my-agent doctor` after installation to verify everything is set up correctly (including global workflows).
 
 
 
@@ -177,7 +177,7 @@ This project is maintained thanks to our generous sponsors.
 > **Like this project?** Give it a star!
 >
 > ```bash
-> gh api --method PUT /user/starred/first-fluke/oh-my-ag
+> gh api --method PUT /user/starred/first-fluke/oh-my-agent
 > ```
 >
 > Try our optimized starter template: [fullstack-starter](https://github.com/first-fluke/fullstack-starter)
@@ -207,7 +207,7 @@ See [SPONSORS.md](./SPONSORS.md) for a full list of supporters.
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-ag&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-ag&type=date&legend=bottom-right)
+[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-agent&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-agent&type=date&legend=bottom-right)
 
 ## License
 

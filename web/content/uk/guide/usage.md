@@ -9,7 +9,7 @@ description: Повний посібник з використання, вклю
 
 1. **Відкрити в Antigravity IDE**
    ```bash
-   antigravity open /path/to/oh-my-ag
+   antigravity open /path/to/oh-my-agent
    ```
 
 2. **Навички виявляються автоматично.** Antigravity сканує `.agents/skills/` та індексує всі доступні навички.
@@ -85,10 +85,10 @@ wait
 **Моніторинг в реальному часі:**
 ```bash
 # Термінал (окреме вікно терміналу)
-bunx oh-my-ag dashboard
+bunx oh-my-agent dashboard
 
 # Або браузер
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard:web
 # → http://localhost:9847
 ```
 
@@ -99,7 +99,7 @@ bunx oh-my-ag dashboard:web
 ### Термінальний дашборд
 
 ```bash
-bunx oh-my-ag dashboard
+bunx oh-my-agent dashboard
 ```
 
 Відстежує `.serena/memories/` за допомогою `fswatch` (macOS) або `inotifywait` (Linux). Відображає живу таблицю зі статусом сесії, станами агентів, ходами та останньою активністю. Оновлюється автоматично при зміні файлів пам'яті.
@@ -112,7 +112,7 @@ bunx oh-my-ag dashboard
 
 ```bash
 npm install          # тільки перший раз
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard:web
 ```
 
 Відкрийте `http://localhost:9847` у вашому браузері. Функції:
@@ -241,7 +241,7 @@ Antigravity автоматично зіставляє запити з навич
 ### Робочий процес D: CLI оркестрація з дашбордом
 
 ```
-Термінал 1: bunx oh-my-ag dashboard:web
+Термінал 1: bunx oh-my-agent dashboard:web
 Термінал 2: oh-my-ag agent:spawn backend "завдання" session-01 &
             oh-my-ag agent:spawn frontend "завдання" session-01 &
 Браузер:    http://localhost:9847 → статус в реальному часі
@@ -255,7 +255,7 @@ Antigravity автоматично зіставляє запити з навич
 2. **Використовуйте CLI створення** для мультидоменних проєктів — не намагайтесь зробити все в одному чаті
 3. **Переглядайте Knowledge Base** — перевіряйте `.agents/brain/` для узгодженості API
 4. **Ітеруйте з повторним створенням** — уточнюйте інструкції, не починайте спочатку
-5. **Використовуйте дашборди** — `bunx oh-my-ag dashboard` або `bunx oh-my-ag dashboard:web` для моніторингу сесій orchestrator
+5. **Використовуйте дашборди** — `bunx oh-my-agent dashboard` або `bunx oh-my-agent dashboard:web` для моніторингу сесій orchestrator
 6. **Окремі робочі простори** — призначте кожному агенту власну директорію
 
 ---
@@ -277,16 +277,16 @@ Antigravity автоматично зіставляє запити з навич
 ## CLI команди
 
 ```bash
-bunx oh-my-ag                # Інтерактивний інсталятор навичок
-bunx oh-my-ag doctor         # Перевірка налаштування та відновлення відсутніх навичок
-bunx oh-my-ag doctor --json  # JSON вивід для CI/CD
-bunx oh-my-ag update         # Оновлення навичок до останньої версії
-bunx oh-my-ag stats          # Переглянути метрики продуктивності
-bunx oh-my-ag stats --reset  # Скинути метрики
-bunx oh-my-ag retro          # Ретроспектива сесії (навчання та наступні кроки)
-bunx oh-my-ag dashboard      # Термінальний дашборд в реальному часі
-bunx oh-my-ag dashboard:web  # Веб-дашборд (http://localhost:9847)
-bunx oh-my-ag help           # Показати довідку
+bunx oh-my-agent                # Інтерактивний інсталятор навичок
+bunx oh-my-agent doctor         # Перевірка налаштування та відновлення відсутніх навичок
+bunx oh-my-agent doctor --json  # JSON вивід для CI/CD
+bunx oh-my-agent update         # Оновлення навичок до останньої версії
+bunx oh-my-agent stats          # Переглянути метрики продуктивності
+bunx oh-my-agent stats --reset  # Скинути метрики
+bunx oh-my-agent retro          # Ретроспектива сесії (навчання та наступні кроки)
+bunx oh-my-agent dashboard      # Термінальний дашборд в реальному часі
+bunx oh-my-agent dashboard:web  # Веб-дашборд (http://localhost:9847)
+bunx oh-my-agent help           # Показати довідку
 ```
 
 ---

@@ -294,7 +294,7 @@ export async function cleanup(
   }
 
   console.clear();
-  p.intro(pc.bgMagenta(pc.white(" 🧹 oh-my-ag cleanup ")));
+  p.intro(pc.bgMagenta(pc.white(" 🧹 oh-my-agent cleanup ")));
 
   if (dryRun) {
     p.note(pc.yellow("Dry-run mode — no changes will be made"), "Mode");

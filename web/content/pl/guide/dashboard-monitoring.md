@@ -8,8 +8,8 @@ description: Obsługa sesji orkiestratora za pomocą paneli terminalowych/webowy
 ## Komendy uruchomienia
 
 ```bash
-bunx oh-my-ag dashboard
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard
+bunx oh-my-agent dashboard:web
 ```
 
 Domyślny URL panelu webowego: `http://localhost:9847`

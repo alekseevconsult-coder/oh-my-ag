@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Combined demo simulation for oh-my-ag GIF
+# Combined demo simulation for oh-my-agent GIF
 set -e
 
 BOLD="\033[1m"
@@ -18,7 +18,7 @@ WHITE="\033[97m"
 
 clear
 echo ""
-echo -e "  ${MAGENTA}${BOLD}🛸 oh-my-ag${RESET} ${DIM}v1.12.1${RESET}"
+echo -e "  ${MAGENTA}${BOLD}🛸 oh-my-agent${RESET} ${DIM}v1.12.1${RESET}"
 echo -e "  ${DIM}Multi-Agent Orchestrator for Antigravity${RESET}"
 echo ""
 sleep 0.8
@@ -71,7 +71,7 @@ echo -e "  ${DIM}\$${RESET} ${BOLD}oh-my-ag agent:spawn qa \"Security review\" s
 echo ""
 sleep 1
 
-echo -e "  ${MAGENTA}${BOLD}🛸 oh-my-ag orchestrator${RESET} ${DIM}session-20260208-143022${RESET}"
+echo -e "  ${MAGENTA}${BOLD}🛸 oh-my-agent orchestrator${RESET} ${DIM}session-20260208-143022${RESET}"
 echo ""
 sleep 0.3
 

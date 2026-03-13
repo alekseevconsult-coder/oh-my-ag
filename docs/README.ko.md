@@ -1,4 +1,4 @@
-# oh-my-ag: Antigravity를 위한 멀티 에이전트 오케스트레이터
+# oh-my-agent: Antigravity를 위한 멀티 에이전트 오케스트레이터
 
 [English](../README.md) | [中文](./README.zh.md) | [Português](./README.pt.md) | [日本語](./README.ja.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Nederlands](./README.nl.md) | [Polski](./README.pl.md) | [Українська](./README.uk.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md)
 
@@ -93,7 +93,7 @@ flowchart TD
 # uv가 없으면 먼저 설치:
 # curl -LsSf https://astral.sh/uv/install.sh | sh
 
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 프로젝트 타입을 선택하면 `.agents/skills/`에 스킬이 설치됩니다.
@@ -111,7 +111,7 @@ bunx oh-my-ag
 SubAgent Orchestrator를 사용하거나 도구를 전역에서 사용하려면:
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 최소 1개의 CLI 도구가 필요합니다:
@@ -130,10 +130,10 @@ bun install --global oh-my-ag
 기존 프로젝트의 루트 디렉토리에서 다음 명령어를 실행하면 스킬과 워크플로우가 자동으로 설치됩니다:
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
-> **팁:** 설치 후 `bunx oh-my-ag doctor`를 실행하여 모든 설정(전역 워크플로우 포함)이 올바른지 확인하세요.
+> **팁:** 설치 후 `bunx oh-my-agent doctor`를 실행하여 모든 설정(전역 워크플로우 포함)이 올바른지 확인하세요.
 
 
 
@@ -178,7 +178,7 @@ bunx oh-my-ag
 > **마음에 드셨나요?** 스타 눌러주세요!
 >
 > ```bash
-> gh api --method PUT /user/starred/first-fluke/oh-my-ag
+> gh api --method PUT /user/starred/first-fluke/oh-my-agent
 > ```
 >
 > 최적화된 스타터 템플릿을 사용해 보세요: [fullstack-starter](https://github.com/first-fluke/fullstack-starter)
@@ -208,7 +208,7 @@ bunx oh-my-ag
 
 ## 스타 히스토리
 
-[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-ag&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-ag&type=date&legend=bottom-right)
+[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-agent&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-agent&type=date&legend=bottom-right)
 
 ## 라이선스
 

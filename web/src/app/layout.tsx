@@ -11,8 +11,8 @@ import "./globals.css";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
-  title: "oh-my-ag Official Docs",
-  description: "Official documentation site for oh-my-ag.",
+  title: "oh-my-agent Official Docs",
+  description: "Official documentation site for oh-my-agent.",
   manifest: `${basePath}/manifest.webmanifest`,
   icons: {
     icon: [

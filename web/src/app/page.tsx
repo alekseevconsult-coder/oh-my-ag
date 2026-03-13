@@ -18,7 +18,7 @@ export default function Home() {
         <div className="mb-5 flex size-16 items-center justify-center rounded-2xl bg-zinc-50 ring-1 ring-white/70 shadow-[0_0_34px_rgba(178,58,52,0.45)]">
           <Image
             src={`${basePath}/icons/android/android-launchericon-192-192.png`}
-            alt="oh-my-ag icon"
+            alt="oh-my-agent icon"
             width={48}
             height={48}
             className="size-12"
@@ -27,11 +27,11 @@ export default function Home() {
         </div>
 
         <h1 className="text-4xl font-bold tracking-tight text-zinc-50 sm:text-5xl">
-          oh-my-ag (Oh My Antigravity)
+          oh-my-agent
         </h1>
         <p className="mt-4 max-w-2xl text-pretty text-base text-zinc-300 sm:text-lg">
-          Multi-agent orchestration for Antigravity with skill routing, parallel
-          execution, and Serena memory-driven coordination.
+          Multi-agent orchestration with skill routing, parallel execution, and
+          Serena memory-driven coordination.
         </p>
 
         <div className="mt-8 w-full overflow-hidden rounded-2xl border border-white/15 bg-black/35 shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
@@ -44,7 +44,7 @@ export default function Home() {
             controls
             preload="metadata"
           >
-            <source src="oh-my-ag.mp4" type="video/mp4" />
+            <source src={`${basePath}/oh-my-ag.mp4`} type="video/mp4" />
           </video>
         </div>
 
@@ -55,7 +55,7 @@ export default function Home() {
             className="bg-[#B23A34] text-zinc-50 hover:bg-[#9f342e]"
           >
             <a
-              href="https://github.com/first-fluke/oh-my-ag"
+              href="https://github.com/first-fluke/oh-my-agent"
               target="_blank"
               rel="noreferrer"
             >

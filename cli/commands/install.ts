@@ -17,7 +17,7 @@ import { migrateToAgents } from "../lib/migrate.js";
 
 export async function install(): Promise<void> {
   console.clear();
-  p.intro(pc.bgMagenta(pc.white(" 🛸 oh-my-ag ")));
+  p.intro(pc.bgMagenta(pc.white(" 🛸 oh-my-agent ")));
 
   // Auto-migrate from legacy .agent/ to .agents/
   const migrations = migrateToAgents(process.cwd());
@@ -150,7 +150,7 @@ export async function install(): Promise<void> {
 
     if (configExists && mcpConfig && mcpConfig.mcpServers) {
       const serenaConfig = mcpConfig.mcpServers.serena;
-      const bridgeCommand = "oh-my-ag@latest";
+      const bridgeCommand = "oh-my-agent@latest";
 
       const isBridgeConfigured =
         serenaConfig &&
@@ -173,7 +173,7 @@ export async function install(): Promise<void> {
             command: "npx",
             args: [
               "-y",
-              "oh-my-ag@latest",
+              "oh-my-agent@latest",
               "bridge",
               "http://localhost:12341/mcp",
             ],
@@ -240,7 +240,7 @@ export async function install(): Promise<void> {
     p.outro(pc.green("Done! Open your project in your IDE to use the skills."));
 
     p.note(
-      `${pc.yellow("❤️")} Enjoying oh-my-ag? Give it a star or sponsor!\n${pc.dim("gh api --method PUT /user/starred/first-fluke/oh-my-ag")}\n${pc.dim("https://github.com/sponsors/first-fluke")}`,
+      `${pc.yellow("❤️")} Enjoying oh-my-agent? Give it a star or sponsor!\n${pc.dim("gh api --method PUT /user/starred/first-fluke/oh-my-agent")}\n${pc.dim("https://github.com/sponsors/first-fluke")}`,
       "Support",
     );
   } catch (error) {

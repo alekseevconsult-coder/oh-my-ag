@@ -55,7 +55,7 @@ Puis épinglez la version souhaitée dans `.agent-registry.yml` :
 
 ```yaml
 registry:
-  repo: first-fluke/oh-my-ag
+  repo: first-fluke/oh-my-agent
   version: "1.2.0"
 ```
 
@@ -71,9 +71,9 @@ Rôles des workflows :
 Les dépôts consommateurs peuvent appeler l'action de synchronisation directement :
 
 ```yaml
-- uses: first-fluke/oh-my-ag/.github/actions/sync-agent-registry@main
+- uses: first-fluke/oh-my-agent/.github/actions/sync-agent-registry@main
   with:
-    registry-repo: first-fluke/oh-my-ag
+    registry-repo: first-fluke/oh-my-agent
     version: "1.2.0" # or "latest"
     github-token: ${{ secrets.GITHUB_TOKEN }}
 ```

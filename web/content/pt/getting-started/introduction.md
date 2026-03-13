@@ -1,11 +1,11 @@
 ---
 title: Introdução
-description: O que é o oh-my-ag e como funciona a colaboração multi-agente.
+description: O que é o oh-my-agent e como funciona a colaboração multi-agente.
 ---
 
 # Introdução
 
-oh-my-ag é um orquestrador multi-agente para o Antigravity IDE. Ele roteia solicitações para skills especializadas e coordena agentes por meio das memórias do Serena.
+oh-my-agent é um orquestrador multi-agente para o Antigravity IDE. Ele roteia solicitações para skills especializadas e coordena agentes por meio das memórias do Serena.
 
 ## O Que Você Obtém
 

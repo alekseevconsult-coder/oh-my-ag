@@ -14,7 +14,7 @@ description: Wymagania wstępne, opcje instalacji i konfiguracja przy pierwszym 
 ## Opcja 1: Instalacja interaktywna
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 Instaluje umiejętności i przepływy pracy do `.agents/` w bieżącym projekcie.
@@ -22,7 +22,7 @@ Instaluje umiejętności i przepływy pracy do `.agents/` w bieżącym projekcie
 ## Opcja 2: Instalacja globalna
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 Zalecana, jeśli często używasz komend orkiestratora.
@@ -32,16 +32,16 @@ Zalecana, jeśli często używasz komend orkiestratora.
 ### Ścieżka CLI
 
 ```bash
-bunx oh-my-ag
-bunx oh-my-ag doctor
+bunx oh-my-agent
+bunx oh-my-agent doctor
 ```
 
 ### Ścieżka ręcznego kopiowania
 
 ```bash
-cp -r oh-my-ag/.agents/skills /path/to/project/.agents/
-cp -r oh-my-ag/.agents/workflows /path/to/project/.agents/
-cp -r oh-my-ag/.agents/config /path/to/project/.agents/
+cp -r oh-my-agent/.agents/skills /path/to/project/.agents/
+cp -r oh-my-agent/.agents/workflows /path/to/project/.agents/
+cp -r oh-my-agent/.agents/config /path/to/project/.agents/
 ```
 
 ## Komenda początkowej konfiguracji

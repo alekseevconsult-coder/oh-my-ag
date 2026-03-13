@@ -1,4 +1,4 @@
-# oh-my-ag: Antigravity 多代理编排器
+# oh-my-agent: Antigravity 多代理编排器
 
 [English](../README.md) | [한국어](./README.ko.md) | [Português](./README.pt.md) | [日本語](./README.ja.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Nederlands](./README.nl.md) | [Polski](./README.pl.md) | [Українська](./README.uk.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md)
 
@@ -94,7 +94,7 @@ flowchart TD
 # Install uv if you don't have it:
 # curl -LsSf https://astral.sh/uv/install.sh | sh
 
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 选择你的项目类型，技能将安装到 `.agents/skills/`。
@@ -112,7 +112,7 @@ bunx oh-my-ag
 若要全局使用核心工具或运行 SubAgent Orchestrator：
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 你还需要至少安装一个 CLI 工具：
@@ -131,10 +131,10 @@ bun install --global oh-my-ag
 在项目根目录运行以下命令，自动安装/更新技能和工作流：
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
-> **提示：** 安装后运行 `bunx oh-my-ag doctor` 可验证所有配置是否正确（包括全局工作流）。
+> **提示：** 安装后运行 `bunx oh-my-agent doctor` 可验证所有配置是否正确（包括全局工作流）。
 
 
 
@@ -190,7 +190,7 @@ bunx oh-my-ag
 > **喜欢这个项目吗？** 给它一颗星！
 >
 > ```bash
-> gh api --method PUT /user/starred/first-fluke/oh-my-ag
+> gh api --method PUT /user/starred/first-fluke/oh-my-agent
 > ```
 >
 > **刚接触全栈开发？** 试试我们优化的入门模板：
@@ -226,7 +226,7 @@ bunx oh-my-ag
 
 ## Star 历史
 
-[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-ag&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-ag&type=date&legend=bottom-right)
+[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-agent&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-agent&type=date&legend=bottom-right)
 
 ## 许可证
 

@@ -14,7 +14,7 @@ description: Vereisten, installatieopties en eerste configuratie.
 ## Optie 1: Interactieve installatie
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 Installeert skills en workflows in `.agents/` in het huidige project.
@@ -22,7 +22,7 @@ Installeert skills en workflows in `.agents/` in het huidige project.
 ## Optie 2: Globale installatie
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 Aanbevolen als u regelmatig orkestratiecommando's gebruikt.
@@ -32,16 +32,16 @@ Aanbevolen als u regelmatig orkestratiecommando's gebruikt.
 ### CLI-pad
 
 ```bash
-bunx oh-my-ag
-bunx oh-my-ag doctor
+bunx oh-my-agent
+bunx oh-my-agent doctor
 ```
 
 ### Handmatig kopieerpad
 
 ```bash
-cp -r oh-my-ag/.agents/skills /path/to/project/.agents/
-cp -r oh-my-ag/.agents/workflows /path/to/project/.agents/
-cp -r oh-my-ag/.agents/config /path/to/project/.agents/
+cp -r oh-my-agent/.agents/skills /path/to/project/.agents/
+cp -r oh-my-agent/.agents/workflows /path/to/project/.agents/
+cp -r oh-my-agent/.agents/config /path/to/project/.agents/
 ```
 
 ## Initieel configuratiecommando

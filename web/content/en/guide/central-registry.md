@@ -55,7 +55,7 @@ Then pin your desired version in `.agent-registry.yml`:
 
 ```yaml
 registry:
-  repo: first-fluke/oh-my-ag
+  repo: first-fluke/oh-my-agent
   version: "1.2.0"
 ```
 

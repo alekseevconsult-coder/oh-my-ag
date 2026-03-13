@@ -8,8 +8,8 @@ description: Beheer orkestratiesessies met terminal-/webdashboards en bruikbare 
 ## Startcommando's
 
 ```bash
-bunx oh-my-ag dashboard
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard
+bunx oh-my-agent dashboard:web
 ```
 
 Standaard URL webdashboard: `http://localhost:9847`

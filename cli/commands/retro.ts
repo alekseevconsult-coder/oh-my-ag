@@ -161,7 +161,7 @@ export async function retro(
     saveRetrospective(cwd, newRetro);
 
     console.clear();
-    p.intro(pc.bgMagenta(pc.white(" 🔄 oh-my-ag retro ")));
+    p.intro(pc.bgMagenta(pc.white(" 🔄 oh-my-agent retro ")));
 
     p.note(
       [
@@ -184,7 +184,7 @@ export async function retro(
   }
 
   console.clear();
-  p.intro(pc.bgMagenta(pc.white(" 🔄 oh-my-ag retro (interactive) ")));
+  p.intro(pc.bgMagenta(pc.white(" 🔄 oh-my-agent retro (interactive) ")));
 
   const recentRetro = existingRetros[0];
   if (recentRetro) {

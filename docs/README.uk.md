@@ -1,4 +1,4 @@
-# oh-my-ag: Мультиагентний Оркестратор для Antigravity
+# oh-my-agent: Мультиагентний Оркестратор для Antigravity
 
 [English](../README.md) | [한국어](./README.ko.md) | [中文](./README.zh.md) | [Português](./README.pt.md) | [日本語](./README.ja.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Nederlands](./README.nl.md) | [Polski](./README.pl.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md)
 
@@ -9,7 +9,7 @@
 > **Подобається цей проєкт?** Поставте зірку!
 >
 > ```bash
-> gh api --method PUT /user/starred/first-fluke/oh-my-ag
+> gh api --method PUT /user/starred/first-fluke/oh-my-agent
 > ```
 >
 > Спробуйте наш оптимізований стартовий шаблон: [fullstack-starter](https://github.com/first-fluke/fullstack-starter)
@@ -101,7 +101,7 @@ flowchart TD
 # Встановіть uv, якщо його ще немає:
 # curl -LsSf https://astral.sh/uv/install.sh | sh
 
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 Виберіть тип проєкту, і навички будуть встановлені в `.agents/skills/`.
@@ -119,7 +119,7 @@ bunx oh-my-ag
 Щоб використовувати основні інструменти глобально або запустити SubAgent Orchestrator:
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 Вам також потрібен принаймні один CLI інструмент:
@@ -138,10 +138,10 @@ bun install --global oh-my-ag
 Виконайте наступну команду в кореневій директорії вашого проєкту для автоматичного встановлення/оновлення навичок та робочих процесів:
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
-> **Порада:** Запустіть `bunx oh-my-ag doctor` після встановлення, щоб перевірити правильність налаштування (включаючи глобальні робочі процеси).
+> **Порада:** Запустіть `bunx oh-my-agent doctor` після встановлення, щоб перевірити правильність налаштування (включаючи глобальні робочі процеси).
 
 ### 3. Чат
 
@@ -206,7 +206,7 @@ bunx oh-my-ag
 
 ## Історія зірок
 
-[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-ag&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-ag&type=date&legend=bottom-right)
+[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-agent&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-agent&type=date&legend=bottom-right)
 
 ## Ліцензія
 

@@ -1,8 +1,8 @@
 {
-  "name": "oh-my-ag",
+  "name": "oh-my-agent",
   "version": "2.0.0",
-  "releaseDate": "2026-03-13T05:09:35.971Z",
-  "repository": "https://github.com/first-fluke/oh-my-ag",
+  "releaseDate": "2026-03-13T05:25:55.005Z",
+  "repository": "https://github.com/first-fluke/oh-my-agent",
   "files": [
     {
       "path": ".agents/brain/.gitkeep",
@@ -226,8 +226,8 @@
     },
     {
       "path": ".agents/skills/developer-workflow/resources/release-coordination.md",
-      "sha256": "f297f6c932acfdcbbb566f1cdf75c8d3f81ff214bbe4f9189e808f0f84a20e64",
-      "size": 5687
+      "sha256": "f734974d88988416bb3bd0edad9182ad39e75a3fd15bf122f8ea74ba10b04db9",
+      "size": 5690
     },
     {
       "path": ".agents/skills/developer-workflow/resources/troubleshooting.md",
@@ -531,8 +531,8 @@
     },
     {
       "path": ".agents/workflows/setup.md",
-      "sha256": "7e38ec48879f235330ea082ad32792cefb684bd2db71c73fc1b33de9c4201776",
-      "size": 7853
+      "sha256": "84f193e606e6207eb9a2e22bbdae6460d607994d5467fe9cce7c8bf34eeabb02",
+      "size": 7862
     },
     {
       "path": ".agents/workflows/tools.md",

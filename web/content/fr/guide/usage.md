@@ -9,7 +9,7 @@ description: Guide complet incluant exemples, workflows, opérations de tableau 
 
 1. **Ouvrir dans Antigravity IDE**
    ```bash
-   antigravity open /path/to/oh-my-ag
+   antigravity open /path/to/oh-my-agent
    ```
 
 2. **Les compétences sont automatiquement détectées.** Antigravity analyse `.agents/skills/` et indexe toutes les compétences disponibles.
@@ -85,10 +85,10 @@ wait
 **Surveiller en temps réel :**
 ```bash
 # Terminal (fenêtre terminal séparée)
-bunx oh-my-ag dashboard
+bunx oh-my-agent dashboard
 
 # Ou navigateur
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard:web
 # → http://localhost:9847
 ```
 
@@ -99,7 +99,7 @@ bunx oh-my-ag dashboard:web
 ### Tableau de bord terminal
 
 ```bash
-bunx oh-my-ag dashboard
+bunx oh-my-agent dashboard
 ```
 
 Surveille `.serena/memories/` en utilisant `fswatch` (macOS) ou `inotifywait` (Linux). Affiche une table en direct avec statut session, états agents, tours et dernière activité. Se met à jour automatiquement quand fichiers mémoire changent.
@@ -112,7 +112,7 @@ Surveille `.serena/memories/` en utilisant `fswatch` (macOS) ou `inotifywait` (L
 
 ```bash
 npm install          # première fois seulement
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard:web
 ```
 
 Ouvrez `http://localhost:9847` dans votre navigateur. Fonctionnalités :
@@ -241,7 +241,7 @@ Vous : "Bouton connexion lance TypeError"
 ### Workflow D : Orchestration CLI avec tableau de bord
 
 ```
-Terminal 1: bunx oh-my-ag dashboard:web
+Terminal 1: bunx oh-my-agent dashboard:web
 Terminal 2: oh-my-ag agent:spawn backend "tâche" session-01 &
             oh-my-ag agent:spawn frontend "tâche" session-01 &
 Navigateur: http://localhost:9847 → statut temps réel
@@ -255,7 +255,7 @@ Navigateur: http://localhost:9847 → statut temps réel
 2. **Utilisez génération CLI** pour projets multi-domaine — n'essayez pas de tout faire dans une discussion
 3. **Examinez Knowledge Base** — vérifiez `.agents/brain/` pour cohérence API
 4. **Itérez avec régénérations** — affinez instructions, ne recommencez pas de zéro
-5. **Utilisez tableaux de bord** — `bunx oh-my-ag dashboard` ou `bunx oh-my-ag dashboard:web` pour surveiller sessions orchestrator
+5. **Utilisez tableaux de bord** — `bunx oh-my-agent dashboard` ou `bunx oh-my-agent dashboard:web` pour surveiller sessions orchestrator
 6. **Espaces de travail séparés** — assignez à chaque agent son propre répertoire
 
 ---
@@ -277,16 +277,16 @@ Navigateur: http://localhost:9847 → statut temps réel
 ## Commandes CLI
 
 ```bash
-bunx oh-my-ag                # Installateur compétences interactif
-bunx oh-my-ag doctor         # Vérifier configuration & réparer compétences manquantes
-bunx oh-my-ag doctor --json  # Sortie JSON pour CI/CD
-bunx oh-my-ag update         # Mettre à jour compétences vers dernière version
-bunx oh-my-ag stats          # Voir métriques productivité
-bunx oh-my-ag stats --reset  # Réinitialiser métriques
-bunx oh-my-ag retro          # Rétrospective session (apprentissages & prochaines étapes)
-bunx oh-my-ag dashboard      # Tableau de bord terminal temps réel
-bunx oh-my-ag dashboard:web  # Tableau de bord web (http://localhost:9847)
-bunx oh-my-ag help           # Afficher aide
+bunx oh-my-agent                # Installateur compétences interactif
+bunx oh-my-agent doctor         # Vérifier configuration & réparer compétences manquantes
+bunx oh-my-agent doctor --json  # Sortie JSON pour CI/CD
+bunx oh-my-agent update         # Mettre à jour compétences vers dernière version
+bunx oh-my-agent stats          # Voir métriques productivité
+bunx oh-my-agent stats --reset  # Réinitialiser métriques
+bunx oh-my-agent retro          # Rétrospective session (apprentissages & prochaines étapes)
+bunx oh-my-agent dashboard      # Tableau de bord terminal temps réel
+bunx oh-my-agent dashboard:web  # Tableau de bord web (http://localhost:9847)
+bunx oh-my-agent help           # Afficher aide
 ```
 
 ---

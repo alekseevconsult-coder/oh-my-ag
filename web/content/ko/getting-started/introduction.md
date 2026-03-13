@@ -1,11 +1,11 @@
 ---
 title: 소개
-description: oh-my-ag와 멀티 에이전트 협업 동작 방식을 설명합니다.
+description: oh-my-agent와 멀티 에이전트 협업 동작 방식을 설명합니다.
 ---
 
 # 소개
 
-oh-my-ag는 Antigravity IDE용 멀티 에이전트 오케스트레이터입니다. 요청을 스킬에 라우팅하고 Serena 메모리로 조율 상태를 관리합니다.
+oh-my-agent는 Antigravity IDE용 멀티 에이전트 오케스트레이터입니다. 요청을 스킬에 라우팅하고 Serena 메모리로 조율 상태를 관리합니다.
 
 ## 핵심 기능
 

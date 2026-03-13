@@ -14,7 +14,7 @@ description: Prerequisites, install options, and first-run setup.
 ## Option 1: Interactive Install
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 Installs skills and workflows into `.agents/` in the current project.
@@ -22,7 +22,7 @@ Installs skills and workflows into `.agents/` in the current project.
 ## Option 2: Global Install
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 Recommended if you use orchestrator commands frequently.
@@ -32,16 +32,16 @@ Recommended if you use orchestrator commands frequently.
 ### CLI path
 
 ```bash
-bunx oh-my-ag
-bunx oh-my-ag doctor
+bunx oh-my-agent
+bunx oh-my-agent doctor
 ```
 
 ### Manual copy path
 
 ```bash
-cp -r oh-my-ag/.agents/skills /path/to/project/.agents/
-cp -r oh-my-ag/.agents/workflows /path/to/project/.agents/
-cp -r oh-my-ag/.agents/config /path/to/project/.agents/
+cp -r oh-my-agent/.agents/skills /path/to/project/.agents/
+cp -r oh-my-agent/.agents/workflows /path/to/project/.agents/
+cp -r oh-my-agent/.agents/config /path/to/project/.agents/
 ```
 
 ## Initial Setup Command

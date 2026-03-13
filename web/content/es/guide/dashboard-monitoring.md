@@ -8,8 +8,8 @@ description: Operar sesiones del orquestador con paneles de terminal/web y senal
 ## Comandos de inicio
 
 ```bash
-bunx oh-my-ag dashboard
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard
+bunx oh-my-agent dashboard:web
 ```
 
 URL predeterminada del panel web: `http://localhost:9847`

@@ -1,4 +1,4 @@
-# oh-my-ag : Orchestrateur Multi-Agents pour Antigravity
+# oh-my-agent : Orchestrateur Multi-Agents pour Antigravity
 
 [English](../README.md) | [한국어](./README.ko.md) | [中文](./README.zh.md) | [Português](./README.pt.md) | [日本語](./README.ja.md) | [Español](./README.es.md) | [Nederlands](./README.nl.md) | [Polski](./README.pl.md) | [Українська](./README.uk.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md)
 
@@ -9,7 +9,7 @@ Orchestrez 9 agents de domaine spécialisés (PM, Frontend, Backend, Mobile, QA,
 > **Ce projet vous plaît ?** Donnez-lui une étoile !
 >
 > ```bash
-> gh api --method PUT /user/starred/first-fluke/oh-my-ag
+> gh api --method PUT /user/starred/first-fluke/oh-my-agent
 > ```
 >
 > Essayez notre template de démarrage optimisé : [fullstack-starter](https://github.com/first-fluke/fullstack-starter)
@@ -101,7 +101,7 @@ Une collection de **Compétences Antigravity** permettant le développement coll
 # Installez uv si vous ne l'avez pas :
 # curl -LsSf https://astral.sh/uv/install.sh | sh
 
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 Sélectionnez votre type de projet et les compétences seront installées dans `.agents/skills/`.
@@ -119,7 +119,7 @@ Sélectionnez votre type de projet et les compétences seront installées dans `
 Pour utiliser les outils principaux globalement ou exécuter le SubAgent Orchestrator :
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 Vous aurez également besoin d'au moins un outil CLI :
@@ -138,10 +138,10 @@ Vous aurez également besoin d'au moins un outil CLI :
 Exécutez la commande suivante à la racine de votre projet pour installer/mettre à jour automatiquement les compétences et workflows :
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
-> **Astuce :** Exécutez `bunx oh-my-ag doctor` après l'installation pour vérifier que tout est correctement configuré (y compris les workflows globaux).
+> **Astuce :** Exécutez `bunx oh-my-agent doctor` après l'installation pour vérifier que tout est correctement configuré (y compris les workflows globaux).
 
 ### 2. Discussion
 
@@ -206,7 +206,7 @@ Voir [SPONSORS.md](./SPONSORS.md) pour la liste complète des supporters.
 
 ## Historique des étoiles
 
-[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-ag&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-ag&type=date&legend=bottom-right)
+[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-agent&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-agent&type=date&legend=bottom-right)
 
 ## Licence
 

@@ -1,6 +1,6 @@
 # Sponsors
 
-Thank you to all our sponsors who help maintain and improve oh-my-ag!
+Thank you to all our sponsors who help maintain and improve oh-my-agent!
 
 ## 🚀 Champion ($100/mo)
 

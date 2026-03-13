@@ -14,7 +14,7 @@ description: 前置条件、安装选项与首次运行设置。
 ## 选项 1：交互式安装
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 将技能和工作流安装到当前项目的 `.agents/` 目录中。
@@ -22,7 +22,7 @@ bunx oh-my-ag
 ## 选项 2：全局安装
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 如果您经常使用编排器命令，建议采用此方式。
@@ -32,16 +32,16 @@ bun install --global oh-my-ag
 ### CLI 方式
 
 ```bash
-bunx oh-my-ag
-bunx oh-my-ag doctor
+bunx oh-my-agent
+bunx oh-my-agent doctor
 ```
 
 ### 手动复制方式
 
 ```bash
-cp -r oh-my-ag/.agents/skills /path/to/project/.agents/
-cp -r oh-my-ag/.agents/workflows /path/to/project/.agents/
-cp -r oh-my-ag/.agents/config /path/to/project/.agents/
+cp -r oh-my-agent/.agents/skills /path/to/project/.agents/
+cp -r oh-my-agent/.agents/workflows /path/to/project/.agents/
+cp -r oh-my-agent/.agents/config /path/to/project/.agents/
 ```
 
 ## 初始设置命令

@@ -376,7 +376,7 @@ const program = new Command();
 
 program
   .name("oh-my-ag")
-  .description("Multi-Agent Skills for Antigravity IDE")
+  .description("Multi-Agent Orchestrator for AI IDEs")
   .version(VERSION)
   .showSuggestionAfterError()
   .showHelpAfterError()
@@ -423,7 +423,7 @@ program
 addOutputOptions(
   program
     .command("usage")
-    .description("Show model usage quotas (connects to local Antigravity IDE)")
+    .description("Show model usage quotas (connects to local AI IDE)")
     .option("--raw", "Dump raw RPC response"),
 ).action(
   runAction(
@@ -591,7 +591,7 @@ addOutputOptions(
 
 program
   .command("star")
-  .description("Star oh-my-ag on GitHub")
+  .description("Star oh-my-agent on GitHub")
   .action(
     runAction(async () => {
       await star();

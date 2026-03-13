@@ -174,7 +174,7 @@ export async function stats(
   }
 
   console.clear();
-  p.intro(pc.bgMagenta(pc.white(" 📊 oh-my-ag stats ")));
+  p.intro(pc.bgMagenta(pc.white(" 📊 oh-my-agent stats ")));
 
   const statsTable = [
     pc.bold(`📈 Productivity Metrics (${daysSinceStart} days)`),

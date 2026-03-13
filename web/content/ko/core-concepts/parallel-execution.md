@@ -23,7 +23,7 @@ oh-my-ag agent:spawn frontend "로그인 + 토큰 갱신" session-02 -w ./apps/w
 ## 모니터링 패턴
 
 ```bash
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard:web
 # http://localhost:9847 접속
 ```
 

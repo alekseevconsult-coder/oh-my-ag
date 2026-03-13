@@ -8,8 +8,8 @@ description: ターミナル/Web ダッシュボードとアクション可能�
 ## 起動コマンド
 
 ```bash
-bunx oh-my-ag dashboard
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard
+bunx oh-my-agent dashboard:web
 ```
 
 Web ダッシュボードのデフォルト URL: `http://localhost:9847`

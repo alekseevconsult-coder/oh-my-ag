@@ -11,9 +11,9 @@ const appRoot = appBasePath ? `${appBasePath}/` : "/";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: appRoot,
-    name: "oh-my-ag Official Docs",
-    short_name: "oh-my-ag docs",
-    description: "Official documentation site for oh-my-ag.",
+    name: "oh-my-agent Official Docs",
+    short_name: "oh-my-agent docs",
+    description: "Official documentation site for oh-my-agent.",
     start_url: appRoot,
     scope: appRoot,
     display: "standalone",

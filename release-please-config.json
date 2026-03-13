@@ -7,7 +7,7 @@
   "packages": {
     ".": {
       "component": "cli",
-      "package-name": "oh-my-ag",
+      "package-name": "oh-my-agent",
       "release-type": "node",
       "changelog-path": "cli/CHANGELOG.md",
       "bump-minor-pre-major": true,
@@ -33,7 +33,7 @@
     },
     "web": {
       "component": "web",
-      "package-name": "oh-my-ag-web",
+      "package-name": "oh-my-agent-web",
       "release-type": "node",
       "changelog-path": "web/CHANGELOG.md",
       "bump-minor-pre-major": true,

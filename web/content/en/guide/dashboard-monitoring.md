@@ -8,8 +8,8 @@ description: Operate orchestrator sessions with terminal/web dashboards and acti
 ## Start commands
 
 ```bash
-bunx oh-my-ag dashboard
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard
+bunx oh-my-agent dashboard:web
 ```
 
 Web dashboard default URL: `http://localhost:9847`

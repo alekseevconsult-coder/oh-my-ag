@@ -23,7 +23,7 @@ oh-my-ag agent:spawn frontend "Login + token refresh" session-02 -w ./apps/web
 ## Паттерн мониторинга
 
 ```bash
-bunx oh-my-ag dashboard:web
+bunx oh-my-agent dashboard:web
 # open http://localhost:9847
 ```
 

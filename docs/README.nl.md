@@ -1,4 +1,4 @@
-# oh-my-ag: Multi-Agent Orchestrator voor Antigravity
+# oh-my-agent: Multi-Agent Orchestrator voor Antigravity
 
 [English](../README.md) | [한국어](./README.ko.md) | [中文](./README.zh.md) | [Português](./README.pt.md) | [日本語](./README.ja.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Polski](./README.pl.md) | [Українська](./README.uk.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md)
 
@@ -9,7 +9,7 @@ Orkestreer 9 gespecialiseerde domein agents (PM, Frontend, Backend, Mobile, QA, 
 > **Vind je dit project leuk?** Geef het een ster!
 >
 > ```bash
-> gh api --method PUT /user/starred/first-fluke/oh-my-ag
+> gh api --method PUT /user/starred/first-fluke/oh-my-agent
 > ```
 >
 > Probeer onze geoptimaliseerde starter template: [fullstack-starter](https://github.com/first-fluke/fullstack-starter)
@@ -101,7 +101,7 @@ Een verzameling **Antigravity Skills** die collaboratieve multi-agent ontwikkeli
 # Installeer uv als je het nog niet hebt:
 # curl -LsSf https://astral.sh/uv/install.sh | sh
 
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 Selecteer je projecttype en skills worden geïnstalleerd in `.agents/skills/`.
@@ -119,7 +119,7 @@ Selecteer je projecttype en skills worden geïnstalleerd in `.agents/skills/`.
 Om de core tools globaal te gebruiken of de SubAgent Orchestrator uit te voeren:
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 Je hebt ook minimaal één CLI tool nodig:
@@ -138,10 +138,10 @@ Je hebt ook minimaal één CLI tool nodig:
 Voer het volgende commando uit in je projectroot om automatisch skills en workflows te installeren/updaten:
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
-> **Tip:** Voer `bunx oh-my-ag doctor` uit na installatie om te verifiëren dat alles correct is ingesteld (inclusief globale workflows).
+> **Tip:** Voer `bunx oh-my-agent doctor` uit na installatie om te verifiëren dat alles correct is ingesteld (inclusief globale workflows).
 
 ### 2. Chat
 
@@ -206,7 +206,7 @@ Zie [SPONSORS.md](./SPONSORS.md) voor een volledige lijst van supporters.
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-ag&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-ag&type=date&legend=bottom-right)
+[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-agent&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-agent&type=date&legend=bottom-right)
 
 ## Licentie
 

@@ -1,4 +1,4 @@
-# oh-my-ag: Orkiestrator Multi-Agentowy dla Antigravity
+# oh-my-agent: Orkiestrator Multi-Agentowy dla Antigravity
 
 [English](../README.md) | [한국어](./README.ko.md) | [中文](./README.zh.md) | [Português](./README.pt.md) | [日本語](./README.ja.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Nederlands](./README.nl.md) | [Українська](./README.uk.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md)
 
@@ -9,7 +9,7 @@ Orkiestruj 9 wyspecjalizowanych agentów domenowych (PM, Frontend, Backend, Mobi
 > **Podoba Ci się ten projekt?** Daj mu gwiazdkę!
 >
 > ```bash
-> gh api --method PUT /user/starred/first-fluke/oh-my-ag
+> gh api --method PUT /user/starred/first-fluke/oh-my-agent
 > ```
 >
 > Wypróbuj nasz zoptymalizowany szablon startowy: [fullstack-starter](https://github.com/first-fluke/fullstack-starter)
@@ -101,7 +101,7 @@ Kolekcja **Antigravity Skills** umożliwiających współpracę multi-agentową 
 # Zainstaluj uv jeśli go nie masz:
 # curl -LsSf https://astral.sh/uv/install.sh | sh
 
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
 Wybierz typ projektu, a umiejętności zostaną zainstalowane w `.agents/skills/`.
@@ -119,7 +119,7 @@ Wybierz typ projektu, a umiejętności zostaną zainstalowane w `.agents/skills/
 Aby używać narzędzi podstawowych globalnie lub uruchamiać SubAgent Orchestrator:
 
 ```bash
-bun install --global oh-my-ag
+bun install --global oh-my-agent
 ```
 
 Potrzebujesz również co najmniej jednego narzędzia CLI:
@@ -138,10 +138,10 @@ Potrzebujesz również co najmniej jednego narzędzia CLI:
 Uruchom następujące polecenie w katalogu głównym projektu, aby automatycznie zainstalować/zaktualizować umiejętności i przepływy pracy:
 
 ```bash
-bunx oh-my-ag
+bunx oh-my-agent
 ```
 
-> **Wskazówka:** Po instalacji uruchom `bunx oh-my-ag doctor`, aby zweryfikować, czy wszystko jest poprawnie skonfigurowane (włącznie z globalnymi przepływami pracy).
+> **Wskazówka:** Po instalacji uruchom `bunx oh-my-agent doctor`, aby zweryfikować, czy wszystko jest poprawnie skonfigurowane (włącznie z globalnymi przepływami pracy).
 
 ### 3. Chat
 
@@ -206,7 +206,7 @@ Zobacz [SPONSORS.md](./SPONSORS.md) dla pełnej listy wspierających.
 
 ## Historia gwiazdek
 
-[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-ag&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-ag&type=date&legend=bottom-right)
+[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-agent&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-agent&type=date&legend=bottom-right)
 
 ## Licencja
 

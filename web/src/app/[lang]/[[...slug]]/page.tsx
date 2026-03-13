@@ -41,12 +41,12 @@ export async function generateMetadata({
 
   if (!page) {
     return {
-      title: "oh-my-ag docs",
+      title: "oh-my-agent docs",
     };
   }
 
   return {
-    title: `${page.title} | oh-my-ag docs`,
+    title: `${page.title} | oh-my-agent docs`,
     description: page.description,
   };
 }

@@ -48,7 +48,7 @@ function renderCreditBar(
 
 function renderChart(snapshot: QuotaSnapshot): void {
   console.clear();
-  p.intro(pc.bgCyan(pc.black(" oh-my-ag usage ")));
+  p.intro(pc.bgCyan(pc.black(" oh-my-agent usage ")));
 
   const headerLines = [
     `${pc.bold("User")}  ${snapshot.userName}${snapshot.email ? ` (${pc.dim(snapshot.email)})` : ""}`,

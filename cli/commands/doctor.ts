@@ -200,7 +200,7 @@ export async function doctor(jsonMode = false): Promise<void> {
   }
 
   console.clear();
-  p.intro(pc.bgMagenta(pc.white(" 🩺 oh-my-ag doctor ")));
+  p.intro(pc.bgMagenta(pc.white(" 🩺 oh-my-agent doctor ")));
 
   const spinner = p.spinner();
 
@@ -412,7 +412,7 @@ export async function doctor(jsonMode = false): Promise<void> {
     }
 
     p.note(
-      `${pc.yellow("❤️")} Enjoying oh-my-ag? Give it a star or sponsor!\n${pc.dim("gh api --method PUT /user/starred/first-fluke/oh-my-ag")}\n${pc.dim("https://github.com/sponsors/first-fluke")}`,
+      `${pc.yellow("❤️")} Enjoying oh-my-agent? Give it a star or sponsor!\n${pc.dim("gh api --method PUT /user/starred/first-fluke/oh-my-agent")}\n${pc.dim("https://github.com/sponsors/first-fluke")}`,
       "Support",
     );
   } catch (error) {
