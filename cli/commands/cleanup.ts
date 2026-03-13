@@ -77,7 +77,7 @@ export async function cleanup(
   skipConfirm = false,
 ): Promise<void> {
   const cwd = process.cwd();
-  const resultsDir = join(cwd, ".agent", "results");
+  const resultsDir = join(cwd, ".agents", "results");
   const tmpDir = tmpdir();
 
   const result: CleanupResult = {

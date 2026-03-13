@@ -21,10 +21,10 @@ bunx oh-my-ag
 
 Что происходит:
 
-- Устанавливает или обновляет `.agent/skills/*`
-- Устанавливает общие ресурсы в `.agent/skills/_shared`
-- Устанавливает `.agent/workflows/*`
-- Устанавливает `.agent/config/user-preferences.yaml`
+- Устанавливает или обновляет `.agents/skills/*`
+- Устанавливает общие ресурсы в `.agents/skills/_shared`
+- Устанавливает `.agents/workflows/*`
+- Устанавливает `.agents/config/user-preferences.yaml`
 - Опционально устанавливает глобальные рабочие процессы в `~/.gemini/antigravity/global_workflows`
 
 ## Безопасный ручной путь
@@ -34,38 +34,38 @@ bunx oh-my-ag
 ```bash
 cd /path/to/your-project
 
-mkdir -p .agent/skills .agent/workflows .agent/config
+mkdir -p .agents/skills .agents/workflows .agents/config
 
 # Копировать только отсутствующие директории навыков (пример)
 for skill in workflow-guide pm-agent frontend-agent backend-agent mobile-agent qa-agent debug-agent orchestrator commit; do
-  if [ ! -d ".agent/skills/$skill" ]; then
-    cp -r /path/to/oh-my-ag/.agent/skills/$skill .agent/skills/$skill
+  if [ ! -d ".agents/skills/$skill" ]; then
+    cp -r /path/to/oh-my-ag/.agents/skills/$skill .agents/skills/$skill
   fi
 done
 
 # Копировать общие ресурсы, если отсутствуют
-[ -d .agent/skills/_shared ] || cp -r /path/to/oh-my-ag/.agent/skills/_shared .agent/skills/_shared
+[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-ag/.agents/skills/_shared .agents/skills/_shared
 
 # Копировать рабочие процессы, если отсутствуют
 for wf in coordinate.md orchestrate.md plan.md review.md debug.md setup.md tools.md; do
-  [ -f ".agent/workflows/$wf" ] || cp /path/to/oh-my-ag/.agent/workflows/$wf .agent/workflows/$wf
+  [ -f ".agents/workflows/$wf" ] || cp /path/to/oh-my-ag/.agents/workflows/$wf .agents/workflows/$wf
 done
 
 # Копировать пользовательские настройки по умолчанию, только если отсутствуют
-[ -f .agent/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agent/config/user-preferences.yaml .agent/config/user-preferences.yaml
+[ -f .agents/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agents/config/user-preferences.yaml .agents/config/user-preferences.yaml
 ```
 
 ## Чек-лист верификации
 
 ```bash
 # 9 устанавливаемых навыков (исключая _shared)
-find .agent/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
+find .agents/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
 
 # Общие ресурсы
-[ -d .agent/skills/_shared ] && echo ok
+[ -d .agents/skills/_shared ] && echo ok
 
 # 7 рабочих процессов
-find .agent/workflows -maxdepth 1 -name '*.md' | wc -l
+find .agents/workflows -maxdepth 1 -name '*.md' | wc -l
 
 # Базовая проверка работоспособности команд
 bunx oh-my-ag doctor
@@ -106,17 +106,17 @@ Also develop with other CLI tools?
 
 Выберите дополнительные CLI-инструменты, которые вы используете наряду с Antigravity. Установщик:
 
-1. Устанавливает навыки в `.agent/skills/` (нативное расположение Antigravity)
-2. Создаёт символические ссылки из директории навыков каждого выбранного CLI на `.agent/skills/`
+1. Устанавливает навыки в `.agents/skills/` (нативное расположение Antigravity)
+2. Создаёт символические ссылки из директории навыков каждого выбранного CLI на `.agents/skills/`
 
 Это обеспечивает единый источник истины, позволяя навыкам работать в нескольких CLI-инструментах.
 
 ### Структура символических ссылок
 
 ```
-.agent/skills/frontend-agent/      <- Источник (SSOT)
-.claude/skills/frontend-agent/     -> ../../.agent/skills/frontend-agent/
-.agents/skills/frontend-agent/     -> ../../.agent/skills/frontend-agent/ (OpenCode, Amp, Codex)
+.agents/skills/frontend-agent/      <- Источник (SSOT)
+.claude/skills/frontend-agent/     -> ../../.agents/skills/frontend-agent/
+.agents/skills/frontend-agent/     -> ../../.agents/skills/frontend-agent/ (OpenCode, Amp, Codex)
 .github/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/ (GitHub Copilot)
 ```
 
@@ -124,6 +124,6 @@ Also develop with other CLI tools?
 
 ## Примечания
 
-- Не перезаписывайте существующие папки `.agent/skills/*`, если вы не намерены заменить кастомизированные навыки.
-- Храните файлы политик проекта (`.agent/config/*`) под управлением вашего репозитория.
+- Не перезаписывайте существующие папки `.agents/skills/*`, если вы не намерены заменить кастомизированные навыки.
+- Храните файлы политик проекта (`.agents/config/*`) под управлением вашего репозитория.
 - Для паттернов мультиагентной оркестрации перейдите к [`Руководству по использованию`](./usage.md).

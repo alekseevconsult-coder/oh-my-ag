@@ -36,7 +36,7 @@ Los releases se automatizan mediante [release-please](https://github.com/googlea
 3. Haga merge del PR de release para publicar los activos del GitHub Release:
    - `CHANGELOG.md` (generado automaticamente)
    - `prompt-manifest.json` (lista de archivos + checksums SHA256)
-   - `agent-skills.tar.gz` (directorio `.agent/` comprimido)
+   - `agent-skills.tar.gz` (directorio `.agents/` comprimido)
 
 ## Para proyectos consumidores
 
@@ -62,7 +62,7 @@ registry:
 Roles de los flujos de trabajo:
 
 - `check-registry-updates.yml`: verifica nuevas versiones y abre un PR.
-- `sync-agent-registry.yml`: sincroniza `.agent/` cuando cambia la version fijada.
+- `sync-agent-registry.yml`: sincroniza `.agents/` cuando cambia la version fijada.
 
 **Importante**: El auto-merge esta deshabilitado intencionalmente. Todas las actualizaciones deben revisarse manualmente.
 

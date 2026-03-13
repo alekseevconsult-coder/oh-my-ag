@@ -12,7 +12,7 @@ description: Guia completo de uso incluindo exemplos, fluxos de trabalho, opera�
    antigravity open /path/to/oh-my-ag
    ```
 
-2. **Habilidades são detectadas automaticamente.** O Antigravity escaneia `.agent/skills/` e indexa todas as habilidades disponíveis.
+2. **Habilidades são detectadas automaticamente.** O Antigravity escaneia `.agents/skills/` e indexa todas as habilidades disponíveis.
 
 3. **Converse no IDE.** Descreva o que você quer construir.
 
@@ -50,7 +50,7 @@ description: Guia completo de uso incluindo exemplos, fluxos de trabalho, opera�
    wait
    ```
 4. **Agentes trabalham em paralelo** — salvam saídas na Base de Conhecimento
-5. **Você coordena** — revisa `.agent/brain/` para consistência
+5. **Você coordena** — revisa `.agents/brain/` para consistência
 6. **QA Agent revisa** — auditoria de segurança/performance
 7. **Corrige e itera** — re-cria agentes com correções
 
@@ -151,7 +151,7 @@ Recursos compartilhados ficam em `_shared/` (não é uma habilidade) e são refe
 Use `oh-my-ag agent:spawn` para executar agentes via CLI. Respeita `agent_cli_mapping` em `user-preferences.yaml` para selecionar a CLI apropriada (gemini, claude, codex, qwen) por tipo de agente. Workspace é detectado automaticamente de convenções de monorepo comuns, ou pode ser definido explicitamente com `-w`.
 
 ### Base de Conhecimento
-Saídas de agentes armazenadas em `.agent/brain/`. Contém planos, código, relatórios e notas de coordenação.
+Saídas de agentes armazenadas em `.agents/brain/`. Contém planos, código, relatórios e notas de coordenação.
 
 ### Serena Memory
 Estado de runtime estruturado em `.serena/memories/`. O orchestrator escreve informações de sessão, quadros de tarefas, progresso por agente e resultados. Dashboards observam esses arquivos para monitoramento.
@@ -171,13 +171,13 @@ Agentes podem trabalhar em diretórios separados para evitar conflitos. Workspac
 | Habilidade | Auto-ativa para | Saída |
 |-------|-------------------|--------|
 | workflow-guide | Projetos multi-domínio complexos | Coordenação de agentes passo a passo |
-| pm-agent | "planejar isso", "dividir" | `.agent/plan.json` |
+| pm-agent | "planejar isso", "dividir" | `.agents/plan.json` |
 | frontend-agent | UI, componentes, estilo | Componentes React, testes |
 | backend-agent | APIs, bancos de dados, autenticação | Endpoints de API, modelos, testes |
 | mobile-agent | Apps mobile, iOS/Android | Telas Flutter, gestão de estado |
 | qa-agent | "revisar segurança", "auditoria" | Relatório QA com correções priorizadas |
 | debug-agent | Relatórios de bug, mensagens de erro | Código corrigido, testes de regressão |
-| orchestrator | Execução de sub-agente CLI | Resultados em `.agent/results/` |
+| orchestrator | Execução de sub-agente CLI | Resultados em `.agents/results/` |
 | commit | "commit", "커밋해줘" | Commits Git (auto-divide por feature) |
 
 ---
@@ -253,7 +253,7 @@ Navegador:  http://localhost:9847 → status em tempo real
 
 1. **Seja específico** — "Construir um app TODO com autenticação JWT, frontend React, backend FastAPI" é melhor que "fazer um app"
 2. **Use criação CLI** para projetos multi-domínio — não tente fazer tudo em um chat
-3. **Revise a Base de Conhecimento** — verifique `.agent/brain/` para consistência de API
+3. **Revise a Base de Conhecimento** — verifique `.agents/brain/` para consistência de API
 4. **Itere com re-criações** — refine instruções, não recomece
 5. **Use dashboards** — `bunx oh-my-ag dashboard` ou `bunx oh-my-ag dashboard:web` para monitorar sessões do orchestrator
 6. **Workspaces separados** — atribua a cada agente seu próprio diretório
@@ -264,7 +264,7 @@ Navegador:  http://localhost:9847 → status em tempo real
 
 | Problema | Solução |
 |---------|----------|
-| Habilidades não carregam | `antigravity open .`, verificar `.agent/skills/`, reiniciar IDE |
+| Habilidades não carregam | `antigravity open .`, verificar `.agents/skills/`, reiniciar IDE |
 | CLI não encontrado | Verificar `which gemini` / `which claude`, instalar CLIs faltantes |
 | Saídas de agentes incompatíveis | Revisar ambos na Base de Conhecimento, re-criar com correções |
 | Dashboard: "No agents" | Arquivos de memória ainda não criados, executar orchestrator primeiro |

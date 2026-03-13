@@ -36,7 +36,7 @@ Releases zijn geautomatiseerd via [release-please](https://github.com/googleapis
 3. Merge de release-PR om GitHub Release-assets te publiceren:
    - `CHANGELOG.md` (automatisch gegenereerd)
    - `prompt-manifest.json` (bestandslijst + SHA256-checksums)
-   - `agent-skills.tar.gz` (gecomprimeerde `.agent/`-map)
+   - `agent-skills.tar.gz` (gecomprimeerde `.agents/`-map)
 
 ## Voor consumerprojecten
 
@@ -62,7 +62,7 @@ registry:
 Workflowrollen:
 
 - `check-registry-updates.yml`: controleert op nieuwe versies en opent een PR.
-- `sync-agent-registry.yml`: synchroniseert `.agent/` wanneer de vastgepinde versie wijzigt.
+- `sync-agent-registry.yml`: synchroniseert `.agents/` wanneer de vastgepinde versie wijzigt.
 
 **Belangrijk**: Auto-merge is opzettelijk uitgeschakeld. Alle updates dienen handmatig te worden beoordeeld.
 

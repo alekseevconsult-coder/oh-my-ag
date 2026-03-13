@@ -11,7 +11,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
-const AGENT_DIR = ".agent";
+const AGENT_DIR = ".agents";
 const MANIFEST_FILE = "prompt-manifest.json";
 const EXCLUDED_PATTERNS = [
   "__pycache__/",

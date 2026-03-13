@@ -140,7 +140,7 @@ describe("agent command", () => {
       ].join("\n");
 
       // Simulate monorepo: cwd is /project/apps/api,
-      // user-preferences.yaml is at /project/.agent/config/user-preferences.yaml
+      // user-preferences.yaml is at /project/.agents/config/user-preferences.yaml
       const cwdSpy = vi
         .spyOn(process, "cwd")
         .mockReturnValue("/project/apps/api");
@@ -148,10 +148,10 @@ describe("agent command", () => {
       mockFsFunctions.existsSync.mockImplementation((pathArg: fs.PathLike) => {
         const target = pathArg.toString();
         // user-preferences.yaml only exists at project root, not in apps/api
-        if (target === "/project/.agent/config/user-preferences.yaml")
+        if (target === "/project/.agents/config/user-preferences.yaml")
           return true;
         if (
-          target.includes("apps/api/.agent") &&
+          target.includes("apps/api/.agents") &&
           target.includes("user-preferences.yaml")
         )
           return false;
@@ -209,7 +209,7 @@ describe("agent command", () => {
 
       mockFsFunctions.existsSync.mockImplementation((pathArg: fs.PathLike) => {
         const target = pathArg.toString();
-        if (target === "/project/.agent/config/user-preferences.yaml")
+        if (target === "/project/.agents/config/user-preferences.yaml")
           return true;
         if (target.includes("user-preferences.yaml")) return false;
         if (target.includes("cli-config.yaml")) return false;

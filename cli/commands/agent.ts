@@ -151,7 +151,7 @@ function findConfigFileUp(
 function readUserPreferences(cwd: string): UserPreferences | null {
   const configPath = findConfigFileUp(
     cwd,
-    path.join(".agent", "config", "user-preferences.yaml"),
+    path.join(".agents", "config", "user-preferences.yaml"),
   );
   if (!configPath) return null;
   try {
@@ -165,7 +165,7 @@ function readUserPreferences(cwd: string): UserPreferences | null {
 function readCliConfig(cwd: string): CliConfig | null {
   const configPath = findConfigFileUp(
     cwd,
-    path.join(".agent", "skills", "orchestrator", "config", "cli-config.yaml"),
+    path.join(".agents", "skills", "orchestrator", "config", "cli-config.yaml"),
   );
   if (!configPath) return null;
   try {
@@ -790,7 +790,7 @@ export async function parallelRun(
   } = {},
 ) {
   const cwd = process.cwd();
-  const resultsDir = path.join(cwd, ".agent", "results");
+  const resultsDir = path.join(cwd, ".agents", "results");
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
   const runDir = path.join(resultsDir, `parallel-${timestamp}`);
 

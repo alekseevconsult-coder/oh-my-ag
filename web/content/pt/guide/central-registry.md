@@ -36,7 +36,7 @@ As releases são automatizadas via [release-please](https://github.com/googleapi
 3. Faça merge do PR de Release para publicar os artefatos do GitHub Release:
    - `CHANGELOG.md` (gerado automaticamente)
    - `prompt-manifest.json` (lista de arquivos + checksums SHA256)
-   - `agent-skills.tar.gz` (diretório `.agent/` comprimido)
+   - `agent-skills.tar.gz` (diretório `.agents/` comprimido)
 
 ## Para Projetos Consumidores
 
@@ -62,7 +62,7 @@ registry:
 Funções dos workflows:
 
 - `check-registry-updates.yml`: verifica novas versões e abre um PR.
-- `sync-agent-registry.yml`: sincroniza `.agent/` quando a versão fixada é alterada.
+- `sync-agent-registry.yml`: sincroniza `.agents/` quando a versão fixada é alterada.
 
 **Importante**: O auto-merge é intencionalmente desabilitado. Todas as atualizações devem ser revisadas manualmente.
 

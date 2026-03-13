@@ -12,7 +12,7 @@ description: Guía completa de uso incluyendo ejemplos, flujos de trabajo, opera
    antigravity open /path/to/oh-my-ag
    ```
 
-2. **Los skills se detectan automáticamente.** Antigravity escanea `.agent/skills/` e indexa todos los skills disponibles.
+2. **Los skills se detectan automáticamente.** Antigravity escanea `.agents/skills/` e indexa todos los skills disponibles.
 
 3. **Chatea en el IDE.** Describe lo que quieres construir.
 
@@ -50,7 +50,7 @@ description: Guía completa de uso incluyendo ejemplos, flujos de trabajo, opera
    wait
    ```
 4. **Los agentes trabajan en paralelo** — guardan outputs en Knowledge Base
-5. **Tú coordinas** — revisas `.agent/brain/` para consistencia
+5. **Tú coordinas** — revisas `.agents/brain/` para consistencia
 6. **QA Agent revisa** — auditoría de seguridad/rendimiento
 7. **Corregir e iterar** — re-generar agentes con correcciones
 
@@ -155,7 +155,7 @@ Usa `oh-my-ag agent:spawn` para ejecutar agentes mediante CLI. Respeta `agent_cl
 
 ### Knowledge Base
 
-Outputs de agentes almacenados en `.agent/brain/`. Contiene planes, código, reportes y notas de coordinación.
+Outputs de agentes almacenados en `.agents/brain/`. Contiene planes, código, reportes y notas de coordinación.
 
 ### Serena Memory
 
@@ -177,13 +177,13 @@ Los agentes pueden trabajar en directorios separados para evitar conflictos. El 
 | Skill | Se auto-activa para | Output |
 |-------|-------------------|--------|
 | workflow-guide | Proyectos multi-dominio complejos | Coordinación de agentes paso a paso |
-| pm-agent | "planificar esto", "descomponer" | `.agent/plan.json` |
+| pm-agent | "planificar esto", "descomponer" | `.agents/plan.json` |
 | frontend-agent | UI, componentes, estilos | Componentes React, pruebas |
 | backend-agent | APIs, bases de datos, autenticación | Endpoints API, modelos, pruebas |
 | mobile-agent | Apps móviles, iOS/Android | Pantallas Flutter, gestión de estado |
 | qa-agent | "revisar seguridad", "auditoría" | Reporte QA con correcciones priorizadas |
 | debug-agent | Reportes de bugs, mensajes de error | Código corregido, pruebas de regresión |
-| orchestrator | Ejecución de sub-agentes CLI | Resultados en `.agent/results/` |
+| orchestrator | Ejecución de sub-agentes CLI | Resultados en `.agents/results/` |
 | commit | "commit", "커밋해줘" | Commits Git (auto-divide por feature) |
 
 ---
@@ -259,7 +259,7 @@ Browser:    http://localhost:9847 → estado en tiempo real
 
 1. **Sé específico** — "Construir una app TODO con autenticación JWT, frontend React, backend FastAPI" es mejor que "hacer una app"
 2. **Usa generación CLI** para proyectos multi-dominio — no intentes hacer todo en un chat
-3. **Revisa Knowledge Base** — verifica `.agent/brain/` para consistencia de API
+3. **Revisa Knowledge Base** — verifica `.agents/brain/` para consistencia de API
 4. **Itera con re-generaciones** — refina instrucciones, no comiences de nuevo
 5. **Usa dashboards** — `bunx oh-my-ag dashboard` o `bunx oh-my-ag dashboard:web` para monitorear sesiones del orchestrator
 6. **Separa workspaces** — asigna a cada agente su propio directorio
@@ -270,7 +270,7 @@ Browser:    http://localhost:9847 → estado en tiempo real
 
 | Problema | Solución |
 |---------|----------|
-| Skills no se cargan | `antigravity open .`, verifica `.agent/skills/`, reinicia IDE |
+| Skills no se cargan | `antigravity open .`, verifica `.agents/skills/`, reinicia IDE |
 | CLI no encontrado | Verifica `which gemini` / `which claude`, instala CLIs faltantes |
 | Outputs de agentes incompatibles | Revisa ambos en Knowledge Base, re-genera con correcciones |
 | Dashboard: "No agents" | Archivos de memoria aún no creados, ejecuta orchestrator primero |

@@ -95,7 +95,7 @@ A collection of **Antigravity Skills** enabling collaborative multi-agent develo
 bunx oh-my-ag
 ```
 
-Select your project type and skills will be installed to `.agents/skills/`, with compatibility symlinks created under `.agent/skills/` and `.claude/skills/`.
+Select your project type and skills will be installed to `.agents/skills/`, with compatibility symlinks created under `.agents/skills/` and `.claude/skills/`.
 
 | Preset | Skills |
 |--------|--------|

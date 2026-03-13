@@ -30,8 +30,8 @@ oh-my-ag ist ein Multi-Agenten-Orchestrator für die Antigravity-IDE. Er leitet 
 
 ## Projektstruktur
 
-- `.agent/skills/`: Skill-Definitionen und Ressourcen
-- `.agent/workflows/`: Explizite Workflow-Befehle
+- `.agents/skills/`: Skill-Definitionen und Ressourcen
+- `.agents/workflows/`: Explizite Workflow-Befehle
 - `.serena/memories/`: Laufzeit-Orchestrierungszustand
 - `cli/cli.ts`: Referenzquelle für Befehlsschnittstellen
 

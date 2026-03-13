@@ -9,7 +9,7 @@ Gedetailleerde directory tree voor deze repository.
 
 ```text
 .
-├── .agent/
+├── .agents/
 │   ├── config/
 │   │   └── user-preferences.yaml   # Taal, tijdzone, CLI mapping
 │   ├── workflows/

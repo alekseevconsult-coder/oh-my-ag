@@ -25,14 +25,6 @@ export interface SkillCheck {
   hasSkillMd: boolean;
 }
 
-export interface SymlinkCheck {
-  cli: string;
-  skillsDir: string;
-  exists: boolean;
-  missingSkills: string[];
-  brokenLinks: string[];
-}
-
 export interface Metrics {
   sessions: number;
   skillsUsed: Record<string, number>;

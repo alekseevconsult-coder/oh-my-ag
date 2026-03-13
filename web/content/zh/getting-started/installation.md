@@ -17,7 +17,7 @@ description: 前置条件、安装选项与首次运行设置。
 bunx oh-my-ag
 ```
 
-将技能和工作流安装到当前项目的 `.agent/` 目录中。
+将技能和工作流安装到当前项目的 `.agents/` 目录中。
 
 ## 选项 2：全局安装
 
@@ -39,9 +39,9 @@ bunx oh-my-ag doctor
 ### 手动复制方式
 
 ```bash
-cp -r oh-my-ag/.agent/skills /path/to/project/.agent/
-cp -r oh-my-ag/.agent/workflows /path/to/project/.agent/
-cp -r oh-my-ag/.agent/config /path/to/project/.agent/
+cp -r oh-my-ag/.agents/skills /path/to/project/.agents/
+cp -r oh-my-ag/.agents/workflows /path/to/project/.agents/
+cp -r oh-my-ag/.agents/config /path/to/project/.agents/
 ```
 
 ## 初始设置命令
@@ -50,7 +50,7 @@ cp -r oh-my-ag/.agent/config /path/to/project/.agent/
 /setup
 ```
 
-创建 `.agent/config/user-preferences.yaml`。
+创建 `.agents/config/user-preferences.yaml`。
 
 ## 必需的 CLI 供应商
 

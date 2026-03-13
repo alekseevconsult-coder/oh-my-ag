@@ -29,7 +29,7 @@ bunx oh-my-ag dashboard:web
 
 ## Multi-CLI-configuratie
 
-Configureer verschillende CLI's per agenttype in `.agent/config/user-preferences.yaml`:
+Configureer verschillende CLI's per agenttype in `.agents/config/user-preferences.yaml`:
 
 ```yaml
 # Antwoordtaal

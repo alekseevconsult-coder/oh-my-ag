@@ -1,5 +1,3 @@
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 import * as p from "@clack/prompts";
 import pMap from "p-map";
 import pc from "picocolors";
@@ -9,20 +7,22 @@ import {
   getLocalVersion,
   saveLocalVersion,
 } from "../lib/manifest.js";
-import {
-  CLI_SKILLS_DIR,
-  type CliTool,
-  createCliSymlinks,
-  createCompatSymlinks,
-  getAllSkills,
-  INSTALLED_SKILLS_DIR,
-} from "../lib/skills.js";
+import { migrateToAgents } from "../lib/migrate.js";
 
 export async function update(): Promise<void> {
   console.clear();
   p.intro(pc.bgMagenta(pc.white(" 🛸 oh-my-ag update ")));
 
   const cwd = process.cwd();
+
+  // Auto-migrate from legacy .agent/ to .agents/
+  const migrations = migrateToAgents(cwd);
+  if (migrations.length > 0) {
+    p.note(
+      migrations.map((m) => `${pc.green("✓")} ${m}`).join("\n"),
+      "Migration",
+    );
+  }
   const spinner = p.spinner();
 
   try {
@@ -61,61 +61,7 @@ export async function update(): Promise<void> {
 
     await saveLocalVersion(cwd, remoteManifest.version);
 
-    const ssotSkillsDir = join(cwd, INSTALLED_SKILLS_DIR);
-    const activeClis: CliTool[] = [];
-
-    for (const [cli, skillsDir] of Object.entries(CLI_SKILLS_DIR)) {
-      const cliSkillsDir = join(cwd, skillsDir);
-      if (existsSync(cliSkillsDir)) {
-        activeClis.push(cli as CliTool);
-      }
-    }
-
-    let symlinkCreated: string[] = [];
-    let symlinkSkipped: string[] = [];
-
-    if (existsSync(ssotSkillsDir)) {
-      spinner.message("Updating CLI symlinks...");
-
-      const allSkillNames = getAllSkills().map((s) => s.name);
-      const installedSkills = allSkillNames.filter((name) =>
-        existsSync(join(ssotSkillsDir, name)),
-      );
-
-      const compatSymlinks = createCompatSymlinks(cwd, installedSkills);
-      const cliSymlinks =
-        activeClis.length > 0
-          ? createCliSymlinks(cwd, activeClis, installedSkills)
-          : { created: [], skipped: [] };
-
-      symlinkCreated = [...compatSymlinks.created, ...cliSymlinks.created];
-      symlinkSkipped = [...compatSymlinks.skipped, ...cliSymlinks.skipped];
-    }
-
     const successCount = results.length - failures.length;
-
-    if (symlinkCreated.length > 0 || symlinkSkipped.length > 0) {
-      p.note(
-        [
-          `${pc.green("✓")} ${successCount} files updated`,
-          ...(symlinkCreated.length > 0
-            ? [
-                "",
-                pc.cyan("Symlinks created:"),
-                ...symlinkCreated.map((s) => `${pc.green("→")} ${s}`),
-              ]
-            : []),
-          ...(symlinkSkipped.length > 0
-            ? [
-                "",
-                pc.dim("Symlinks skipped:"),
-                ...symlinkSkipped.map((s) => pc.dim(`  ${s}`)),
-              ]
-            : []),
-        ].join("\n"),
-        "Update Complete",
-      );
-    }
 
     p.outro(
       failures.length > 0

@@ -1,23 +1,15 @@
 import { execSync } from "node:child_process";
-import {
-  existsSync,
-  lstatSync,
-  readdirSync,
-  readFileSync,
-  readlinkSync,
-} from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import * as p from "@clack/prompts";
 import pc from "picocolors";
 import {
-  CLI_SKILLS_DIR,
-  DEFAULT_COMPAT_SKILLS_DIRS,
   getAllSkills,
   INSTALLED_SKILLS_DIR,
   installShared,
   installSkill,
 } from "../lib/skills.js";
-import type { CLICheck, SkillCheck, SymlinkCheck } from "../types/index.js";
+import type { CLICheck, SkillCheck } from "../types/index.js";
 
 async function checkCLI(
   name: string,
@@ -113,66 +105,6 @@ async function checkGlobalWorkflows(): Promise<{
   }
 }
 
-async function checkSymlinks(cwd: string): Promise<SymlinkCheck[]> {
-  const allSkills = getAllSkills();
-  const ssotSkillsDir = join(cwd, INSTALLED_SKILLS_DIR);
-  const checks: SymlinkCheck[] = [];
-  const managedSkillsDirs = [
-    ...DEFAULT_COMPAT_SKILLS_DIRS.map((skillsDir) => {
-      const cli = (skillsDir.split("/")[0] ?? skillsDir).replace(/^\./, "");
-      return [cli, skillsDir] as const;
-    }),
-    ...Object.entries(CLI_SKILLS_DIR),
-  ];
-
-  for (const [cli, skillsDir] of managedSkillsDirs) {
-    const cliSkillsDir = join(cwd, skillsDir);
-    const check: SymlinkCheck = {
-      cli,
-      skillsDir,
-      exists: existsSync(cliSkillsDir),
-      missingSkills: [],
-      brokenLinks: [],
-    };
-
-    if (!check.exists) {
-      checks.push(check);
-      continue;
-    }
-
-    for (const skill of allSkills) {
-      const sourcePath = join(ssotSkillsDir, skill.name);
-      const linkPath = join(cliSkillsDir, skill.name);
-
-      if (!existsSync(sourcePath)) {
-        continue;
-      }
-
-      if (!existsSync(linkPath)) {
-        check.missingSkills.push(skill.name);
-        continue;
-      }
-
-      try {
-        const stat = lstatSync(linkPath);
-        if (stat.isSymbolicLink()) {
-          const linkTarget = readlinkSync(linkPath);
-          const resolvedTarget = resolve(dirname(linkPath), linkTarget);
-          if (resolvedTarget !== resolve(sourcePath)) {
-            check.brokenLinks.push(skill.name);
-          }
-        }
-      } catch {
-        check.brokenLinks.push(skill.name);
-      }
-    }
-
-    checks.push(check);
-  }
-
-  return checks;
-}
-
 export async function doctor(jsonMode = false): Promise<void> {
   const cwd = process.cwd();
 
@@ -198,7 +130,6 @@ export async function doctor(jsonMode = false): Promise<void> {
 
   const skillChecks = await checkSkills();
   const globalWorkflows = await checkGlobalWorkflows();
-  const symlinkChecks = await checkSymlinks(cwd);
 
   let rerereEnabled = false;
   try {
@@ -228,16 +159,11 @@ export async function doctor(jsonMode = false): Promise<void> {
           hasSkillMd: false,
         }));
 
-  const symlinkIssues = symlinkChecks.filter(
-    (c) => c.exists && (c.missingSkills.length > 0 || c.brokenLinks.length > 0),
-  ).length;
-
   const totalIssues =
     missingCLIs.length +
     missingSkills.length +
     (globalWorkflows.installed ? 0 : 1) +
-    (rerereEnabled ? 0 : 1) +
-    symlinkIssues;
+    (rerereEnabled ? 0 : 1);
 
   if (jsonMode) {
     const result = {
@@ -268,13 +194,6 @@ export async function doctor(jsonMode = false): Promise<void> {
       },
       serena: { exists: hasSerena, fileCount: serenaFileCount },
       gitRerere: { enabled: rerereEnabled },
-      symlinks: symlinkChecks.map((c) => ({
-        cli: c.cli,
-        dir: c.skillsDir,
-        exists: c.exists,
-        missing: c.missingSkills,
-        broken: c.brokenLinks,
-      })),
     };
     console.log(JSON.stringify(result, null, 2));
     process.exit(totalIssues === 0 ? 0 : 1);
@@ -433,63 +352,6 @@ export async function doctor(jsonMode = false): Promise<void> {
           spinner.stop("Installation failed");
           p.log.error(error instanceof Error ? error.message : String(error));
         }
-      }
-    }
-
-    const activeSymlinkChecks = symlinkChecks.filter((c) => c.exists);
-    if (activeSymlinkChecks.length > 0) {
-      const hasIssues = activeSymlinkChecks.some(
-        (c) => c.missingSkills.length > 0 || c.brokenLinks.length > 0,
-      );
-
-      if (hasIssues) {
-        const issuesTable = [
-          pc.bold("🔗 CLI Symlink Status"),
-          "┌─────────────┬──────────────────┬───────────────────┐",
-          `│ ${pc.bold("CLI")}         │ ${pc.bold("Missing")}            │ ${pc.bold("Broken")}              │`,
-          "├─────────────┼──────────────────┼───────────────────┤",
-          ...activeSymlinkChecks
-            .filter(
-              (c) => c.missingSkills.length > 0 || c.brokenLinks.length > 0,
-            )
-            .map((c) => {
-              const missing =
-                c.missingSkills.length > 0
-                  ? `${c.missingSkills.length} skills`
-                  : "-";
-              const broken =
-                c.brokenLinks.length > 0
-                  ? `${c.brokenLinks.length} links`
-                  : "-";
-              return `│ ${c.cli.padEnd(11)} │ ${missing.padEnd(16)} │ ${broken.padEnd(17)} │`;
-            }),
-          "└─────────────┴──────────────────┴───────────────────┘",
-        ].join("\n");
-
-        p.note(issuesTable, "Symlink Issues");
-
-        p.note(
-          [
-            pc.yellow("Run 'bunx oh-my-ag' to repair symlinks"),
-            pc.dim(
-              "Select the same CLI tools to recreate missing/broken links",
-            ),
-          ].join("\n"),
-          "Repair Symlinks",
-        );
-      } else {
-        const allOkTable = [
-          pc.bold("🔗 CLI Symlink Status"),
-          "┌─────────────┬──────────┐",
-          `│ ${pc.bold("CLI")}         │ ${pc.bold("Status")}   │`,
-          "├─────────────┼──────────┤",
-          ...activeSymlinkChecks.map((c) => {
-            return `│ ${c.cli.padEnd(11)} │ ${pc.green("✅ OK")}     │`;
-          }),
-          "└─────────────┴──────────┘",
-        ].join("\n");
-
-        p.note(allOkTable, "CLI Symlinks");
       }
     }
 

@@ -99,7 +99,7 @@ function checkHardcodedSecrets(workspace: string): VerifyCheck {
 
 function checkTodoComments(workspace: string): VerifyCheck {
   const result = runCommand(
-    `grep -rn --include="*.py" --include="*.ts" --include="*.tsx" --include="*.js" --include="*.dart" -E "TODO|FIXME|HACK|XXX" . 2>/dev/null | grep -v node_modules | grep -v ".agent/" | wc -l`,
+    `grep -rn --include="*.py" --include="*.ts" --include="*.tsx" --include="*.js" --include="*.dart" -E "TODO|FIXME|HACK|XXX" . 2>/dev/null | grep -v node_modules | grep -v ".agents/" | wc -l`,
     workspace,
   );
 
@@ -287,7 +287,7 @@ function checkFlutterTests(workspace: string): VerifyCheck {
 }
 
 function checkPmPlan(workspace: string): VerifyCheck {
-  const planPath = join(workspace, ".agent", "plan.json");
+  const planPath = join(workspace, ".agents", "plan.json");
 
   if (!existsSync(planPath)) {
     return createCheck("PM Plan", "warn", "plan.json not found");

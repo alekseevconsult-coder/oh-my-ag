@@ -104,7 +104,7 @@ Uma coleção de **Habilidades Antigravity** que permite o desenvolvimento colab
 bunx oh-my-ag
 ```
 
-Selecione seu tipo de projeto e as habilidades serão instaladas em `.agent/skills/`.
+Selecione seu tipo de projeto e as habilidades serão instaladas em `.agents/skills/`.
 
 | Preset | Habilidades |
 |--------|--------|

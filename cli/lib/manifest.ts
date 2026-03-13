@@ -97,8 +97,8 @@ export async function downloadFile(
 }
 
 function mapManifestPathToTargetPath(path: string): string {
-  if (path.startsWith(".agent/skills/")) {
-    return path.replace(".agent/skills", INSTALLED_SKILLS_DIR);
+  if (path.startsWith(".agents/skills/")) {
+    return path.replace(".agents/skills", INSTALLED_SKILLS_DIR);
   }
 
   return path;

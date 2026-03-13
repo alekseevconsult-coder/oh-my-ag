@@ -30,8 +30,8 @@ oh-my-ag は Antigravity IDE 向けのマルチエージェントオーケスト
 
 ## プロジェクト構成
 
-- `.agent/skills/`: スキル定義とリソース
-- `.agent/workflows/`: 明示的なワークフローコマンド
+- `.agents/skills/`: スキル定義とリソース
+- `.agents/workflows/`: 明示的なワークフローコマンド
 - `.serena/memories/`: ランタイムオーケストレーション状態
 - `cli/cli.ts`: コマンドインターフェースの正式なソース
 

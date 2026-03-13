@@ -104,7 +104,7 @@ Een verzameling **Antigravity Skills** die collaboratieve multi-agent ontwikkeli
 bunx oh-my-ag
 ```
 
-Selecteer je projecttype en skills worden geïnstalleerd in `.agent/skills/`.
+Selecteer je projecttype en skills worden geïnstalleerd in `.agents/skills/`.
 
 | Preset | Skills |
 |--------|--------|

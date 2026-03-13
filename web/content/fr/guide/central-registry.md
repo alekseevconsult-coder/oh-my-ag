@@ -36,7 +36,7 @@ Les releases sont automatisées via [release-please](https://github.com/googleap
 3. Fusionnez la PR de release pour publier les artefacts de la release GitHub :
    - `CHANGELOG.md` (généré automatiquement)
    - `prompt-manifest.json` (liste des fichiers + checksums SHA256)
-   - `agent-skills.tar.gz` (répertoire `.agent/` compressé)
+   - `agent-skills.tar.gz` (répertoire `.agents/` compressé)
 
 ## Pour les projets consommateurs
 
@@ -62,7 +62,7 @@ registry:
 Rôles des workflows :
 
 - `check-registry-updates.yml` : vérifie les nouvelles versions et ouvre une PR.
-- `sync-agent-registry.yml` : synchronise `.agent/` lorsque la version épinglée change.
+- `sync-agent-registry.yml` : synchronise `.agents/` lorsque la version épinglée change.
 
 **Important** : La fusion automatique est volontairement désactivée. Toutes les mises à jour doivent être révisées manuellement.
 

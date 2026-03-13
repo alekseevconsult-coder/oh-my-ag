@@ -43,7 +43,7 @@
 
 ### Refactoring
 
-* move brain output directory from .gemini/antigravity/brain/ to .agent/brain/ ([f093e52](https://github.com/first-fluke/oh-my-ag/commit/f093e52bac47f3938381bc48bdacde02c56be4e5))
+* move brain output directory from .gemini/antigravity/brain/ to .agents/brain/ ([f093e52](https://github.com/first-fluke/oh-my-ag/commit/f093e52bac47f3938381bc48bdacde02c56be4e5))
 * **web:** migrate search to cmdk ([c282426](https://github.com/first-fluke/oh-my-ag/commit/c282426bd3596d74713ecc73f93550c983d1f94a))
 * **web:** migrate to TypeScript and motion package ([bc9233b](https://github.com/first-fluke/oh-my-ag/commit/bc9233b598bf28c2d5f98a427109074f53dd8b28))
 
@@ -83,7 +83,7 @@
 
 ### Refactoring
 
-* move brain output directory from .gemini/antigravity/brain/ to .agent/brain/ ([f093e52](https://github.com/first-fluke/oh-my-ag/commit/f093e52bac47f3938381bc48bdacde02c56be4e5))
+* move brain output directory from .gemini/antigravity/brain/ to .agents/brain/ ([f093e52](https://github.com/first-fluke/oh-my-ag/commit/f093e52bac47f3938381bc48bdacde02c56be4e5))
 
 ## [0.1.5](https://github.com/first-fluke/oh-my-ag/compare/web-v0.1.4...web-v0.1.5) (2026-02-13)
 

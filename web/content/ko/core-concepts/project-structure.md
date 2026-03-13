@@ -11,7 +11,7 @@ description: CLI와 web 문서 워크스페이스 분리 이후의 최신 레포
 
 ```text
 .
-├── .agent/
+├── .agents/
 │   ├── config/
 │   │   └── user-preferences.yaml
 │   ├── workflows/

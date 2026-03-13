@@ -36,7 +36,7 @@ Releases werden über [release-please](https://github.com/googleapis/release-ple
 3. Mergen Sie den Release-PR, um GitHub-Release-Assets zu veröffentlichen:
    - `CHANGELOG.md` (automatisch generiert)
    - `prompt-manifest.json` (Dateiliste + SHA256-Prüfsummen)
-   - `agent-skills.tar.gz` (komprimiertes `.agent/`-Verzeichnis)
+   - `agent-skills.tar.gz` (komprimiertes `.agents/`-Verzeichnis)
 
 ## Für Consumer-Projekte
 
@@ -62,7 +62,7 @@ registry:
 Workflow-Rollen:
 
 - `check-registry-updates.yml`: Prüft auf neue Versionen und öffnet einen PR.
-- `sync-agent-registry.yml`: Synchronisiert `.agent/`, wenn sich die gepinnte Version ändert.
+- `sync-agent-registry.yml`: Synchronisiert `.agents/`, wenn sich die gepinnte Version ändert.
 
 **Wichtig**: Auto-Merge ist absichtlich deaktiviert. Alle Updates sollten manuell überprüft werden.
 

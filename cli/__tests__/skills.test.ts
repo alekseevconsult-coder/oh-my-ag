@@ -46,7 +46,7 @@ describe("skills.ts - Workflow and Config Installation", () => {
 
       await installWorkflows(mockTargetDir);
 
-      const workflowsDir = join(mockTargetDir, ".agent", "workflows");
+      const workflowsDir = join(mockTargetDir, ".agents", "workflows");
       expect(fs.existsSync).toHaveBeenCalledWith(workflowsDir);
       expect(fs.mkdirSync).toHaveBeenCalledWith(workflowsDir, {
         recursive: true,
@@ -114,7 +114,7 @@ describe("skills.ts - Workflow and Config Installation", () => {
 
       await installConfigs(mockTargetDir);
 
-      const configDir = join(mockTargetDir, ".agent", "config");
+      const configDir = join(mockTargetDir, ".agents", "config");
       expect(fs.existsSync).toHaveBeenCalledWith(configDir);
       expect(fs.mkdirSync).toHaveBeenCalledWith(configDir, { recursive: true });
 
@@ -138,7 +138,7 @@ describe("skills.ts - Workflow and Config Installation", () => {
 
       await installConfigs(mockTargetDir);
 
-      const agentDir = join(mockTargetDir, ".agent");
+      const agentDir = join(mockTargetDir, ".agents");
       expect(fs.writeFileSync).toHaveBeenCalledWith(
         join(agentDir, "mcp.json"),
         "mcp content",

@@ -21,10 +21,10 @@ bunx oh-my-ag
 
 Ce que cela fait :
 
-- Installe ou met à jour `.agent/skills/*`
-- Installe les ressources partagées dans `.agent/skills/_shared`
-- Installe `.agent/workflows/*`
-- Installe `.agent/config/user-preferences.yaml`
+- Installe ou met à jour `.agents/skills/*`
+- Installe les ressources partagées dans `.agents/skills/_shared`
+- Installe `.agents/workflows/*`
+- Installe `.agents/config/user-preferences.yaml`
 - Installe optionnellement les workflows globaux sous `~/.gemini/antigravity/global_workflows`
 
 ## Chemin manuel sécurisé
@@ -34,38 +34,38 @@ Utilisez cette méthode lorsque vous avez besoin d'un contrôle total sur chaque
 ```bash
 cd /path/to/your-project
 
-mkdir -p .agent/skills .agent/workflows .agent/config
+mkdir -p .agents/skills .agents/workflows .agents/config
 
 # Copy only missing skill directories (example)
 for skill in workflow-guide pm-agent frontend-agent backend-agent mobile-agent qa-agent debug-agent orchestrator commit; do
-  if [ ! -d ".agent/skills/$skill" ]; then
-    cp -r /path/to/oh-my-ag/.agent/skills/$skill .agent/skills/$skill
+  if [ ! -d ".agents/skills/$skill" ]; then
+    cp -r /path/to/oh-my-ag/.agents/skills/$skill .agents/skills/$skill
   fi
 done
 
 # Copy shared resources if missing
-[ -d .agent/skills/_shared ] || cp -r /path/to/oh-my-ag/.agent/skills/_shared .agent/skills/_shared
+[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-ag/.agents/skills/_shared .agents/skills/_shared
 
 # Copy workflows if missing
 for wf in coordinate.md orchestrate.md plan.md review.md debug.md setup.md tools.md; do
-  [ -f ".agent/workflows/$wf" ] || cp /path/to/oh-my-ag/.agent/workflows/$wf .agent/workflows/$wf
+  [ -f ".agents/workflows/$wf" ] || cp /path/to/oh-my-ag/.agents/workflows/$wf .agents/workflows/$wf
 done
 
 # Copy default user preferences only if missing
-[ -f .agent/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agent/config/user-preferences.yaml .agent/config/user-preferences.yaml
+[ -f .agents/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agents/config/user-preferences.yaml .agents/config/user-preferences.yaml
 ```
 
 ## Checklist de vérification
 
 ```bash
 # 9 installable skills (excluding _shared)
-find .agent/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
+find .agents/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
 
 # Shared resources
-[ -d .agent/skills/_shared ] && echo ok
+[ -d .agents/skills/_shared ] && echo ok
 
 # 7 workflows
-find .agent/workflows -maxdepth 1 -name '*.md' | wc -l
+find .agents/workflows -maxdepth 1 -name '*.md' | wc -l
 
 # Basic command health
 bunx oh-my-ag doctor
@@ -106,17 +106,17 @@ Also develop with other CLI tools?
 
 Sélectionnez les outils CLI supplémentaires que vous utilisez aux côtés d'Antigravity. L'installateur va :
 
-1. Installer les skills dans `.agent/skills/` (emplacement natif d'Antigravity)
-2. Créer des liens symboliques depuis le répertoire de skills de chaque CLI sélectionné vers `.agent/skills/`
+1. Installer les skills dans `.agents/skills/` (emplacement natif d'Antigravity)
+2. Créer des liens symboliques depuis le répertoire de skills de chaque CLI sélectionné vers `.agents/skills/`
 
 Cela garantit une source unique de vérité tout en permettant aux skills de fonctionner avec plusieurs outils CLI.
 
 ### Structure des liens symboliques
 
 ```
-.agent/skills/frontend-agent/      ← Source (SSOT)
-.claude/skills/frontend-agent/     → ../../.agent/skills/frontend-agent/
-.agents/skills/frontend-agent/     → ../../.agent/skills/frontend-agent/ (OpenCode, Amp, Codex)
+.agents/skills/frontend-agent/      ← Source (SSOT)
+.claude/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/
+.agents/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/ (OpenCode, Amp, Codex)
 .github/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/ (GitHub Copilot)
 ```
 
@@ -124,6 +124,6 @@ L'installateur ignore les liens symboliques existants et avertit si un répertoi
 
 ## Notes
 
-- N'écrasez pas les dossiers `.agent/skills/*` existants sauf si vous avez l'intention de remplacer des skills personnalisés.
-- Conservez les fichiers de politique spécifiques au projet (`.agent/config/*`) sous la propriété de votre dépôt.
+- N'écrasez pas les dossiers `.agents/skills/*` existants sauf si vous avez l'intention de remplacer des skills personnalisés.
+- Conservez les fichiers de politique spécifiques au projet (`.agents/config/*`) sous la propriété de votre dépôt.
 - Pour les modèles d'orchestration multi-agent, continuez avec le [`Guide d'utilisation`](./usage.md).

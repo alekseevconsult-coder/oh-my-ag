@@ -30,8 +30,8 @@ oh-my-ag is a multi-agent orchestrator for Antigravity IDE. It routes requests t
 
 ## Project Structure
 
-- `.agent/skills/`: skill definitions and resources
-- `.agent/workflows/`: explicit workflow commands
+- `.agents/skills/`: skill definitions and resources
+- `.agents/workflows/`: explicit workflow commands
 - `.serena/memories/`: runtime orchestration state
 - `cli/cli.ts`: source of truth for command interfaces
 

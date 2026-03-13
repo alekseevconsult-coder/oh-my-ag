@@ -21,10 +21,10 @@ bunx oh-my-ag
 
 Wat het doet:
 
-- Installeert of werkt `.agent/skills/*` bij
-- Installeert gedeelde resources in `.agent/skills/_shared`
-- Installeert `.agent/workflows/*`
-- Installeert `.agent/config/user-preferences.yaml`
+- Installeert of werkt `.agents/skills/*` bij
+- Installeert gedeelde resources in `.agents/skills/_shared`
+- Installeert `.agents/workflows/*`
+- Installeert `.agents/config/user-preferences.yaml`
 - Installeert optioneel globale workflows onder `~/.gemini/antigravity/global_workflows`
 
 ## Veilig handmatig pad
@@ -34,38 +34,38 @@ Gebruik dit wanneer u volledige controle wilt over elke gekopieerde map.
 ```bash
 cd /path/to/your-project
 
-mkdir -p .agent/skills .agent/workflows .agent/config
+mkdir -p .agents/skills .agents/workflows .agents/config
 
 # Kopieer alleen ontbrekende skillmappen (voorbeeld)
 for skill in workflow-guide pm-agent frontend-agent backend-agent mobile-agent qa-agent debug-agent orchestrator commit; do
-  if [ ! -d ".agent/skills/$skill" ]; then
-    cp -r /path/to/oh-my-ag/.agent/skills/$skill .agent/skills/$skill
+  if [ ! -d ".agents/skills/$skill" ]; then
+    cp -r /path/to/oh-my-ag/.agents/skills/$skill .agents/skills/$skill
   fi
 done
 
 # Kopieer gedeelde resources als ze ontbreken
-[ -d .agent/skills/_shared ] || cp -r /path/to/oh-my-ag/.agent/skills/_shared .agent/skills/_shared
+[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-ag/.agents/skills/_shared .agents/skills/_shared
 
 # Kopieer workflows als ze ontbreken
 for wf in coordinate.md orchestrate.md plan.md review.md debug.md setup.md tools.md; do
-  [ -f ".agent/workflows/$wf" ] || cp /path/to/oh-my-ag/.agent/workflows/$wf .agent/workflows/$wf
+  [ -f ".agents/workflows/$wf" ] || cp /path/to/oh-my-ag/.agents/workflows/$wf .agents/workflows/$wf
 done
 
 # Kopieer standaard gebruikersvoorkeuren alleen als ze ontbreken
-[ -f .agent/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agent/config/user-preferences.yaml .agent/config/user-preferences.yaml
+[ -f .agents/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agents/config/user-preferences.yaml .agents/config/user-preferences.yaml
 ```
 
 ## Verificatiechecklist
 
 ```bash
 # 9 installeerbare skills (exclusief _shared)
-find .agent/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
+find .agents/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
 
 # Gedeelde resources
-[ -d .agent/skills/_shared ] && echo ok
+[ -d .agents/skills/_shared ] && echo ok
 
 # 7 workflows
-find .agent/workflows -maxdepth 1 -name '*.md' | wc -l
+find .agents/workflows -maxdepth 1 -name '*.md' | wc -l
 
 # Basis commandogezondheidscontrole
 bunx oh-my-ag doctor
@@ -106,17 +106,17 @@ Also develop with other CLI tools?
 
 Selecteer eventuele extra CLI-tools die u naast Antigravity gebruikt. De installer zal:
 
-1. Skills installeren in `.agent/skills/` (de native locatie van Antigravity)
-2. Symlinks aanmaken van de skillsmap van elke geselecteerde CLI naar `.agent/skills/`
+1. Skills installeren in `.agents/skills/` (de native locatie van Antigravity)
+2. Symlinks aanmaken van de skillsmap van elke geselecteerde CLI naar `.agents/skills/`
 
 Dit garandeert een enkele bron van waarheid terwijl skills over meerdere CLI-tools werken.
 
 ### Symlinkstructuur
 
 ```
-.agent/skills/frontend-agent/      ← Bron (SSOT)
-.claude/skills/frontend-agent/     → ../../.agent/skills/frontend-agent/
-.agents/skills/frontend-agent/     → ../../.agent/skills/frontend-agent/ (OpenCode, Amp, Codex)
+.agents/skills/frontend-agent/      ← Bron (SSOT)
+.claude/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/
+.agents/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/ (OpenCode, Amp, Codex)
 .github/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/ (GitHub Copilot)
 ```
 
@@ -124,6 +124,6 @@ De installer slaat bestaande symlinks over en geeft een waarschuwing als er een 
 
 ## Opmerkingen
 
-- Overschrijf bestaande `.agent/skills/*`-mappen niet, tenzij u aangepaste skills bewust wilt vervangen.
-- Houd projectspecifieke beleidsbestanden (`.agent/config/*`) onder het eigendom van uw repository.
+- Overschrijf bestaande `.agents/skills/*`-mappen niet, tenzij u aangepaste skills bewust wilt vervangen.
+- Houd projectspecifieke beleidsbestanden (`.agents/config/*`) onder het eigendom van uw repository.
 - Ga voor multi-agentorkestratiepatronen verder met de [`Gebruikshandleiding`](./usage.md).

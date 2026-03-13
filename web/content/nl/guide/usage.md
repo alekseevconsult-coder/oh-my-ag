@@ -12,7 +12,7 @@ description: Volledige gebruiksgids met voorbeelden, workflows, dashboardbewerki
    antigravity open /path/to/oh-my-ag
    ```
 
-2. **Skills worden automatisch gedetecteerd.** Antigravity scant `.agent/skills/` en indexeert alle beschikbare skills.
+2. **Skills worden automatisch gedetecteerd.** Antigravity scant `.agents/skills/` en indexeert alle beschikbare skills.
 
 3. **Chat in de IDE.** Beschrijf wat je wilt bouwen.
 
@@ -50,7 +50,7 @@ description: Volledige gebruiksgids met voorbeelden, workflows, dashboardbewerki
    wait
    ```
 4. **Agents werken parallel** — slaan outputs op in Knowledge Base
-5. **Jij coördineert** — review `.agent/brain/` voor consistentie
+5. **Jij coördineert** — review `.agents/brain/` voor consistentie
 6. **QA Agent reviewt** — beveiliging/prestatie audit
 7. **Repareren & itereren** — re-spawn agents met correcties
 
@@ -151,7 +151,7 @@ Gedeelde resources leven in `_shared/` (geen skill) en worden gerefereerd door a
 Gebruik `oh-my-ag agent:spawn` om agents via CLI uit te voeren. Respecteert `agent_cli_mapping` in `user-preferences.yaml` om de juiste CLI (gemini, claude, codex, qwen) per agent type te selecteren. Workspace wordt automatisch gedetecteerd uit gemeenschappelijke monorepo conventies, of kan expliciet worden ingesteld met `-w`.
 
 ### Knowledge Base
-Agent outputs opgeslagen op `.agent/brain/`. Bevat plannen, code, rapporten en coördinatie notities.
+Agent outputs opgeslagen op `.agents/brain/`. Bevat plannen, code, rapporten en coördinatie notities.
 
 ### Serena Memory
 Gestructureerde runtime state op `.serena/memories/`. De orchestrator schrijft sessie info, task boards, per-agent progress en resultaten. Dashboards monitoren deze bestanden voor monitoring.
@@ -171,13 +171,13 @@ Agents kunnen werken in aparte directories om conflicten te vermijden. Workspace
 | Skill | Activeert automatisch voor | Output |
 |-------|---------------------------|--------|
 | workflow-guide | Complexe multi-domein projecten | Stap-voor-stap agent coördinatie |
-| pm-agent | "plan dit", "onderverdelen" | `.agent/plan.json` |
+| pm-agent | "plan dit", "onderverdelen" | `.agents/plan.json` |
 | frontend-agent | UI, components, styling | React components, tests |
 | backend-agent | APIs, databases, auth | API endpoints, modellen, tests |
 | mobile-agent | Mobiele apps, iOS/Android | Flutter schermen, state management |
 | qa-agent | "review beveiliging", "audit" | QA rapport met geprioritiseerde fixes |
 | debug-agent | Bug rapporten, foutmeldingen | Gerepareerde code, regressietests |
-| orchestrator | CLI sub-agent uitvoering | Resultaten in `.agent/results/` |
+| orchestrator | CLI sub-agent uitvoering | Resultaten in `.agents/results/` |
 | commit | "commit", "wijzigingen opslaan" | Git commits (auto-splits per feature) |
 
 ---
@@ -253,7 +253,7 @@ Browser:    http://localhost:9847 → realtime status
 
 1. **Wees specifiek** — "Bouw een TODO app met JWT auth, React frontend, FastAPI backend" is beter dan "maak een app"
 2. **Gebruik CLI spawning** voor multi-domein projecten — probeer niet alles in één chat te doen
-3. **Review Knowledge Base** — controleer `.agent/brain/` voor API consistentie
+3. **Review Knowledge Base** — controleer `.agents/brain/` voor API consistentie
 4. **Itereer met re-spawns** — verfijn instructies, begin niet opnieuw
 5. **Gebruik dashboards** — `bunx oh-my-ag dashboard` of `bunx oh-my-ag dashboard:web` om orchestrator sessies te monitoren
 6. **Aparte workspaces** — wijs elke agent zijn eigen directory toe
@@ -264,7 +264,7 @@ Browser:    http://localhost:9847 → realtime status
 
 | Probleem | Oplossing |
 |----------|-----------|
-| Skills laden niet | `antigravity open .`, controleer `.agent/skills/`, herstart IDE |
+| Skills laden niet | `antigravity open .`, controleer `.agents/skills/`, herstart IDE |
 | CLI niet gevonden | Controleer `which gemini` / `which claude`, installeer ontbrekende CLIs |
 | Incompatibele agent outputs | Review beide in Knowledge Base, re-spawn met correcties |
 | Dashboard: "No agents" | Memory bestanden nog niet aangemaakt, voer orchestrator eerst uit |

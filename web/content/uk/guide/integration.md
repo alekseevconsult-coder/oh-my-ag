@@ -21,10 +21,10 @@ bunx oh-my-ag
 
 Що це робить:
 
-- Встановлює або оновлює `.agent/skills/*`
-- Встановлює спільні ресурси в `.agent/skills/_shared`
-- Встановлює `.agent/workflows/*`
-- Встановлює `.agent/config/user-preferences.yaml`
+- Встановлює або оновлює `.agents/skills/*`
+- Встановлює спільні ресурси в `.agents/skills/_shared`
+- Встановлює `.agents/workflows/*`
+- Встановлює `.agents/config/user-preferences.yaml`
 - За бажанням встановлює глобальні робочі процеси в `~/.gemini/antigravity/global_workflows`
 
 ## Безпечний ручний шлях
@@ -34,38 +34,38 @@ bunx oh-my-ag
 ```bash
 cd /path/to/your-project
 
-mkdir -p .agent/skills .agent/workflows .agent/config
+mkdir -p .agents/skills .agents/workflows .agents/config
 
 # Copy only missing skill directories (example)
 for skill in workflow-guide pm-agent frontend-agent backend-agent mobile-agent qa-agent debug-agent orchestrator commit; do
-  if [ ! -d ".agent/skills/$skill" ]; then
-    cp -r /path/to/oh-my-ag/.agent/skills/$skill .agent/skills/$skill
+  if [ ! -d ".agents/skills/$skill" ]; then
+    cp -r /path/to/oh-my-ag/.agents/skills/$skill .agents/skills/$skill
   fi
 done
 
 # Copy shared resources if missing
-[ -d .agent/skills/_shared ] || cp -r /path/to/oh-my-ag/.agent/skills/_shared .agent/skills/_shared
+[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-ag/.agents/skills/_shared .agents/skills/_shared
 
 # Copy workflows if missing
 for wf in coordinate.md orchestrate.md plan.md review.md debug.md setup.md tools.md; do
-  [ -f ".agent/workflows/$wf" ] || cp /path/to/oh-my-ag/.agent/workflows/$wf .agent/workflows/$wf
+  [ -f ".agents/workflows/$wf" ] || cp /path/to/oh-my-ag/.agents/workflows/$wf .agents/workflows/$wf
 done
 
 # Copy default user preferences only if missing
-[ -f .agent/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agent/config/user-preferences.yaml .agent/config/user-preferences.yaml
+[ -f .agents/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agents/config/user-preferences.yaml .agents/config/user-preferences.yaml
 ```
 
 ## Чек-лист верифікації
 
 ```bash
 # 9 installable skills (excluding _shared)
-find .agent/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
+find .agents/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
 
 # Shared resources
-[ -d .agent/skills/_shared ] && echo ok
+[ -d .agents/skills/_shared ] && echo ok
 
 # 7 workflows
-find .agent/workflows -maxdepth 1 -name '*.md' | wc -l
+find .agents/workflows -maxdepth 1 -name '*.md' | wc -l
 
 # Basic command health
 bunx oh-my-ag doctor
@@ -106,17 +106,17 @@ Also develop with other CLI tools?
 
 Оберіть будь-які додаткові CLI-інструменти, які ви використовуєте поряд з Antigravity. Інсталятор:
 
-1. Встановить навички в `.agent/skills/` (рідне розташування Antigravity)
-2. Створить симлінки з директорії навичок кожного обраного CLI до `.agent/skills/`
+1. Встановить навички в `.agents/skills/` (рідне розташування Antigravity)
+2. Створить симлінки з директорії навичок кожного обраного CLI до `.agents/skills/`
 
 Це забезпечує єдине джерело істини, дозволяючи навичкам працювати з кількома CLI-інструментами.
 
 ### Структура симлінків
 
 ```
-.agent/skills/frontend-agent/      ← Джерело (SSOT)
-.claude/skills/frontend-agent/     → ../../.agent/skills/frontend-agent/
-.agents/skills/frontend-agent/     → ../../.agent/skills/frontend-agent/ (OpenCode, Amp, Codex)
+.agents/skills/frontend-agent/      ← Джерело (SSOT)
+.claude/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/
+.agents/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/ (OpenCode, Amp, Codex)
 .github/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/ (GitHub Copilot)
 ```
 
@@ -124,6 +124,6 @@ Also develop with other CLI tools?
 
 ## Примітки
 
-- Не перезаписуйте існуючі папки `.agent/skills/*`, якщо ви не маєте наміру замінити налаштовані навички.
-- Зберігайте файли політик проєкту (`.agent/config/*`) під управлінням вашого репозиторію.
+- Не перезаписуйте існуючі папки `.agents/skills/*`, якщо ви не маєте наміру замінити налаштовані навички.
+- Зберігайте файли політик проєкту (`.agents/config/*`) під управлінням вашого репозиторію.
 - Для патернів мульти-агентної оркестрації перейдіть до [`Посібника з використання`](./usage.md).

@@ -37,7 +37,7 @@ jobs:
 
       - name: Create tarball
         run: |
-          tar -czvf agent-skills.tar.gz .agent/
+          tar -czvf agent-skills.tar.gz .agents/
           sha256sum agent-skills.tar.gz > agent-skills.tar.gz.sha256
 
       - name: Upload release artifacts

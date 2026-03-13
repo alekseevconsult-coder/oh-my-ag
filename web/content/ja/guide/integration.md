@@ -21,10 +21,10 @@ bunx oh-my-ag
 
 実行内容:
 
-- `.agent/skills/*` をインストールまたは更新
-- `.agent/skills/_shared` に共有リソースをインストール
-- `.agent/workflows/*` をインストール
-- `.agent/config/user-preferences.yaml` をインストール
+- `.agents/skills/*` をインストールまたは更新
+- `.agents/skills/_shared` に共有リソースをインストール
+- `.agents/workflows/*` をインストール
+- `.agents/config/user-preferences.yaml` をインストール
 - オプションで `~/.gemini/antigravity/global_workflows` にグローバルワークフローをインストール
 
 ## 安全な手動パス
@@ -34,38 +34,38 @@ bunx oh-my-ag
 ```bash
 cd /path/to/your-project
 
-mkdir -p .agent/skills .agent/workflows .agent/config
+mkdir -p .agents/skills .agents/workflows .agents/config
 
 # Copy only missing skill directories (example)
 for skill in workflow-guide pm-agent frontend-agent backend-agent mobile-agent qa-agent debug-agent orchestrator commit; do
-  if [ ! -d ".agent/skills/$skill" ]; then
-    cp -r /path/to/oh-my-ag/.agent/skills/$skill .agent/skills/$skill
+  if [ ! -d ".agents/skills/$skill" ]; then
+    cp -r /path/to/oh-my-ag/.agents/skills/$skill .agents/skills/$skill
   fi
 done
 
 # Copy shared resources if missing
-[ -d .agent/skills/_shared ] || cp -r /path/to/oh-my-ag/.agent/skills/_shared .agent/skills/_shared
+[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-ag/.agents/skills/_shared .agents/skills/_shared
 
 # Copy workflows if missing
 for wf in coordinate.md orchestrate.md plan.md review.md debug.md setup.md tools.md; do
-  [ -f ".agent/workflows/$wf" ] || cp /path/to/oh-my-ag/.agent/workflows/$wf .agent/workflows/$wf
+  [ -f ".agents/workflows/$wf" ] || cp /path/to/oh-my-ag/.agents/workflows/$wf .agents/workflows/$wf
 done
 
 # Copy default user preferences only if missing
-[ -f .agent/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agent/config/user-preferences.yaml .agent/config/user-preferences.yaml
+[ -f .agents/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agents/config/user-preferences.yaml .agents/config/user-preferences.yaml
 ```
 
 ## 検証チェックリスト
 
 ```bash
 # 9 installable skills (excluding _shared)
-find .agent/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
+find .agents/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
 
 # Shared resources
-[ -d .agent/skills/_shared ] && echo ok
+[ -d .agents/skills/_shared ] && echo ok
 
 # 7 workflows
-find .agent/workflows -maxdepth 1 -name '*.md' | wc -l
+find .agents/workflows -maxdepth 1 -name '*.md' | wc -l
 
 # Basic command health
 bunx oh-my-ag doctor
@@ -106,17 +106,17 @@ Also develop with other CLI tools?
 
 Antigravity と併用する追加の CLI ツールを選択してください。インストーラーは以下を行います:
 
-1. `.agent/skills/`（Antigravity のネイティブロケーション）にスキルをインストール
-2. 選択した各 CLI のスキルディレクトリから `.agent/skills/` へのシンボリックリンクを作成
+1. `.agents/skills/`（Antigravity のネイティブロケーション）にスキルをインストール
+2. 選択した各 CLI のスキルディレクトリから `.agents/skills/` へのシンボリックリンクを作成
 
 これにより、単一の正式なソースを維持しつつ、複数の CLI ツールでスキルを利用できます。
 
 ### シンボリックリンク構成
 
 ```
-.agent/skills/frontend-agent/      ← ソース（SSOT）
-.claude/skills/frontend-agent/     → ../../.agent/skills/frontend-agent/
-.agents/skills/frontend-agent/     → ../../.agent/skills/frontend-agent/ (OpenCode, Amp, Codex)
+.agents/skills/frontend-agent/      ← ソース（SSOT）
+.claude/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/
+.agents/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/ (OpenCode, Amp, Codex)
 .github/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/ (GitHub Copilot)
 ```
 
@@ -124,6 +124,6 @@ Antigravity と併用する追加の CLI ツールを選択してください。
 
 ## 注意事項
 
-- カスタマイズされたスキルを置き換える意図がない限り、既存の `.agent/skills/*` フォルダを上書きしないでください。
-- プロジェクト固有のポリシーファイル（`.agent/config/*`）はリポジトリの所有下に保持してください。
+- カスタマイズされたスキルを置き換える意図がない限り、既存の `.agents/skills/*` フォルダを上書きしないでください。
+- プロジェクト固有のポリシーファイル（`.agents/config/*`）はリポジトリの所有下に保持してください。
 - マルチエージェントオーケストレーションパターンについては、[`使用ガイド`](./usage.md) に進んでください。

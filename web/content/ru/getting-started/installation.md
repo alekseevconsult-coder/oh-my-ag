@@ -17,7 +17,7 @@ description: Предварительные требования, вариант
 bunx oh-my-ag
 ```
 
-Устанавливает навыки и рабочие процессы в `.agent/` в текущем проекте.
+Устанавливает навыки и рабочие процессы в `.agents/` в текущем проекте.
 
 ## Вариант 2: Глобальная установка
 
@@ -39,9 +39,9 @@ bunx oh-my-ag doctor
 ### Ручное копирование
 
 ```bash
-cp -r oh-my-ag/.agent/skills /path/to/project/.agent/
-cp -r oh-my-ag/.agent/workflows /path/to/project/.agent/
-cp -r oh-my-ag/.agent/config /path/to/project/.agent/
+cp -r oh-my-ag/.agents/skills /path/to/project/.agents/
+cp -r oh-my-ag/.agents/workflows /path/to/project/.agents/
+cp -r oh-my-ag/.agents/config /path/to/project/.agents/
 ```
 
 ## Команда первоначальной настройки
@@ -50,7 +50,7 @@ cp -r oh-my-ag/.agent/config /path/to/project/.agent/
 /setup
 ```
 
-Создаёт `.agent/config/user-preferences.yaml`.
+Создаёт `.agents/config/user-preferences.yaml`.
 
 ## Необходимые CLI-вендоры
 

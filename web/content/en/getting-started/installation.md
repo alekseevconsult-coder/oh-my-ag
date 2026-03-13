@@ -17,7 +17,7 @@ description: Prerequisites, install options, and first-run setup.
 bunx oh-my-ag
 ```
 
-Installs skills and workflows into `.agent/` in the current project.
+Installs skills and workflows into `.agents/` in the current project.
 
 ## Option 2: Global Install
 
@@ -39,9 +39,9 @@ bunx oh-my-ag doctor
 ### Manual copy path
 
 ```bash
-cp -r oh-my-ag/.agent/skills /path/to/project/.agent/
-cp -r oh-my-ag/.agent/workflows /path/to/project/.agent/
-cp -r oh-my-ag/.agent/config /path/to/project/.agent/
+cp -r oh-my-ag/.agents/skills /path/to/project/.agents/
+cp -r oh-my-ag/.agents/workflows /path/to/project/.agents/
+cp -r oh-my-ag/.agents/config /path/to/project/.agents/
 ```
 
 ## Initial Setup Command
@@ -50,7 +50,7 @@ cp -r oh-my-ag/.agent/config /path/to/project/.agent/
 /setup
 ```
 
-Creates `.agent/config/user-preferences.yaml`.
+Creates `.agents/config/user-preferences.yaml`.
 
 ## Required CLI Vendors
 

@@ -4,9 +4,6 @@ import { join } from "node:path";
 import * as p from "@clack/prompts";
 import pc from "picocolors";
 import {
-  type CliTool,
-  createCliSymlinks,
-  createCompatSymlinks,
   getAllSkills,
   INSTALLED_SKILLS_DIR,
   installConfigs,
@@ -16,10 +13,20 @@ import {
   installWorkflows,
   PRESETS,
 } from "../lib/skills.js";
+import { migrateToAgents } from "../lib/migrate.js";
 
 export async function install(): Promise<void> {
   console.clear();
   p.intro(pc.bgMagenta(pc.white(" 🛸 oh-my-ag ")));
+
+  // Auto-migrate from legacy .agent/ to .agents/
+  const migrations = migrateToAgents(process.cwd());
+  if (migrations.length > 0) {
+    p.note(
+      migrations.map((m) => `${pc.green("✓")} ${m}`).join("\n"),
+      "Migration",
+    );
+  }
 
   const projectType = await p.select({
     message: "What type of project?",
@@ -65,28 +72,6 @@ export async function install(): Promise<void> {
     selectedSkills = PRESETS[projectType as string] ?? [];
   }
 
-  const cliSelection = await p.multiselect({
-    message: "Also create symlinks for other CLI tools?",
-    options: [
-      {
-        value: "cursor",
-        label: "Cursor",
-        hint: ".cursor/skills/",
-      },
-      {
-        value: "copilot",
-        label: "GitHub Copilot",
-        hint: ".github/skills/",
-      },
-    ],
-    required: false,
-  });
-
-  const rawSelection = p.isCancel(cliSelection)
-    ? []
-    : (cliSelection as string[]);
-  const selectedClis = rawSelection as CliTool[];
-
   const cwd = process.cwd();
   const spinner = p.spinner();
   spinner.start("Installing skills...");
@@ -102,16 +87,6 @@ export async function install(): Promise<void> {
       await installSkill(skillName, cwd);
     }
 
-    spinner.message("Creating symlinks...");
-    const compatSymlinks = createCompatSymlinks(cwd, selectedSkills);
-    const cliSymlinks =
-      selectedClis.length > 0
-        ? createCliSymlinks(cwd, selectedClis, selectedSkills)
-        : { created: [], skipped: [] };
-
-    const created = [...compatSymlinks.created, ...cliSymlinks.created];
-    const skipped = [...compatSymlinks.skipped, ...cliSymlinks.skipped];
-
     spinner.stop("Skills installed!");
 
     p.note(
@@ -119,17 +94,6 @@ export async function install(): Promise<void> {
         ...selectedSkills.map((s) => `${pc.green("✓")} ${s}`),
         "",
         pc.dim(`Location: ${join(cwd, INSTALLED_SKILLS_DIR)}`),
-        pc.dim("Compat symlinks: .agent/skills, .claude/skills"),
-        ...(created.length > 0
-          ? [
-              "",
-              pc.cyan("Symlinks:"),
-              ...created.map((s) => `${pc.green("→")} ${s}`),
-            ]
-          : []),
-        ...(skipped.length > 0
-          ? ["", pc.dim("Skipped:"), ...skipped.map((s) => pc.dim(`  ${s}`))]
-          : []),
       ].join("\n"),
       "Installed",
     );

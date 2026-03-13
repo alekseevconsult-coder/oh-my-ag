@@ -9,7 +9,7 @@ description: Árvore de diretórios atualizada após a separação dos workspace
 
 ```text
 .
-├── .agent/
+├── .agents/
 │   ├── config/
 │   │   └── user-preferences.yaml   # Idioma, fuso horário, mapeamento CLI
 │   ├── workflows/

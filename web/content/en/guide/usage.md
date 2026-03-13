@@ -14,7 +14,7 @@ description: Full usage guide including examples, workflows, dashboard operation
    antigravity open /path/to/oh-my-ag
    ```
 
-2. **Skills are automatically detected.** Antigravity scans `.agent/skills/` and indexes all available skills.
+2. **Skills are automatically detected.** Antigravity scans `.agents/skills/` and indexes all available skills.
 
 3. **Chat in the IDE.** Describe what you want to build.
 
@@ -52,7 +52,7 @@ description: Full usage guide including examples, workflows, dashboard operation
    wait
    ```
 4. **Agents work in parallel** — save outputs to Knowledge Base
-5. **You coordinate** — review `.agent/brain/` for consistency
+5. **You coordinate** — review `.agents/brain/` for consistency
 6. **QA Agent reviews** — security/performance audit
 7. **Fix & iterate** — re-spawn agents with corrections
 
@@ -153,7 +153,7 @@ Shared resources live in `_shared/` (not a skill) and are referenced by all agen
 Use `oh-my-ag agent:spawn` to run agents via CLI. Respects `agent_cli_mapping` in `user-preferences.yaml` to select the appropriate CLI (gemini, claude, codex, qwen) per agent type. Workspace is auto-detected from common monorepo conventions, or can be set explicitly with `-w`.
 
 ### Knowledge Base
-Agent outputs stored at `.agent/brain/`. Contains plans, code, reports, and coordination notes.
+Agent outputs stored at `.agents/brain/`. Contains plans, code, reports, and coordination notes.
 
 ### Serena Memory
 Structured runtime state at `.serena/memories/`. The orchestrator writes session info, task boards, per-agent progress, and results. Dashboards watch these files for monitoring.
@@ -173,13 +173,13 @@ Agents can work in separate directories to avoid conflicts. Workspace is auto-de
 | Skill | Auto-activates for | Output |
 |-------|-------------------|--------|
 | workflow-guide | Complex multi-domain projects | Step-by-step agent coordination |
-| pm-agent | "plan this", "break down" | `.agent/plan.json` |
+| pm-agent | "plan this", "break down" | `.agents/plan.json` |
 | frontend-agent | UI, components, styling | React components, tests |
 | backend-agent | APIs, databases, auth | API endpoints, models, tests |
 | mobile-agent | Mobile apps, iOS/Android | Flutter screens, state management |
 | qa-agent | "review security", "audit" | QA report with prioritized fixes |
 | debug-agent | Bug reports, error messages | Fixed code, regression tests |
-| orchestrator | CLI sub-agent execution | Results in `.agent/results/` |
+| orchestrator | CLI sub-agent execution | Results in `.agents/results/` |
 | commit | "commit", "커밋해줘" | Git commits (auto-splits by feature) |
 
 ---
@@ -255,7 +255,7 @@ Browser:    http://localhost:9847 → real-time status
 
 1. **Be specific** — "Build a TODO app with JWT auth, React frontend, FastAPI backend" is better than "make an app"
 2. **Use CLI spawning** for multi-domain projects — don't try to do everything in one chat
-3. **Review Knowledge Base** — check `.agent/brain/` for API consistency
+3. **Review Knowledge Base** — check `.agents/brain/` for API consistency
 4. **Iterate with re-spawns** — refine instructions, don't start over
 5. **Use dashboards** — `bunx oh-my-ag dashboard` or `bunx oh-my-ag dashboard:web` to monitor orchestrator sessions
 6. **Separate workspaces** — assign each agent its own directory
@@ -266,9 +266,9 @@ Browser:    http://localhost:9847 → real-time status
 
 | Problem | Solution |
 |---------|----------|
-| Skills not loading in Antigravity | Open project with `antigravity open .`, verify `.agent/skills/` and `SKILL.md`, then restart Antigravity IDE |
+| Skills not loading in Antigravity | Open project with `antigravity open .`, verify `.agents/skills/` and `SKILL.md`, then restart Antigravity IDE |
 | CLI not found | Check `which gemini` / `which claude`, install missing CLIs |
-| Agents producing incompatible code | Review outputs in `.agent/brain/`, re-spawn one agent referencing the other agent output, then use QA Agent for final consistency check |
+| Agents producing incompatible code | Review outputs in `.agents/brain/`, re-spawn one agent referencing the other agent output, then use QA Agent for final consistency check |
 | Dashboard shows "No agents detected" | Memory files have not been created yet. Run the orchestrator or manually create files in `.serena/memories/` |
 | Web dashboard won't start | Run `bun install` to install chokidar and ws |
 | fswatch not found | macOS: `brew install fswatch`, Linux: `apt install inotify-tools` |
