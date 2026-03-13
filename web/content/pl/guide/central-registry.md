@@ -36,7 +36,7 @@ Wydania są automatyzowane za pomocą [release-please](https://github.com/google
 3. Scal PR wydania, aby opublikować artefakty GitHub Release:
    - `CHANGELOG.md` (generowany automatycznie)
    - `prompt-manifest.json` (lista plików + sumy kontrolne SHA256)
-   - `agent-skills.tar.gz` (skompresowany katalog `.agents/`)
+   - `agent-skills.tar.gz` (skompresowany katalog `.agent/`)
 
 ## Dla projektów konsumenckich
 
@@ -62,7 +62,7 @@ registry:
 Role przepływów pracy:
 
 - `check-registry-updates.yml`: sprawdza dostępność nowych wersji i otwiera PR.
-- `sync-agent-registry.yml`: synchronizuje `.agents/` po zmianie przypiętej wersji.
+- `sync-agent-registry.yml`: synchronizuje `.agent/` po zmianie przypiętej wersji.
 
 **Ważne**: Auto-merge jest celowo wyłączony. Wszystkie aktualizacje powinny być ręcznie przeglądane.
 

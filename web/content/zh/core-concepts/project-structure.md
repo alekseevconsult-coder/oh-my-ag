@@ -11,7 +11,7 @@ description: 拆分 CLI 和 Web 文档工作区后的更新版仓库目录树。
 
 ```text
 .
-├── .agents/
+├── .agent/
 │   ├── config/
 │   │   └── user-preferences.yaml
 │   ├── workflows/

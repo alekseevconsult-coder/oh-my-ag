@@ -104,7 +104,7 @@ Une collection de **Compétences Antigravity** permettant le développement coll
 bunx oh-my-ag
 ```
 
-Sélectionnez votre type de projet et les compétences seront installées dans `.agents/skills/`.
+Sélectionnez votre type de projet et les compétences seront installées dans `.agent/skills/`.
 
 | Préréglage | Compétences |
 |------------|-------------|

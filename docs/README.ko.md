@@ -96,7 +96,7 @@ flowchart TD
 bunx oh-my-ag
 ```
 
-프로젝트 타입을 선택하면 `.agents/skills/`에 스킬이 설치됩니다.
+프로젝트 타입을 선택하면 `.agent/skills/`에 스킬이 설치됩니다.
 
 | 프리셋 | 스킬 |
 |--------|--------|

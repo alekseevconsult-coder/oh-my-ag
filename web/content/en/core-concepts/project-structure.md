@@ -11,7 +11,7 @@ Updated directory tree for the current monorepo layout (`cli` + `web` workspaces
 
 ```text
 .
-├── .agents/
+├── .agent/
 │   ├── config/
 │   │   └── user-preferences.yaml
 │   ├── workflows/

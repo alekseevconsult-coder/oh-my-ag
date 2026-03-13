@@ -29,7 +29,7 @@ bunx oh-my-ag dashboard:web
 
 ## 多 CLI 配置
 
-在 `.agents/config/user-preferences.yaml` 中为不同代理类型配置不同的 CLI：
+在 `.agent/config/user-preferences.yaml` 中为不同代理类型配置不同的 CLI：
 
 ```yaml
 # 响应语言

@@ -97,7 +97,7 @@ flowchart TD
 bunx oh-my-ag
 ```
 
-选择你的项目类型，技能将安装到 `.agents/skills/`。
+选择你的项目类型，技能将安装到 `.agent/skills/`。
 
 | 预设 | 技能 |
 |------|------|

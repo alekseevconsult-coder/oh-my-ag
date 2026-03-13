@@ -29,7 +29,7 @@ bunx oh-my-ag dashboard:web
 
 ## マルチ CLI 設定
 
-`.agents/config/user-preferences.yaml` でエージェントタイプごとに異なる CLI を設定できます:
+`.agent/config/user-preferences.yaml` でエージェントタイプごとに異なる CLI を設定できます:
 
 ```yaml
 # Response language

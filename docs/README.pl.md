@@ -104,7 +104,7 @@ Kolekcja **Antigravity Skills** umożliwiających współpracę multi-agentową 
 bunx oh-my-ag
 ```
 
-Wybierz typ projektu, a umiejętności zostaną zainstalowane w `.agents/skills/`.
+Wybierz typ projektu, a umiejętności zostaną zainstalowane w `.agent/skills/`.
 
 | Predefiniowany | Umiejętności |
 |--------|--------|

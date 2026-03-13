@@ -30,8 +30,8 @@ oh-my-ag to wieloagentowy orkiestrator dla Antigravity IDE. Kieruje żądania do
 
 ## Struktura projektu
 
-- `.agents/skills/`: definicje umiejętności i zasoby
-- `.agents/workflows/`: jawne komendy przepływów pracy
+- `.agent/skills/`: definicje umiejętności i zasoby
+- `.agent/workflows/`: jawne komendy przepływów pracy
 - `.serena/memories/`: stan orkiestracji w czasie wykonania
 - `cli/cli.ts`: źródło prawdy dla interfejsów komend
 

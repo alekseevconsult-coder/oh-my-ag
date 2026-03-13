@@ -23,9 +23,9 @@ What it does:
 
 - Installs or updates `.agents/skills/*`
 - Installs shared resources in `.agents/skills/_shared`
-- Creates compatibility symlinks at `.agents/skills/*` and `.claude/skills/*`
-- Installs `.agents/workflows/*`
-- Installs `.agents/config/user-preferences.yaml`
+- Creates compatibility symlinks at `.agent/skills/*` and `.claude/skills/*`
+- Installs `.agent/workflows/*`
+- Installs `.agent/config/user-preferences.yaml`
 - Optionally installs global workflows under `~/.gemini/antigravity/global_workflows`
 
 ## Safe Manual Path
@@ -35,31 +35,31 @@ Use this when you need full control over each copied directory.
 ```bash
 cd /path/to/your-project
 
-mkdir -p .agents/skills .agents/skills .agents/workflows .agents/config .claude/skills
+mkdir -p .agents/skills .agent/skills .agent/workflows .agent/config .claude/skills
 
 # Copy only missing skill directories (example)
 for skill in workflow-guide pm-agent frontend-agent backend-agent mobile-agent qa-agent debug-agent orchestrator commit; do
   if [ ! -d ".agents/skills/$skill" ]; then
-    cp -r /path/to/oh-my-ag/.agents/skills/$skill .agents/skills/$skill
+    cp -r /path/to/oh-my-ag/.agent/skills/$skill .agents/skills/$skill
   fi
 done
 
 # Copy shared resources if missing
-[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-ag/.agents/skills/_shared .agents/skills/_shared
+[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-ag/.agent/skills/_shared .agents/skills/_shared
 
 # Compatibility symlinks
 for skill in workflow-guide pm-agent frontend-agent backend-agent mobile-agent qa-agent debug-agent orchestrator commit _shared; do
-  [ -L ".agents/skills/$skill" ] || ln -s "../../.agents/skills/$skill" ".agents/skills/$skill"
+  [ -L ".agent/skills/$skill" ] || ln -s "../../.agents/skills/$skill" ".agent/skills/$skill"
   [ -L ".claude/skills/$skill" ] || ln -s "../../.agents/skills/$skill" ".claude/skills/$skill"
 done
 
 # Copy workflows if missing
 for wf in coordinate.md orchestrate.md plan.md review.md debug.md setup.md tools.md; do
-  [ -f ".agents/workflows/$wf" ] || cp /path/to/oh-my-ag/.agents/workflows/$wf .agents/workflows/$wf
+  [ -f ".agent/workflows/$wf" ] || cp /path/to/oh-my-ag/.agent/workflows/$wf .agent/workflows/$wf
 done
 
 # Copy default user preferences only if missing
-[ -f .agents/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agents/config/user-preferences.yaml .agents/config/user-preferences.yaml
+[ -f .agent/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agent/config/user-preferences.yaml .agent/config/user-preferences.yaml
 ```
 
 ## Verification Checklist
@@ -72,7 +72,7 @@ find .agents/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
 [ -d .agents/skills/_shared ] && echo ok
 
 # 7 workflows
-find .agents/workflows -maxdepth 1 -name '*.md' | wc -l
+find .agent/workflows -maxdepth 1 -name '*.md' | wc -l
 
 # Basic command health
 bunx oh-my-ag doctor
@@ -113,7 +113,7 @@ Also create symlinks for other CLI tools?
 The installer will always:
 
 1. Install skills to `.agents/skills/` (SSOT for CLI-based usage)
-2. Create compatibility symlinks at `.agents/skills/` and `.claude/skills/`
+2. Create compatibility symlinks at `.agent/skills/` and `.claude/skills/`
 
 If you select additional CLI tools, it will also create symlinks for those directories. This keeps one source of truth while allowing skills to work across multiple tools.
 
@@ -121,7 +121,7 @@ If you select additional CLI tools, it will also create symlinks for those direc
 
 ```text
 .agents/skills/frontend-agent/     ← Source (SSOT)
-.agents/skills/frontend-agent/      → ../../.agents/skills/frontend-agent/
+.agent/skills/frontend-agent/      → ../../.agents/skills/frontend-agent/
 .claude/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/
 .github/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/ (GitHub Copilot)
 ```
@@ -131,5 +131,5 @@ The installer skips existing symlinks and warns if a real directory exists at th
 ## Notes
 
 - Do not overwrite existing `.agents/skills/*` folders unless you intend to replace customized skills.
-- Keep project-specific policy files (`.agents/config/*`) under your repository ownership.
+- Keep project-specific policy files (`.agent/config/*`) under your repository ownership.
 - For multi-agent orchestration patterns, continue with the [`Usage Guide`](./usage.md).

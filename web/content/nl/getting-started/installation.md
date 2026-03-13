@@ -17,7 +17,7 @@ description: Vereisten, installatieopties en eerste configuratie.
 bunx oh-my-ag
 ```
 
-Installeert skills en workflows in `.agents/` in het huidige project.
+Installeert skills en workflows in `.agent/` in het huidige project.
 
 ## Optie 2: Globale installatie
 
@@ -39,9 +39,9 @@ bunx oh-my-ag doctor
 ### Handmatig kopieerpad
 
 ```bash
-cp -r oh-my-ag/.agents/skills /path/to/project/.agents/
-cp -r oh-my-ag/.agents/workflows /path/to/project/.agents/
-cp -r oh-my-ag/.agents/config /path/to/project/.agents/
+cp -r oh-my-ag/.agent/skills /path/to/project/.agent/
+cp -r oh-my-ag/.agent/workflows /path/to/project/.agent/
+cp -r oh-my-ag/.agent/config /path/to/project/.agent/
 ```
 
 ## Initieel configuratiecommando
@@ -50,7 +50,7 @@ cp -r oh-my-ag/.agents/config /path/to/project/.agents/
 /setup
 ```
 
-Maakt `.agents/config/user-preferences.yaml` aan.
+Maakt `.agent/config/user-preferences.yaml` aan.
 
 ## Vereiste CLI-vendors
 

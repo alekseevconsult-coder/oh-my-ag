@@ -99,7 +99,7 @@ function checkHardcodedSecrets(workspace: string): VerifyCheck {
 
 function checkTodoComments(workspace: string): VerifyCheck {
   const result = runCommand(
-    `grep -rn --include="*.py" --include="*.ts" --include="*.tsx" --include="*.js" --include="*.dart" -E "TODO|FIXME|HACK|XXX" . 2>/dev/null | grep -v node_modules | grep -v ".agents/" | wc -l`,
+    `grep -rn --include="*.py" --include="*.ts" --include="*.tsx" --include="*.js" --include="*.dart" -E "TODO|FIXME|HACK|XXX" . 2>/dev/null | grep -v node_modules | grep -v ".agent/" | wc -l`,
     workspace,
   );
 

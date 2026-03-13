@@ -9,7 +9,7 @@ Arborescence détaillée des répertoires pour ce dépôt.
 
 ```text
 .
-├── .agents/
+├── .agent/
 │   ├── config/
 │   │   └── user-preferences.yaml   # Langue, fuseau horaire, mappage CLI
 │   ├── workflows/

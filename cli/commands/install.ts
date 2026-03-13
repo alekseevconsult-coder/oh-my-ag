@@ -119,7 +119,7 @@ export async function install(): Promise<void> {
         ...selectedSkills.map((s) => `${pc.green("✓")} ${s}`),
         "",
         pc.dim(`Location: ${join(cwd, INSTALLED_SKILLS_DIR)}`),
-        pc.dim("Compat symlinks: .agents/skills, .claude/skills"),
+        pc.dim("Compat symlinks: .agent/skills, .claude/skills"),
         ...(created.length > 0
           ? [
               "",

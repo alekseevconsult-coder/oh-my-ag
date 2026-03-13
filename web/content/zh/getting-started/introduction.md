@@ -30,8 +30,8 @@ oh-my-ag 是面向 Antigravity IDE 的多代理编排器。它将请求路由到
 
 ## 项目结构
 
-- `.agents/skills/`：技能定义与资源
-- `.agents/workflows/`：显式工作流命令
+- `.agent/skills/`：技能定义与资源
+- `.agent/workflows/`：显式工作流命令
 - `.serena/memories/`：运行时编排状态
 - `cli/cli.ts`：命令接口的唯一真实来源
 

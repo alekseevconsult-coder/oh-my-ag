@@ -104,7 +104,7 @@ Una colección de **Antigravity Skills** que habilitan desarrollo colaborativo m
 bunx oh-my-ag
 ```
 
-Selecciona tu tipo de proyecto y los skills se instalarán en `.agents/skills/`.
+Selecciona tu tipo de proyecto y los skills se instalarán en `.agent/skills/`.
 
 | Preset | Skills |
 |--------|--------|

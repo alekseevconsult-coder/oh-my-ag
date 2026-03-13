@@ -23,9 +23,9 @@ bunx oh-my-ag
 
 - `.agents/skills/*` 설치/업데이트
 - `.agents/skills/_shared` 공통 리소스 설치
-- `.agents/skills/*`, `.claude/skills/*` 호환 심링크 생성
-- `.agents/workflows/*` 설치
-- `.agents/config/user-preferences.yaml` 설치
+- `.agent/skills/*`, `.claude/skills/*` 호환 심링크 생성
+- `.agent/workflows/*` 설치
+- `.agent/config/user-preferences.yaml` 설치
 - 선택적으로 `~/.gemini/antigravity/global_workflows` 전역 워크플로우 설치
 
 ## 수동 통합 (안전 모드)
@@ -35,31 +35,31 @@ bunx oh-my-ag
 ```bash
 cd /path/to/your-project
 
-mkdir -p .agents/skills .agents/skills .agents/workflows .agents/config .claude/skills
+mkdir -p .agents/skills .agent/skills .agent/workflows .agent/config .claude/skills
 
 # 없는 스킬만 복사 (예시)
 for skill in workflow-guide pm-agent frontend-agent backend-agent mobile-agent qa-agent debug-agent orchestrator commit; do
   if [ ! -d ".agents/skills/$skill" ]; then
-    cp -r /path/to/oh-my-ag/.agents/skills/$skill .agents/skills/$skill
+    cp -r /path/to/oh-my-ag/.agent/skills/$skill .agents/skills/$skill
   fi
 done
 
 # 공통 리소스가 없으면 복사
-[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-ag/.agents/skills/_shared .agents/skills/_shared
+[ -d .agents/skills/_shared ] || cp -r /path/to/oh-my-ag/.agent/skills/_shared .agents/skills/_shared
 
 # 호환 심링크 생성
 for skill in workflow-guide pm-agent frontend-agent backend-agent mobile-agent qa-agent debug-agent orchestrator commit _shared; do
-  [ -L ".agents/skills/$skill" ] || ln -s "../../.agents/skills/$skill" ".agents/skills/$skill"
+  [ -L ".agent/skills/$skill" ] || ln -s "../../.agents/skills/$skill" ".agent/skills/$skill"
   [ -L ".claude/skills/$skill" ] || ln -s "../../.agents/skills/$skill" ".claude/skills/$skill"
 done
 
 # 워크플로우가 없으면 복사
 for wf in coordinate.md orchestrate.md plan.md review.md debug.md setup.md tools.md; do
-  [ -f ".agents/workflows/$wf" ] || cp /path/to/oh-my-ag/.agents/workflows/$wf .agents/workflows/$wf
+  [ -f ".agent/workflows/$wf" ] || cp /path/to/oh-my-ag/.agent/workflows/$wf .agent/workflows/$wf
 done
 
 # 기본 사용자 설정이 없으면 복사
-[ -f .agents/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agents/config/user-preferences.yaml .agents/config/user-preferences.yaml
+[ -f .agent/config/user-preferences.yaml ] || cp /path/to/oh-my-ag/.agent/config/user-preferences.yaml .agent/config/user-preferences.yaml
 ```
 
 ## 검증 체크리스트
@@ -72,7 +72,7 @@ find .agents/skills -mindepth 1 -maxdepth 1 -type d ! -name '_shared' | wc -l
 [ -d .agents/skills/_shared ] && echo ok
 
 # 워크플로우 7개
-find .agents/workflows -maxdepth 1 -name '*.md' | wc -l
+find .agent/workflows -maxdepth 1 -name '*.md' | wc -l
 
 # 기본 상태 점검
 bunx oh-my-ag doctor
@@ -113,7 +113,7 @@ git commit -m "chore: checkpoint before oh-my-ag integration"
 설치 프로그램은 항상 다음을 수행합니다:
 
 1. 스킬을 `.agents/skills/`에 설치 (CLI 기준 SSOT)
-2. `.agents/skills/`와 `.claude/skills/`에 호환 심링크 생성
+2. `.agent/skills/`와 `.claude/skills/`에 호환 심링크 생성
 
 추가 CLI를 선택하면 해당 디렉토리에도 심링크를 생성합니다. 이렇게 하면 단일 출처를 유지하면서 여러 도구에서 같은 스킬을 사용할 수 있습니다.
 
@@ -121,7 +121,7 @@ git commit -m "chore: checkpoint before oh-my-ag integration"
 
 ```text
 .agents/skills/frontend-agent/     ← 출처 (SSOT)
-.agents/skills/frontend-agent/      → ../../.agents/skills/frontend-agent/
+.agent/skills/frontend-agent/      → ../../.agents/skills/frontend-agent/
 .claude/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/
 .github/skills/frontend-agent/     → ../../.agents/skills/frontend-agent/ (GitHub Copilot)
 ```
@@ -131,5 +131,5 @@ git commit -m "chore: checkpoint before oh-my-ag integration"
 ## 참고
 
 - 커스터마이즈된 `.agents/skills/*`가 있으면 의도하지 않은 덮어쓰기를 피하세요.
-- 프로젝트 정책 파일(`.agents/config/*`)은 각 프로젝트 저장소 소유로 관리하세요.
+- 프로젝트 정책 파일(`.agent/config/*`)은 각 프로젝트 저장소 소유로 관리하세요.
 - 멀티 에이전트 조율 패턴은 [`사용 가이드`](./usage.md)를 이어서 참고하세요.

@@ -12,11 +12,11 @@ import { dirname, join, relative, resolve } from "node:path";
 import type { SkillInfo, SkillsRegistry } from "../types/index.js";
 
 export const REPO = "first-fluke/oh-my-ag";
-export const GITHUB_RAW = `https://raw.githubusercontent.com/${REPO}/main/.agents/skills`;
+export const GITHUB_RAW = `https://raw.githubusercontent.com/${REPO}/main/.agent/skills`;
 export const GITHUB_AGENT_ROOT = `https://raw.githubusercontent.com/${REPO}/main/.agent`;
 export const INSTALLED_SKILLS_DIR = ".agents/skills";
 export const DEFAULT_COMPAT_SKILLS_DIRS = [
-  ".agents/skills",
+  ".agent/skills",
   ".claude/skills",
 ] as const;
 
@@ -35,7 +35,7 @@ async function fetchDirectoryContentsGh(
 ): Promise<string[]> {
   try {
     const output = execSync(
-      `gh api repos/${REPO}/contents/.agents/skills/${skillName}/${dir} --jq '.[] | select(.type == "file") | .name'`,
+      `gh api repos/${REPO}/contents/.agent/skills/${skillName}/${dir} --jq '.[] | select(.type == "file") | .name'`,
       { encoding: "utf-8", stdio: ["pipe", "pipe", "ignore"] },
     );
     const files = output.trim().split("\n").filter(Boolean);
@@ -49,7 +49,7 @@ async function fetchDirectoryContentsApi(
   skillName: string,
   dir: string,
 ): Promise<string[]> {
-  const url = `https://api.github.com/repos/${REPO}/contents/.agents/skills/${skillName}/${dir}`;
+  const url = `https://api.github.com/repos/${REPO}/contents/.agent/skills/${skillName}/${dir}`;
   const res = await fetch(url);
   if (!res.ok) return [];
 

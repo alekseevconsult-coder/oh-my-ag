@@ -29,7 +29,7 @@ bunx oh-my-ag dashboard:web
 
 ## 멀티-CLI 설정
 
-`.agents/config/user-preferences.yaml`에서 에이전트별 CLI를 설정합니다:
+`.agent/config/user-preferences.yaml`에서 에이전트별 CLI를 설정합니다:
 
 ```yaml
 # 응답 언어

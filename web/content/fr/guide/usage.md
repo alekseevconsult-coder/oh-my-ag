@@ -12,7 +12,7 @@ description: Guide complet incluant exemples, workflows, opérations de tableau 
    antigravity open /path/to/oh-my-ag
    ```
 
-2. **Les compétences sont automatiquement détectées.** Antigravity analyse `.agents/skills/` et indexe toutes les compétences disponibles.
+2. **Les compétences sont automatiquement détectées.** Antigravity analyse `.agent/skills/` et indexe toutes les compétences disponibles.
 
 3. **Discutez dans l'IDE.** Décrivez ce que vous souhaitez construire.
 
@@ -50,7 +50,7 @@ description: Guide complet incluant exemples, workflows, opérations de tableau 
    wait
    ```
 4. **Les agents travaillent en parallèle** — enregistrent sorties dans Knowledge Base
-5. **Vous coordonnez** — examinez `.agents/brain/` pour cohérence
+5. **Vous coordonnez** — examinez `.agent/brain/` pour cohérence
 6. **QA Agent examine** — audit sécurité/performance
 7. **Corriger & itérer** — régénérer agents avec corrections
 
@@ -151,7 +151,7 @@ Les ressources partagées vivent dans `_shared/` (pas une compétence) et sont r
 Utilisez `oh-my-ag agent:spawn` pour exécuter agents via CLI. Respecte `agent_cli_mapping` dans `user-preferences.yaml` pour sélectionner le CLI approprié (gemini, claude, codex, qwen) par type d'agent. L'espace de travail est auto-détecté depuis conventions monorepo communes, ou peut être défini explicitement avec `-w`.
 
 ### Knowledge Base
-Sorties agents stockées à `.agents/brain/`. Contient plans, code, rapports et notes de coordination.
+Sorties agents stockées à `.agent/brain/`. Contient plans, code, rapports et notes de coordination.
 
 ### Serena Memory
 État d'exécution structuré à `.serena/memories/`. L'orchestrator écrit infos session, tableaux tâches, progression par agent et résultats. Les tableaux de bord surveillent ces fichiers pour monitoring.
@@ -171,13 +171,13 @@ Les agents peuvent travailler dans répertoires séparés pour éviter conflits.
 | Compétence | S'active automatiquement pour | Sortie |
 |------------|------------------------------|--------|
 | workflow-guide | Projets multi-domaine complexes | Coordination d'agents étape par étape |
-| pm-agent | "planifier ceci", "décomposer" | `.agents/plan.json` |
+| pm-agent | "planifier ceci", "décomposer" | `.agent/plan.json` |
 | frontend-agent | UI, composants, style | Composants React, tests |
 | backend-agent | APIs, bases de données, auth | Points terminaison API, modèles, tests |
 | mobile-agent | Applications mobiles, iOS/Android | Écrans Flutter, gestion état |
 | qa-agent | "vérifier sécurité", "audit" | Rapport QA avec corrections priorisées |
 | debug-agent | Rapports bugs, messages erreur | Code corrigé, tests régression |
-| orchestrator | Exécution sous-agents CLI | Résultats dans `.agents/results/` |
+| orchestrator | Exécution sous-agents CLI | Résultats dans `.agent/results/` |
 | commit | "commit", "enregistrer" | Commits Git (auto-divisés par fonctionnalité) |
 
 ---
@@ -253,7 +253,7 @@ Navigateur: http://localhost:9847 → statut temps réel
 
 1. **Soyez spécifique** — "Construire une application TODO avec auth JWT, frontend React, backend FastAPI" est meilleur que "faire une app"
 2. **Utilisez génération CLI** pour projets multi-domaine — n'essayez pas de tout faire dans une discussion
-3. **Examinez Knowledge Base** — vérifiez `.agents/brain/` pour cohérence API
+3. **Examinez Knowledge Base** — vérifiez `.agent/brain/` pour cohérence API
 4. **Itérez avec régénérations** — affinez instructions, ne recommencez pas de zéro
 5. **Utilisez tableaux de bord** — `bunx oh-my-ag dashboard` ou `bunx oh-my-ag dashboard:web` pour surveiller sessions orchestrator
 6. **Espaces de travail séparés** — assignez à chaque agent son propre répertoire
@@ -264,7 +264,7 @@ Navigateur: http://localhost:9847 → statut temps réel
 
 | Problème | Solution |
 |----------|----------|
-| Compétences ne chargent pas | `antigravity open .`, vérifier `.agents/skills/`, redémarrer IDE |
+| Compétences ne chargent pas | `antigravity open .`, vérifier `.agent/skills/`, redémarrer IDE |
 | CLI introuvable | Vérifier `which gemini` / `which claude`, installer CLI manquants |
 | Sorties agents incompatibles | Examiner les deux dans Knowledge Base, régénérer avec corrections |
 | Tableau de bord : "No agents" | Fichiers mémoire pas encore créés, exécuter orchestrator d'abord |

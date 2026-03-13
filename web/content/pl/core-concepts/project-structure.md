@@ -9,7 +9,7 @@ Szczegółowe drzewo katalogów dla tego repozytorium.
 
 ```text
 .
-├── .agents/
+├── .agent/
 │   ├── config/
 │   │   └── user-preferences.yaml   # Język, strefa czasowa, mapowanie CLI
 │   ├── workflows/

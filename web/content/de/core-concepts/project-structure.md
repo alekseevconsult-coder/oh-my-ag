@@ -9,7 +9,7 @@ Detaillierter Verzeichnisbaum für dieses Repository.
 
 ```text
 .
-├── .agents/
+├── .agent/
 │   ├── config/
 │   │   └── user-preferences.yaml   # Sprache, Zeitzone, CLI-Mapping
 │   ├── workflows/

@@ -21,7 +21,7 @@ bin/*.js
 # Antigravity outputs
 .gemini/antigravity/brain/*
 !.gemini/antigravity/brain/.gitkeep
-.agents/plan.json
+.agent/plan.json
 
 # Serena Memory (runtime state)
 .serena/memories/*
