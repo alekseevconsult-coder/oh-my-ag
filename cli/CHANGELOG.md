@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.5](https://github.com/first-fluke/oh-my-agent/compare/cli-v2.0.4...cli-v2.0.5) (2026-03-13)
+
+
+### Bug Fixes
+
+* **release:** remove legacy publish lifecycle scripts ([26ac606](https://github.com/first-fluke/oh-my-agent/commit/26ac6061e7b37c8c3e6b021fe270b99fbd38553e))
+
+
+### Miscellaneous
+
+* sync prompt-manifest.json ([3adacce](https://github.com/first-fluke/oh-my-agent/commit/3adacced034a247cedb0d4a49d8f854adb58a3af))
+
 ## [2.0.4](https://github.com/first-fluke/oh-my-agent/compare/cli-v2.0.3...cli-v2.0.4) (2026-03-13)
 
 
