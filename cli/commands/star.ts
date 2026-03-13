@@ -2,36 +2,12 @@ import { execSync, spawnSync } from "node:child_process";
 import { platform } from "node:os";
 import * as p from "@clack/prompts";
 import pc from "picocolors";
+import {
+  isAlreadyStarred,
+  isGhAuthenticated,
+  isGhInstalled,
+} from "../lib/github.js";
 import { REPO } from "../lib/skills.js";
-
-function isGhInstalled(): boolean {
-  try {
-    execSync("gh --version", { stdio: "ignore" });
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-function isGhAuthenticated(): boolean {
-  try {
-    execSync("gh auth status", { stdio: "ignore" });
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-function isAlreadyStarred(): boolean {
-  try {
-    execSync(`gh api user/starred/${REPO}`, {
-      stdio: "ignore",
-    });
-    return true;
-  } catch {
-    return false;
-  }
-}
 
 function getInstallCommand(): string {
   const os = platform();

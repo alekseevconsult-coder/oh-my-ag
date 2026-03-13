@@ -3,6 +3,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import * as p from "@clack/prompts";
 import pc from "picocolors";
+import { checkStarred } from "../lib/github.js";
 import {
   getAllSkills,
   INSTALLED_SKILLS_DIR,
@@ -411,10 +412,17 @@ export async function doctor(jsonMode = false): Promise<void> {
       );
     }
 
-    p.note(
-      `${pc.yellow("❤️")} Enjoying oh-my-agent? Give it a star or sponsor!\n${pc.dim("gh api --method PUT /user/starred/first-fluke/oh-my-agent")}\n${pc.dim("https://github.com/sponsors/first-fluke")}`,
-      "Support",
-    );
+    if (checkStarred()) {
+      p.note(
+        `${pc.green("⭐")} Thank you for starring oh-my-agent!\n${pc.dim("https://github.com/sponsors/first-fluke")}`,
+        "Support",
+      );
+    } else {
+      p.note(
+        `${pc.yellow("❤️")} Enjoying oh-my-agent? Give it a star or sponsor!\n${pc.dim("gh api --method PUT /user/starred/first-fluke/oh-my-agent")}\n${pc.dim("https://github.com/sponsors/first-fluke")}`,
+        "Support",
+      );
+    }
   } catch (error) {
     if (spinner) spinner.stop("Check failed");
     p.log.error(error instanceof Error ? error.message : String(error));
