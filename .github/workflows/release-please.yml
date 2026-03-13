@@ -113,7 +113,12 @@ jobs:
           mkdir -p /tmp/oh-my-ag-publish/bin
           cp cli/bin/cli.js /tmp/oh-my-ag-publish/bin/cli.js
           cp README.md /tmp/oh-my-ag-publish/README.md
-          cp LICENSE /tmp/oh-my-ag-publish/LICENSE
+          for license_file in LICENSE LICENSE.md LICENSE.txt COPYING; do
+            if [ -f "$license_file" ]; then
+              cp "$license_file" /tmp/oh-my-ag-publish/
+              break
+            fi
+          done
 
           node <<'EOF'
           const fs = require("node:fs");
