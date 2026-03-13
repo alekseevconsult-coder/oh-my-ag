@@ -1,7 +1,7 @@
 {
   "name": "oh-my-agent",
   "version": "2.2.0",
-  "releaseDate": "2026-03-13T11:59:40.492Z",
+  "releaseDate": "2026-03-13T13:09:51.601Z",
   "repository": "https://github.com/first-fluke/oh-my-agent",
   "files": [
     {
@@ -171,8 +171,8 @@
     },
     {
       "path": ".agents/skills/commit/SKILL.md",
-      "sha256": "c86534812d4ee32265a053be28c642368c2adf8d02794381cca87ada4dc06a0f",
-      "size": 3263
+      "sha256": "f5f346d434b6c9ed5d46c8d5e0d4741b4888cfa17736c2c324d284f344118b51",
+      "size": 3194
     },
     {
       "path": ".agents/skills/commit/config/commit-config.yaml",
@@ -226,8 +226,8 @@
     },
     {
       "path": ".agents/skills/dev-workflow/SKILL.md",
-      "sha256": "8d4c95cf8c71ad12221af541b601971d702863faeb0559af0673141ec533eb70",
-      "size": 8024
+      "sha256": "1bedd3c2dadd5ba34b7b569aa0c76f8169226c24759c1937376ce227f53f80ee",
+      "size": 8004
     },
     {
       "path": ".agents/skills/dev-workflow/resources/api-workflows.md",
