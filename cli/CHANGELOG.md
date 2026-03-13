@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.6](https://github.com/first-fluke/oh-my-agent/compare/cli-v2.0.5...cli-v2.0.6) (2026-03-13)
+
+
+### Miscellaneous
+
+* **release:** deprecate legacy npm package ([2b3ae4a](https://github.com/first-fluke/oh-my-agent/commit/2b3ae4a9451627af1e37312cef99919300f6f70b))
+* sync prompt-manifest.json ([23d73a6](https://github.com/first-fluke/oh-my-agent/commit/23d73a64683ca207b7e6fe77090ae2ff9c5ebbc9))
+
 ## [2.0.5](https://github.com/first-fluke/oh-my-agent/compare/cli-v2.0.4...cli-v2.0.5) (2026-03-13)
 
 
