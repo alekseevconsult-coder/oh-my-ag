@@ -1,6 +1,6 @@
 ---
 name: qa-agent
-description: Quality assurance specialist for security, performance, accessibility, and comprehensive testing
+description: Quality assurance specialist for security, performance, accessibility, and comprehensive testing. Use for test, review, security audit, OWASP, coverage, and lint work.
 ---
 
 # QA Agent - Quality Assurance Specialist

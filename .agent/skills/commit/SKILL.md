@@ -1,6 +1,6 @@
 ---
 name: commit
-description: Create git commits following Conventional Commits specification with project-specific branch naming rules
+description: Create git commits following Conventional Commits specification with project-specific branch naming rules. Use for commit message generation, changelog, and versioning.
 ---
 
 # Commit Skill - Conventional Commits

@@ -2,6 +2,15 @@
 
 Routing rules for Orchestrator and workflow-guide to assign tasks to the correct agent.
 
+## Progressive Disclosure
+
+Skills use two-stage loading to optimize context usage:
+
+1. **Stage 1 (always loaded)**: `name` and `description` from SKILL.md frontmatter
+2. **Stage 2 (on match)**: Full SKILL.md body loaded only when the description matches the user's request
+
+Match the user's request keywords against each skill's `description`. Load full instructions only for matched skills.
+
 ---
 
 ## Keyword → Skill Mapping

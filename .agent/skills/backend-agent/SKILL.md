@@ -1,6 +1,6 @@
 ---
 name: backend-agent
-description: Backend specialist for APIs, databases, authentication using FastAPI with clean architecture (Repository/Service/Router pattern)
+description: Backend specialist for APIs, databases, authentication using FastAPI with clean architecture (Repository/Service/Router pattern). Use for API, endpoint, REST, database, server, migration, and auth work.
 ---
 
 # Backend Agent - API & Server Specialist

@@ -1,6 +1,6 @@
 ---
 name: frontend-agent
-description: Frontend specialist for React, Next.js, TypeScript with FSD-lite architecture, shadcn/ui, and design system alignment
+description: Frontend specialist for React, Next.js, TypeScript with FSD-lite architecture, shadcn/ui, and design system alignment. Use for UI, component, page, layout, CSS, Tailwind, and shadcn work.
 ---
 
 # Frontend Agent - UI/UX Specialist

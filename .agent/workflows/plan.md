@@ -67,5 +67,6 @@ Present the full plan: task list, priority tiers, dependency graph, agent assign
 Save the approved plan:
 1. `.agent/plan.json`
 2. Use memory write tool to record plan summary.
+3. For complex plans (Medium/Complex per `_shared/difficulty-guide.md`), also create an execution plan artifact in `docs/exec-plans/active/` — see `/exec-plan` workflow for the template and lifecycle.
 
 The plan is now ready for `/coordinate` or `/orchestrate` to execute.

@@ -63,10 +63,11 @@ docs/
 ├── DESIGN.md                       ← design system, UI/UX principles
 ├── FRONTEND.md                     ← frontend domain guide
 ├── PLANS.md                        ← planning process and conventions
-├── PRODUCT_SENSE.md                ← product thinking, user mental models
-├── QUALITY_SCORE.md                ← quality grades per domain/layer, gap tracking
+├── PRODUCT-SENSE.md                ← product thinking, user mental models
+├── QUALITY-SCORE.md                ← quality grades per domain/layer, gap tracking
 ├── RELIABILITY.md                  ← reliability standards, SLOs, error budgets
-└── SECURITY.md                     ← security policies, threat model, auth patterns
+├── SECURITY.md                     ← security policies, threat model, auth patterns
+└── CODE-REVIEW.md                  ← code review standards and checklist
 ```
 
 Not all files are required. Generate only what is **discoverable and relevant** to the project.
@@ -198,10 +199,25 @@ Generate only those relevant to the project:
 | `DESIGN.md` | Project has UI/design system | Design system principles, component patterns, visual language |
 | `FRONTEND.md` | Project has frontend | Frontend architecture, rendering strategy, state management, routing |
 | `PLANS.md` | Always | Planning process conventions, how to write exec-plans, template |
-| `PRODUCT_SENSE.md` | User-facing product | Product thinking, user mental models, prioritization framework |
-| `QUALITY_SCORE.md` | Always | Quality grades per domain/layer with gap tracking over time |
+| `PRODUCT-SENSE.md` | User-facing product | Product thinking, user mental models, prioritization framework |
+| `QUALITY-SCORE.md` | Always | Quality grades per domain/layer with gap tracking over time |
 | `RELIABILITY.md` | Has backend/infra | Reliability standards, SLOs, error budgets, incident response |
 | `SECURITY.md` | Has auth/data handling | Security policies, threat model, auth patterns, data handling rules |
+| `CODE-REVIEW.md` | Always | Code review standards, checklist, and review behavior configuration |
+
+### `docs/CODE-REVIEW.md`
+
+**Code review standards referenced from AGENTS.md.**
+
+Ensures consistent review behavior across all agents and contributors. Content:
+
+- Review checklist (what to check in every PR)
+- Severity levels (blocker, major, minor, nit)
+- Domain-specific review focus (e.g., security-sensitive areas need extra scrutiny)
+- Anti-patterns to flag during review
+- When to request human review vs auto-approve
+
+Reference this file from AGENTS.md so review agents load it automatically.
 
 ### Generation Rules
 
@@ -241,10 +257,11 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the full domain map.
 - [Security](docs/SECURITY.md) — security policies and threat model
 
 ## Quality & Planning
-- [Quality Score](docs/QUALITY_SCORE.md) — per-domain quality grades
+- [Quality Score](docs/QUALITY-SCORE.md) — per-domain quality grades
+- [Code Review](docs/CODE-REVIEW.md) — review standards and checklist
 - [Plans](docs/PLANS.md) — planning conventions
 - [Tech Debt](docs/exec-plans/tech-debt-tracker.md) — known debt tracker
-- [Product Sense](docs/PRODUCT_SENSE.md) — product thinking framework
+- [Product Sense](docs/PRODUCT-SENSE.md) — product thinking framework
 
 ## Project Structure
 {Brief layout — packages, apps, key directories}
@@ -313,7 +330,7 @@ If `AGENTS.md`, `ARCHITECTURE.md`, or `docs/` already exists:
    - Are documented rules still followed?
    - Are there new patterns that emerged but aren't documented?
    - Are there referenced files/dirs that no longer exist?
-   - Has quality improved or degraded? (update QUALITY_SCORE.md)
+   - Has quality improved or degraded? (update QUALITY-SCORE.md)
 3. **Preserve** all `<!-- MANUAL: -->` blocks exactly.
 4. **Preserve** all `<!-- TODO: -->` markers that haven't been resolved.
 5. **Update** factual content (structure changes, new boundaries, new domains).

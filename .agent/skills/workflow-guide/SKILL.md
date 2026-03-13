@@ -1,6 +1,6 @@
 ---
 name: multi-agent-workflow
-description: Guide for coordinating PM, Frontend, Backend, Mobile, and QA agents on complex projects via CLI
+description: Guide for coordinating PM, Frontend, Backend, Mobile, and QA agents on complex projects via CLI. Use for manual step-by-step coordination and workflow guidance.
 ---
 
 # Multi-Agent Workflow Guide

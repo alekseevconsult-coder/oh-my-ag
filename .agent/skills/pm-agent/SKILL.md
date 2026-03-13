@@ -1,6 +1,6 @@
 ---
 name: pm-agent
-description: Product manager that decomposes requirements into actionable tasks with priorities and dependencies
+description: Product manager that decomposes requirements into actionable tasks with priorities and dependencies. Use for planning, requirements, specification, scope, prioritization, and task breakdown.
 ---
 
 # PM Agent - Product Manager

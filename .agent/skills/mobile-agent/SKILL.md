@@ -1,6 +1,6 @@
 ---
 name: mobile-agent
-description: Mobile specialist for Flutter, React Native, and cross-platform mobile development
+description: Mobile specialist for Flutter, React Native, and cross-platform mobile development. Use for mobile app, Flutter, Dart, iOS, Android, Riverpod, and widget work.
 ---
 
 # Mobile Agent - Cross-Platform Mobile Specialist

@@ -1,6 +1,6 @@
 ---
 name: orchestrator
-description: Automated multi-agent orchestrator that spawns CLI subagents in parallel, coordinates via MCP Memory, and monitors progress
+description: Automated multi-agent orchestrator that spawns CLI subagents in parallel, coordinates via MCP Memory, and monitors progress. Use for orchestration, parallel execution, and automated multi-agent workflows.
 ---
 
 # Orchestrator - Automated Multi-Agent Coordinator
@@ -68,21 +68,74 @@ See `resources/memory-schema.md` for memory file formats.
 | `progress-{agent}.md` | that agent | orchestrator reads |
 | `result-{agent}.md` | that agent | orchestrator reads |
 
-## Verification Gate (PHASE 4.5)
-After each agent completes, run automated verification before accepting the result:
+## Agent-to-Agent Review Loop (PHASE 4.5)
+
+After each agent completes, enter an iterative review loop — not a single-pass verification.
+
+### Loop Flow
+
+```
+Agent completes work
+    ↓
+[1] Self-Review: Agent reviews its own changes
+    ↓
+[2] Verify: Run `oh-my-ag verify {agent-type} --workspace {workspace}`
+    ↓ FAIL → Agent receives feedback, fixes, back to [1]
+    ↓ PASS
+[3] Cross-Review: QA agent reviews the changes
+    ↓ FAIL → Agent receives review feedback, fixes, back to [1]
+    ↓ PASS
+Accept result ✓
+```
+
+### Step Details
+
+**[1] Self-Review**: Before requesting external review, the implementation agent must:
+- Re-read its own diff and check against the task's acceptance criteria
+- Run lint, type-check, and tests in the workspace
+- Fix any issues found before proceeding
+
+**[2] Automated Verify**:
 ```bash
-oh-my-ag verify {agent-type} --workspace {workspace}
-# or with JSON output for programmatic use:
 oh-my-ag verify {agent-type} --workspace {workspace} --json
 ```
-- **PASS (exit 0)**: Accept result, advance to next task
-- **FAIL (exit 1)**: Treat as failure → enter Retry Logic with verify output as error context
-- This is mandatory. Never skip verification even if the agent reports success.
+- **PASS (exit 0)**: Proceed to cross-review
+- **FAIL (exit 1)**: Feed verify output back to the agent as correction context
 
-## Retry Logic
-- 1st retry: Wait 30s, re-spawn with error context (include verify output)
-- 2nd retry: Wait 60s, add "Try a different approach"
-- Final failure: Report to user, ask whether to continue or abort
+**[3] Cross-Review**: Spawn QA agent to review the changes:
+- QA agent reads the diff, runs checks, evaluates against acceptance criteria
+- If `docs/CODE-REVIEW.md` exists, QA agent uses it as the review checklist
+- QA agent outputs: PASS (with optional nits) or FAIL (with specific issues)
+- On FAIL: issues are fed back to the implementation agent for fixing
+
+### Loop Limits
+
+| Counter | Max | On Exceeded |
+|---------|-----|-------------|
+| Self-review + fix cycles | 3 | Escalate to cross-review regardless |
+| Cross-review rejections | 2 | Report to user with review history |
+| Total loop iterations | 5 | Force-complete with quality warning |
+
+### Review Feedback Format
+
+When feeding review results back to the implementation agent:
+```
+## Review Feedback (iteration {n}/{max})
+**Reviewer**: {self / verify / qa-agent}
+**Verdict**: FAIL
+**Issues**:
+1. {specific issue with file and line reference}
+2. {specific issue}
+**Fix instruction**: {what to change}
+```
+
+This replaces single-pass verification. Most "nitpicking" should happen agent-to-agent.
+Human review is reserved for final approval, not catching lint errors.
+
+## Retry Logic (after review loop exhaustion)
+- 1st retry: Re-spawn agent with full review history as context
+- 2nd retry: Re-spawn with "Try a different approach" + review history
+- Final failure: Report to user with complete review trail, ask whether to continue or abort
 
 ## Clarification Debt (CD) Monitoring
 
