@@ -102,7 +102,31 @@ jobs:
       - name: Build CLI
         run: bun run --cwd cli build
 
-      - name: Publish to NPM
+      - name: Publish primary NPM package
         run: cd cli && bun publish --access public
+        env:
+          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Prepare legacy NPM package
+        run: |
+          rm -rf /tmp/oh-my-ag-publish
+          mkdir -p /tmp/oh-my-ag-publish/bin
+          cp cli/bin/cli.js /tmp/oh-my-ag-publish/bin/cli.js
+          cp README.md /tmp/oh-my-ag-publish/README.md
+          cp LICENSE /tmp/oh-my-ag-publish/LICENSE
+
+          node <<'EOF'
+          const fs = require("node:fs");
+          const pkg = JSON.parse(fs.readFileSync("cli/package.json", "utf8"));
+          pkg.name = "oh-my-ag";
+          pkg.description = `${pkg.description} (legacy package name)`;
+          fs.writeFileSync(
+            "/tmp/oh-my-ag-publish/package.json",
+            `${JSON.stringify(pkg, null, 2)}\n`,
+          );
+          EOF
+
+      - name: Publish legacy NPM package
+        run: cd /tmp/oh-my-ag-publish && bun publish --access public
         env:
           NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
