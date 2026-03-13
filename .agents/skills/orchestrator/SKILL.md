@@ -17,7 +17,7 @@ description: Automated multi-agent orchestrator that spawns CLI subagents in par
 - Quick bug fixes or minor changes
 
 ## Important
-This skill orchestrates CLI subagents via `gemini -p "..." --approval-mode=yolo`. It uses MCP Memory tools as a shared state bus. Each subagent runs as an independent process.
+This skill orchestrates CLI subagents via `oh-my-ag agent:spawn`. The CLI vendor (gemini, claude, codex, qwen) is resolved from configuration. Vendor-specific execution protocols are injected automatically. Each subagent runs as an independent process.
 
 ## Configuration
 
@@ -166,10 +166,6 @@ At session end, if CD >= 50:
 3. Update `lessons-learned.md` with prevention measures
 
 
-
-## Serena Memory (CLI Mode)
-
-See `../_shared/memory-protocol.md`.
 
 ## References
 - Prompt template: `resources/subagent-prompt-template.md`

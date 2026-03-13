@@ -34,8 +34,10 @@ Before submitting, run `resources/checklist.md`.
 - `find_referencing_symbols("Component")`: Find all usages
 - `search_for_pattern("error pattern")`: Find similar issues
 
-## Serena Memory (CLI Mode)
-See `../_shared/memory-protocol.md`.
+## Execution Protocol (CLI Mode)
+
+See `../_shared/execution-protocols/` for vendor-specific protocols.
+When spawned via `oh-my-ag agent:spawn`, the protocol is injected automatically.
 
 ## References
 - Execution steps: `resources/execution-protocol.md`

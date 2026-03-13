@@ -1,10 +1,8 @@
-# Memory Protocol (CLI Mode)
+# Execution Protocol (Gemini)
 
-> **Note**: This file documents the default (Serena/MCP) memory protocol. For vendor-specific execution protocols, see `execution-protocols/`. The appropriate protocol is automatically injected by `oh-my-ag agent:spawn`.
+When running as a CLI subagent, follow this protocol for shared state coordination.
 
-When running as a CLI subagent, follow this protocol.
-
-## Tool Reference
+## MCP Memory Tools
 
 Tool names are configurable via `mcp.json → memoryConfig.tools`:
 - `[READ]` → default: `read_memory`
@@ -14,8 +12,6 @@ Tool names are configurable via `mcp.json → memoryConfig.tools`:
 - `[DELETE]` → default: `delete_memory`
 
 Memory base path is configurable via `memoryConfig.basePath` (default: `.serena/memories`).
-
----
 
 ## On Start
 
@@ -39,43 +35,3 @@ Memory base path is configurable via `memoryConfig.basePath` (default: `.serena/
 
 - Still create `result-{agent-id}.md` with Status: `failed`
 - Include detailed error description and what remains incomplete
-
----
-
-## Example with Default Tools (Serena)
-
-```python
-# On Start
-read_memory("task-board.md")
-write_memory("progress-backend.md", initial_content)
-
-# During Execution
-edit_memory("progress-backend.md", turn_update)
-
-# On Completion
-write_memory("result-backend.md", final_result)
-```
-
-## Example with Custom Tools
-
-If `memoryConfig.tools` is configured differently:
-
-```json
-{
-  "memoryConfig": {
-    "tools": {
-      "read": "fs_read",
-      "write": "fs_write",
-      "edit": "fs_patch"
-    }
-  }
-}
-```
-
-Then use:
-```python
-fs_read("task-board.md")
-fs_write("progress-backend.md", initial_content)
-fs_patch("progress-backend.md", turn_update)
-fs_write("result-backend.md", final_result)
-```

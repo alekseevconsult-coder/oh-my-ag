@@ -42,9 +42,10 @@ Follow the brainstorm workflow step by step:
 - **Over-engineering**: Designing for hypothetical future requirements instead of stated needs
 - **Skipping confirmation**: Moving forward without explicit user approval on design decisions
 
-## Serena Memory (CLI Mode)
+## Execution Protocol (CLI Mode)
 
-See `../_shared/memory-protocol.md`.
+See `../_shared/execution-protocols/` for vendor-specific protocols.
+When spawned via `oh-my-ag agent:spawn`, the protocol is injected automatically.
 
 ## References
 - Context loading: `../_shared/context-loading.md`

@@ -1,10 +1,10 @@
 # Subagent Prompt Template
 
-This template is used by the orchestrator to construct self-contained prompts for CLI subagents launched via `gemini -p "..." --approval-mode=yolo`.
+This template is used by the orchestrator to construct self-contained prompts for CLI subagents. The vendor-specific CLI flags and execution protocol are injected automatically by `oh-my-ag agent:spawn`.
 
 ## Template
 
-The orchestrator fills in the `{placeholders}` and passes the assembled prompt to `gemini -p`.
+The orchestrator fills in the `{placeholders}` and passes the assembled prompt to `oh-my-ag agent:spawn`.
 
 ---
 
@@ -38,92 +38,14 @@ If you are running low on turns, prioritize:
 2. Document what remains incomplete
 3. Ensure created files are in a usable state
 
-## MCP Memory Protocol
+## Execution Protocol
 
-You have access to MCP memory tools for shared state coordination.
-Tool names are configurable via `mcp.json → memoryConfig.tools`:
-- `[READ]` → default: `read_memory`
-- `[WRITE]` → default: `write_memory`
-- `[EDIT]` → default: `edit_memory`
+The execution protocol (state management, progress reporting, result format) is automatically injected by `oh-my-ag agent:spawn` based on the configured CLI vendor. See `.agents/skills/_shared/execution-protocols/` for vendor-specific protocols.
 
-Follow this protocol exactly:
-
-### On Start (Turn 1)
-1. Read your task assignment:
-   ```
-   [READ]("task-board.md")
-   ```
-2. Create your progress file:
-   ```
-   [WRITE]("progress-{AGENT_ID}.md", initial content)
-   ```
-   Initial content:
-   ```markdown
-   # Progress: {AGENT_ID}
-   ## Task: {TASK_ID}
-   ## Agent ID: {AGENT_ID}
-   ## Started: {current ISO timestamp}
-
-   ### Turn 1 - {current ISO timestamp}
-   - **Action**: Reading task assignment and planning approach
-   - **Status**: in_progress
-   ```
-
-### During Execution (Every 3-5 Turns)
-Update your progress file by appending a new turn entry:
-```
-[EDIT]("progress-{AGENT_ID}.md", append turn entry)
-```
-
-Turn entry format:
-```markdown
-### Turn {N} - {current ISO timestamp}
-- **Action**: {what you did}
-- **Status**: in_progress
-- **Details**: {specifics}
-- **Files**: {files created or modified, if any}
-```
-
-### On Completion
-Create your result file:
-```
-[WRITE]("result-{AGENT_ID}.md", final result)
-```
-
-Result format:
-```markdown
-# Result: {AGENT_ID}
-## Task: {TASK_ID}
-## Status: completed
-## Turns Used: {N}
-
-## Summary
-{Brief summary of what was accomplished}
-
-## Files Created/Modified
-{List each file with NEW or MODIFIED tag and brief description}
-
-## Acceptance Criteria
-{Checklist of acceptance criteria with [x] or [ ]}
-
-## Issues Encountered
-{Any issues, or "None"}
-
-## Notes
-{Any additional notes for the orchestrator or other agents}
-```
-
-### On Failure
-If you cannot complete the task, still create the result file:
-- Set Status to `failed`
-- List what was completed and what remains
-- Describe the error or blocker in Issues Encountered
-
-### On Turn Limit Approaching
-If you reach turn {MAX_TURNS_WARNING} (3 turns before limit):
-1. Immediately update progress with current state
-2. Create result file with whatever is complete
-3. Set Status to `completed` if criteria are met, `failed` if not
+Follow the injected execution protocol for:
+- Reading your task assignment on start
+- Reporting progress during execution
+- Creating result files on completion or failure
 
 ## Charter Preflight (MANDATORY)
 

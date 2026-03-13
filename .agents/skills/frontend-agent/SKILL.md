@@ -118,10 +118,6 @@ Follow `resources/execution-protocol.md` step by step.
 See `resources/examples.md` for input/output examples.
 Before submitting, run `resources/checklist.md`.
 
-## Serena Memory (CLI Mode)
-
-See `../_shared/memory-protocol.md`.
-
 ## Review Checklist
 
 - [ ] **A11y**: Interactive elements have `aria-label`. Semantic headings (`h1`-`h6`).
@@ -130,6 +126,11 @@ See `../_shared/memory-protocol.md`.
 - [ ] **Resilience**: Error Boundaries and Loading Skeletons implemented.
 - [ ] **Tests**: Logic covered by Vitest where complex.
 - [ ] **Quality**: Typecheck and Lint pass.
+
+## Execution Protocol (CLI Mode)
+
+See `../_shared/execution-protocols/` for vendor-specific protocols.
+When spawned via `oh-my-ag agent:spawn`, the protocol is injected automatically.
 
 ## References
 

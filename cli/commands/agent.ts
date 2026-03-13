@@ -523,6 +523,25 @@ function resolvePromptContent(prompt: string): string {
   return prompt;
 }
 
+function loadExecutionProtocol(vendor: string, cwd: string): string {
+  const protocolPath = findConfigFileUp(
+    cwd,
+    path.join(
+      ".agents",
+      "skills",
+      "_shared",
+      "execution-protocols",
+      `${vendor}.md`,
+    ),
+  );
+  if (!protocolPath) return "";
+  try {
+    return fs.readFileSync(protocolPath, "utf-8");
+  } catch {
+    return "";
+  }
+}
+
 export async function spawnAgent(
   agentId: string,
   prompt: string,
@@ -549,9 +568,15 @@ export async function spawnAgent(
   const logFile = path.join(tmpDir, `subagent-${sessionId}-${agentId}.log`);
   const pidFile = path.join(tmpDir, `subagent-${sessionId}-${agentId}.pid`);
 
-  const promptContent = resolvePromptContent(prompt);
-
+  const rawPromptContent = resolvePromptContent(prompt);
   const { vendor, config } = resolveVendor(agentId, vendorOverride);
+
+  // Inject vendor-specific execution protocol
+  const executionProtocol = loadExecutionProtocol(vendor, process.cwd());
+  const promptContent = executionProtocol
+    ? `${rawPromptContent}\n\n${executionProtocol}`
+    : rawPromptContent;
+
   const vendorConfig = config?.vendors?.[vendor] || {};
   const command = vendorConfig.command || vendor;
   const subcommand = vendorConfig.subcommand;
@@ -869,7 +894,13 @@ export async function parallelRun(
 
     const optionArgs: string[] = [];
     const promptFlag = resolvePromptFlag(vendor, vendorConfig.prompt_flag);
-    const promptContent = resolvePromptContent(task);
+    const rawPromptContent = resolvePromptContent(task);
+
+    // Inject vendor-specific execution protocol
+    const executionProtocol = loadExecutionProtocol(vendor, cwd);
+    const promptContent = executionProtocol
+      ? `${rawPromptContent}\n\n${executionProtocol}`
+      : rawPromptContent;
 
     if (vendorConfig.output_format_flag && vendorConfig.output_format) {
       optionArgs.push(

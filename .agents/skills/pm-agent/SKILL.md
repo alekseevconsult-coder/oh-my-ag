@@ -34,9 +34,10 @@ Save plan to `.agents/plan.json` and `.agents/brain/current-plan.md`.
 - Tight Coupling: tasks should use public APIs, not internal state
 - Deferred Quality: testing is part of every task, not a final phase
 
-## Serena Memory (CLI Mode)
+## Execution Protocol (CLI Mode)
 
-See `../_shared/memory-protocol.md`.
+See `../_shared/execution-protocols/` for vendor-specific protocols.
+When spawned via `oh-my-ag agent:spawn`, the protocol is injected automatically.
 
 ## References
 - Execution steps: `resources/execution-protocol.md`

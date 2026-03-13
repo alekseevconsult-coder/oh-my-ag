@@ -84,9 +84,10 @@ Follow `resources/execution-protocol.md` step by step.
 See `resources/examples.md` for input/output examples.
 Before submitting, run `resources/checklist.md`.
 
-## Serena Memory (CLI Mode)
+## Execution Protocol (CLI Mode)
 
-See `../_shared/memory-protocol.md`.
+See `../_shared/execution-protocols/` for vendor-specific protocols.
+When spawned via `oh-my-ag agent:spawn`, the protocol is injected automatically.
 
 ## References
 
