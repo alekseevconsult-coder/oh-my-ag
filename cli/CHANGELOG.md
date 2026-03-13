@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.0.3](https://github.com/first-fluke/oh-my-agent/compare/cli-v2.0.2...cli-v2.0.3) (2026-03-13)
+
+
+### Documentation
+
+* update Claude CLI installation command to official bash script ([2e5e6aa](https://github.com/first-fluke/oh-my-agent/commit/2e5e6aa1ce2ced32c00a94346182ae6ae1af6aa3))
+
+
+### Miscellaneous
+
+* **main:** release web 0.2.3 ([a36c653](https://github.com/first-fluke/oh-my-agent/commit/a36c653b2a58891da0582ea8a7f2ec767daca722))
+* **main:** release web 0.2.3 ([d13385f](https://github.com/first-fluke/oh-my-agent/commit/d13385f2df7936fb86df1115cf4493c4aec27023))
+* **release:** publish legacy oh-my-ag package ([320edb2](https://github.com/first-fluke/oh-my-agent/commit/320edb26a0b8e649d3f47a972152d7bede35c1a6))
+* sync prompt-manifest.json ([22bc45c](https://github.com/first-fluke/oh-my-agent/commit/22bc45c0c944661044f38e51144f1cef46ec09ce))
+
 ## [2.0.2](https://github.com/first-fluke/oh-my-agent/compare/cli-v2.0.1...cli-v2.0.2) (2026-03-13)
 
 
