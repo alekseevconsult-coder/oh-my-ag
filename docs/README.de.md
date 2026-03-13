@@ -113,7 +113,7 @@ Wählen Sie Ihren Projekttyp und Skills werden in `.agents/skills/` installiert.
 | 🎨 Frontend | brainstorm, frontend, pm, qa, debug, commit |
 | ⚙️ Backend | brainstorm, backend, pm, qa, debug, commit |
 | 📱 Mobile | brainstorm, mobile, pm, qa, debug, commit |
-| 🚀 DevOps | brainstorm, tf-infra, developer-workflow, pm, qa, debug, commit |
+| 🚀 DevOps | brainstorm, tf-infra, dev-workflow, pm, qa, debug, commit |
 
 ### Option 2: Globale Installation (Für Orchestrator)
 

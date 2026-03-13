@@ -113,7 +113,7 @@ bunx oh-my-agent
 | 🎨 Frontend | brainstorm, frontend, pm, qa, debug, commit |
 | ⚙️ Backend | brainstorm, backend, pm, qa, debug, commit |
 | 📱 Mobile | brainstorm, mobile, pm, qa, debug, commit |
-| 🚀 DevOps | brainstorm, tf-infra, developer-workflow, pm, qa, debug, commit |
+| 🚀 DevOps | brainstorm, tf-infra, dev-workflow, pm, qa, debug, commit |
 
 ### Варіант 2: Глобальна установка (Для Orchestrator)
 

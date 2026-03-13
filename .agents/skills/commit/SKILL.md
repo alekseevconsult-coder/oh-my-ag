@@ -87,9 +87,10 @@ Use changed module/component as scope:
 - Lowercase first letter
 - No trailing period
 
-### Step 5: Confirm with User
+### Step 5: Execute Commit
+Show the commit message and proceed immediately without asking for confirmation:
 ```
-📝 Commit message preview:
+📝 Committing:
 
 feat(orchestrator): add multi-CLI agent mapping support
 
@@ -98,12 +99,8 @@ feat(orchestrator): add multi-CLI agent mapping support
 - Update memory schema with CLI field
 
 Co-Authored-By: First Fluke <our.first.fluke@gmail.com>
-
-Proceed with this commit? (Y/N/Edit)
 ```
 
-### Step 6: Execute Commit
-After user confirmation:
 ```bash
 git add <specific-files>
 git commit -m "<message>"
@@ -114,7 +111,6 @@ git commit -m "<message>"
 - Guide: `resources/conventional-commits.md`
 
 ## Important Notes
-- **NEVER** commit without user confirmation
 - **NEVER** use `git add -A` or `git add .` without explicit permission
 - **NEVER** commit files that may contain secrets (.env, credentials, etc.)
 - **ALWAYS** use specific file names when staging

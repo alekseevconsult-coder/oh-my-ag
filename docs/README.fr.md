@@ -113,7 +113,7 @@ Sélectionnez votre type de projet et les compétences seront installées dans `
 | 🎨 Frontend | brainstorm, frontend, pm, qa, debug, commit |
 | ⚙️ Backend | brainstorm, backend, pm, qa, debug, commit |
 | 📱 Mobile | brainstorm, mobile, pm, qa, debug, commit |
-| 🚀 DevOps | brainstorm, tf-infra, developer-workflow, pm, qa, debug, commit |
+| 🚀 DevOps | brainstorm, tf-infra, dev-workflow, pm, qa, debug, commit |
 
 ### Option 2 : Installation globale (Pour Orchestrator)
 

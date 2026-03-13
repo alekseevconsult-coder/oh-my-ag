@@ -250,7 +250,7 @@
 ### Refactoring
 
 * rename references to resources and add dynamic file fetching ([7493587](https://github.com/first-fluke/oh-my-agent/commit/7493587fcaff96e9109ca5989932c6fb7b3c9ee2))
-* **skills:** rename mise-devops-runner to developer-workflow ([7a34b46](https://github.com/first-fluke/oh-my-agent/commit/7a34b46c44b060afc08c1634e6b66bedb54a5035))
+* **skills:** rename mise-devops-runner to dev-workflow ([7a34b46](https://github.com/first-fluke/oh-my-agent/commit/7a34b46c44b060afc08c1634e6b66bedb54a5035))
 
 
 ### Miscellaneous

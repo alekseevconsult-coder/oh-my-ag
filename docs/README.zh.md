@@ -106,7 +106,7 @@ bunx oh-my-agent
 | 🎨 前端 | brainstorm, frontend, pm, qa, debug, commit |
 | ⚙️ 后端 | brainstorm, backend, pm, qa, debug, commit |
 | 📱 移动端 | brainstorm, mobile, pm, qa, debug, commit |
-| 🚀 DevOps | brainstorm, tf-infra, developer-workflow, pm, qa, debug, commit |
+| 🚀 DevOps | brainstorm, tf-infra, dev-workflow, pm, qa, debug, commit |
 
 ### 选项 2：全局安装（用于编排器）
 

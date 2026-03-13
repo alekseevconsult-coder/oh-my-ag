@@ -225,37 +225,37 @@
       "size": 2351
     },
     {
-      "path": ".agents/skills/developer-workflow/SKILL.md",
+      "path": ".agents/skills/dev-workflow/SKILL.md",
       "sha256": "8d4c95cf8c71ad12221af541b601971d702863faeb0559af0673141ec533eb70",
       "size": 8024
     },
     {
-      "path": ".agents/skills/developer-workflow/resources/api-workflows.md",
+      "path": ".agents/skills/dev-workflow/resources/api-workflows.md",
       "sha256": "f4e5a077e6b0190b0c1852323fc421ae48e78297dded29749700df02ad1d9eae",
       "size": 1135
     },
     {
-      "path": ".agents/skills/developer-workflow/resources/database-patterns.md",
+      "path": ".agents/skills/dev-workflow/resources/database-patterns.md",
       "sha256": "57989ebc5f2ffe1d63437a0f21b79319d841d142766377d0022e021a63d5930b",
       "size": 2332
     },
     {
-      "path": ".agents/skills/developer-workflow/resources/i18n-patterns.md",
+      "path": ".agents/skills/dev-workflow/resources/i18n-patterns.md",
       "sha256": "3ddc1bfd11428a33be4363e16524130976e4dd93f46ce9115e1aa32a97e08663",
       "size": 1198
     },
     {
-      "path": ".agents/skills/developer-workflow/resources/release-coordination.md",
+      "path": ".agents/skills/dev-workflow/resources/release-coordination.md",
       "sha256": "f734974d88988416bb3bd0edad9182ad39e75a3fd15bf122f8ea74ba10b04db9",
       "size": 5690
     },
     {
-      "path": ".agents/skills/developer-workflow/resources/troubleshooting.md",
+      "path": ".agents/skills/dev-workflow/resources/troubleshooting.md",
       "sha256": "cfcbca5b977b9dadde9dd67cd720f3c6ccbacfbf9a73e944401ac346e2d29b72",
       "size": 1008
     },
     {
-      "path": ".agents/skills/developer-workflow/resources/validation-pipeline.md",
+      "path": ".agents/skills/dev-workflow/resources/validation-pipeline.md",
       "sha256": "4d2b5a4d9e0f7c9bcaf000048490bb52c255545cb86de789c391f915c52054d1",
       "size": 7761
     },

@@ -1,11 +1,11 @@
 ---
-name: developer-workflow
+name: dev-workflow
 description: Use when setting up or optimizing developer workflows in a monorepo, managing mise tasks, git hooks, CI/CD pipelines, database migrations, or release automation. Invoke for development environment setup, build automation, testing workflows, and release coordination.
 ---
 
-# Developer Workflow
+# Dev Workflow
 
-Development workflow specialist for monorepo task automation and developer productivity.
+Dev workflow specialist for monorepo task automation and developer productivity.
 
 ## Role Definition
 

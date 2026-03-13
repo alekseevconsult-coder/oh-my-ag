@@ -89,7 +89,7 @@ export const SKILLS: SkillsRegistry = {
       desc: "Multi-cloud infrastructure with Terraform - AWS, GCP, Azure, OCI support",
     },
     {
-      name: "developer-workflow",
+      name: "dev-workflow",
       desc: "Monorepo developer workflows - mise tasks, git hooks, CI/CD, release automation",
     },
   ],
@@ -105,7 +105,7 @@ export const PRESETS: Record<string, string[]> = {
     "debug-agent",
     "commit",
     "tf-infra-agent",
-    "developer-workflow",
+    "dev-workflow",
   ],
   frontend: [
     "brainstorm",
@@ -122,7 +122,7 @@ export const PRESETS: Record<string, string[]> = {
     "qa-agent",
     "debug-agent",
     "commit",
-    "developer-workflow",
+    "dev-workflow",
   ],
   mobile: [
     "brainstorm",
@@ -135,7 +135,7 @@ export const PRESETS: Record<string, string[]> = {
   devops: [
     "brainstorm",
     "tf-infra-agent",
-    "developer-workflow",
+    "dev-workflow",
     "pm-agent",
     "qa-agent",
     "debug-agent",
