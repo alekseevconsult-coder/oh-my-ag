@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/first-fluke/oh-my-agent/compare/web-v0.2.0...web-v0.2.1) (2026-03-13)
+
+
+### Miscellaneous
+
+* rename project to oh-my-agent ([9d6edbf](https://github.com/first-fluke/oh-my-agent/commit/9d6edbf46e49e14df817f6a5baabfee7719690f2))
+
 ## [0.2.0](https://github.com/first-fluke/oh-my-agent/compare/web-v0.1.9...web-v0.2.0) (2026-03-13)
 
 
