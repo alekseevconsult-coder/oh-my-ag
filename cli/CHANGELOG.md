@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.5.0](https://github.com/first-fluke/oh-my-agent/compare/cli-v2.4.2...cli-v2.5.0) (2026-03-14)
+
+
+### Features
+
+* **claude:** add native Claude Code adapter layer with skills, agents, and orchestration loops ([2a2cce0](https://github.com/first-fluke/oh-my-agent/commit/2a2cce095423e8a58aec0495f74db7cf2f605da8))
+
+
+### Documentation
+
+* update compatibility tables and specs for Claude Code native integration ([28f5827](https://github.com/first-fluke/oh-my-agent/commit/28f58279ec9090877212c43da4b72f925c7ef128))
+
+
+### Miscellaneous
+
+* sync prompt-manifest.json [skip ci] ([b4db9ea](https://github.com/first-fluke/oh-my-agent/commit/b4db9ea1f826b9e5d62c6412358ffcec4efae72f))
+
 ## [2.4.2](https://github.com/first-fluke/oh-my-agent/compare/cli-v2.4.1...cli-v2.4.2) (2026-03-14)
 
 
