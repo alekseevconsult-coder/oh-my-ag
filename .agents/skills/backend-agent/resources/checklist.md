@@ -12,8 +12,11 @@ Run through every item before submitting your work.
 ## Database
 - [ ] Migrations created (Alembic) and tested
 - [ ] Indexes on foreign keys and frequently queried columns
-- [ ] No N+1 queries (use joinedload/selectinload)
-- [ ] Transactions used for multi-step operations
+- [ ] No N+1 queries; relation loading strategy chosen explicitly for the ORM in use
+- [ ] No over-fetching; selected only required fields/columns/attributes
+- [ ] Transactions used for multi-step operations with explicit unit-of-work boundaries
+- [ ] ORM session/client/entity-manager lifecycle matches the framework's concurrency model
+- [ ] Query risks reviewed: missing indexes, full scans, repeated identical queries, join row multiplication
 
 ## Security
 - [ ] JWT authentication on protected endpoints

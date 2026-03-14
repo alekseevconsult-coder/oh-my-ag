@@ -17,12 +17,14 @@ Follow these steps in order (adjust depth by difficulty).
 - Read the task requirements carefully
 - Identify which endpoints, models, and services are needed
 - Check existing code with Serena: `get_symbols_overview("app/api")`, `find_symbol("existing_function")`
+- If the task is ORM-heavy, load `resources/orm-reference.md` before deciding on loading strategy, transaction scope, or client/session lifecycle
 - List assumptions; ask if unclear
 
 ## Step 2: Plan
 - Decide on file structure: models, schemas, routes, services
 - Define API contracts (method, path, request/response types)
 - Plan database schema changes (tables, columns, indexes, migrations)
+- Plan relation loading strategy, transaction boundary, and ORM lifecycle constraints explicitly
 - Identify security requirements (auth, validation, rate limiting)
 
 ## Step 3: Implement

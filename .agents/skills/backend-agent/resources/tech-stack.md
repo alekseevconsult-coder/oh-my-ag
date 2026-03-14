@@ -33,6 +33,10 @@ backend/
 - Input validation with Pydantic/Zod
 - Parameterized queries (never string interpolation)
 
+## ORM Guidance
+- Cross-ORM operational rules and official vendor references: `resources/orm-reference.md`
+- Primary references covered there: Prisma, SQLAlchemy, TypeORM, Sequelize, Hibernate
+
 ## Serena MCP Shortcuts
 - `find_symbol("create_todo")`: Locate existing function
 - `get_symbols_overview("app/api")`: List all endpoints
