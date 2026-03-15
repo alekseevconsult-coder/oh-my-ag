@@ -18,6 +18,7 @@ import {
   installWorkflows,
   PRESETS,
 } from "../lib/skills.js";
+import { downloadAndExtract } from "../lib/tarball.js";
 
 export async function install(): Promise<void> {
   console.clear();
@@ -98,26 +99,34 @@ export async function install(): Promise<void> {
     }
   }
   const spinner = p.spinner();
-  spinner.start("Installing skills...");
+  spinner.start("Downloading...");
 
   try {
-    await installShared(cwd);
-    await installWorkflows(cwd);
-    await installConfigs(cwd);
-    await installGlobalWorkflows();
+    const { dir: repoDir, cleanup } = await downloadAndExtract();
 
-    for (const skillName of selectedSkills) {
-      spinner.message(`Installing ${pc.cyan(skillName)}...`);
-      await installSkill(skillName, cwd);
-    }
+    try {
+      spinner.message("Installing skills...");
 
-    spinner.stop("Skills installed!");
+      installShared(repoDir, cwd);
+      installWorkflows(repoDir, cwd);
+      installConfigs(repoDir, cwd);
+      installGlobalWorkflows(repoDir);
 
-    // Install Claude Code native workflow skills and agent definitions
-    if (selectedClis.includes("claude")) {
-      spinner.start("Installing Claude Code skills...");
-      await installClaudeSkills(cwd);
-      spinner.stop("Claude Code skills installed!");
+      for (const skillName of selectedSkills) {
+        spinner.message(`Installing ${pc.cyan(skillName)}...`);
+        installSkill(repoDir, skillName, cwd);
+      }
+
+      spinner.stop("Skills installed!");
+
+      // Install Claude Code native workflow skills and agent definitions
+      if (selectedClis.includes("claude")) {
+        spinner.start("Installing Claude Code skills...");
+        installClaudeSkills(repoDir, cwd);
+        spinner.stop("Claude Code skills installed!");
+      }
+    } finally {
+      cleanup();
     }
 
     const cliSymlinks = createCliSymlinks(cwd, selectedClis, selectedSkills);

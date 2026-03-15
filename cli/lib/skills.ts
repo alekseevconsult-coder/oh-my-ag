@@ -1,5 +1,5 @@
-import { execSync } from "node:child_process";
 import {
+  cpSync,
   existsSync,
   lstatSync,
   mkdirSync,
@@ -7,65 +7,12 @@ import {
   readlinkSync,
   symlinkSync,
   unlinkSync,
-  writeFileSync,
 } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import type { SkillInfo, SkillsRegistry } from "../types/index.js";
 
 export const REPO = "first-fluke/oh-my-agent";
-export const GITHUB_RAW = `https://raw.githubusercontent.com/${REPO}/main/.agents/skills`;
-export const GITHUB_AGENT_ROOT = `https://raw.githubusercontent.com/${REPO}/main/.agents`;
-export const GITHUB_CLAUDE_ROOT = `https://raw.githubusercontent.com/${REPO}/main/.claude`;
 export const INSTALLED_SKILLS_DIR = ".agents/skills";
-
-function ghCliAvailable(): boolean {
-  try {
-    execSync("gh --version", { stdio: "ignore" });
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-async function fetchDirectoryContentsGh(
-  skillName: string,
-  dir: string,
-): Promise<string[]> {
-  try {
-    const output = execSync(
-      `gh api repos/${REPO}/contents/.agents/skills/${skillName}/${dir} --jq '.[] | select(.type == "file") | .name'`,
-      { encoding: "utf-8", stdio: ["pipe", "pipe", "ignore"] },
-    );
-    const files = output.trim().split("\n").filter(Boolean);
-    return files.map((f) => `${dir}/${f}`);
-  } catch {
-    return [];
-  }
-}
-
-async function fetchDirectoryContentsApi(
-  skillName: string,
-  dir: string,
-): Promise<string[]> {
-  const url = `https://api.github.com/repos/${REPO}/contents/.agents/skills/${skillName}/${dir}`;
-  const res = await fetch(url);
-  if (!res.ok) return [];
-
-  const items = (await res.json()) as Array<{ type: string; name: string }>;
-  return items
-    .filter((item) => item.type === "file")
-    .map((item) => `${dir}/${item.name}`);
-}
-
-async function fetchDirectoryContents(
-  skillName: string,
-  dir: string,
-): Promise<string[]> {
-  if (ghCliAvailable()) {
-    return fetchDirectoryContentsGh(skillName, dir);
-  }
-  return fetchDirectoryContentsApi(skillName, dir);
-}
 
 export const SKILLS: SkillsRegistry = {
   domain: [
@@ -156,119 +103,81 @@ export const PRESETS: Record<string, string[]> = {
   ].map((s) => s.name),
 };
 
-const SKILL_DIRECTORIES = ["resources", "config", "scripts", "templates"];
-
-export async function fetchSkillFiles(skillName: string): Promise<string[]> {
-  const files = ["SKILL.md"];
-
-  for (const dir of SKILL_DIRECTORIES) {
-    const dirFiles = await fetchDirectoryContents(skillName, dir);
-    files.push(...dirFiles);
-  }
-
-  return files;
-}
-
-export async function installSkill(
+export function installSkill(
+  sourceDir: string,
   skillName: string,
   targetDir: string,
-): Promise<boolean> {
-  const skillDir = join(targetDir, INSTALLED_SKILLS_DIR, skillName);
-  const files = await fetchSkillFiles(skillName);
+): boolean {
+  const src = join(sourceDir, ".agents", "skills", skillName);
+  if (!existsSync(src)) return false;
 
-  for (const file of files) {
-    const url = `${GITHUB_RAW}/${skillName}/${file}`;
-    const res = await fetch(url);
-    if (!res.ok) continue;
-
-    const content = await res.text();
-    const filePath = join(skillDir, file);
-    const fileDir = dirname(filePath);
-
-    if (!existsSync(fileDir)) {
-      mkdirSync(fileDir, { recursive: true });
-    }
-    writeFileSync(filePath, content, "utf-8");
-  }
-
+  const dest = join(targetDir, INSTALLED_SKILLS_DIR, skillName);
+  mkdirSync(dest, { recursive: true });
+  cpSync(src, dest, { recursive: true, force: true });
   return true;
 }
 
-export async function installShared(targetDir: string): Promise<void> {
-  const sharedDir = join(targetDir, INSTALLED_SKILLS_DIR, "_shared");
-  const files = [
-    "reasoning-templates.md",
-    "clarification-protocol.md",
-    "context-loading.md",
-    "skill-routing.md",
-  ];
+export function installShared(sourceDir: string, targetDir: string): void {
+  const src = join(sourceDir, ".agents", "skills", "_shared");
+  if (!existsSync(src)) return;
 
-  if (!existsSync(sharedDir)) {
-    mkdirSync(sharedDir, { recursive: true });
+  const dest = join(targetDir, INSTALLED_SKILLS_DIR, "_shared");
+  mkdirSync(dest, { recursive: true });
+  cpSync(src, dest, { recursive: true, force: true });
+}
+
+export function installWorkflows(sourceDir: string, targetDir: string): void {
+  const src = join(sourceDir, ".agents", "workflows");
+  if (!existsSync(src)) return;
+
+  const dest = join(targetDir, ".agents", "workflows");
+  mkdirSync(dest, { recursive: true });
+  cpSync(src, dest, { recursive: true, force: true });
+}
+
+export function installConfigs(sourceDir: string, targetDir: string): void {
+  const configSrc = join(sourceDir, ".agents", "config");
+  if (existsSync(configSrc)) {
+    const configDest = join(targetDir, ".agents", "config");
+    mkdirSync(configDest, { recursive: true });
+    cpSync(configSrc, configDest, { recursive: true, force: true });
   }
 
-  for (const file of files) {
-    const url = `${GITHUB_RAW}/_shared/${file}`;
-    const res = await fetch(url);
-    if (!res.ok) continue;
-
-    const content = await res.text();
-    writeFileSync(join(sharedDir, file), content, "utf-8");
+  const mcpSrc = join(sourceDir, ".agents", "mcp.json");
+  if (existsSync(mcpSrc)) {
+    const agentDir = join(targetDir, ".agents");
+    mkdirSync(agentDir, { recursive: true });
+    cpSync(mcpSrc, join(agentDir, "mcp.json"));
   }
 }
 
-export async function installWorkflows(targetDir: string): Promise<void> {
-  const workflowsDir = join(targetDir, ".agents", "workflows");
-  const files = [
-    "brainstorm.md",
-    "coordinate.md",
-    "ultrawork.md",
-    "debug.md",
-    "orchestrate.md",
-    "plan.md",
-    "review.md",
-    "setup.md",
-    "tools.md",
-  ];
+export function installGlobalWorkflows(sourceDir: string): void {
+  const homeDir = process.env.HOME || process.env.USERPROFILE || "";
+  const dest = join(homeDir, ".gemini", "antigravity", "global_workflows");
+  const src = join(sourceDir, ".agents", "workflows");
+  if (!existsSync(src)) return;
 
-  if (!existsSync(workflowsDir)) {
-    mkdirSync(workflowsDir, { recursive: true });
-  }
-
-  for (const file of files) {
-    const url = `${GITHUB_AGENT_ROOT}/workflows/${file}`;
-    const res = await fetch(url);
-    if (!res.ok) continue;
-
-    const content = await res.text();
-    writeFileSync(join(workflowsDir, file), content, "utf-8");
-  }
+  mkdirSync(dest, { recursive: true });
+  cpSync(src, dest, { recursive: true, force: true });
 }
 
-export async function installConfigs(targetDir: string): Promise<void> {
-  const configDir = join(targetDir, ".agents", "config");
-  const agentDir = join(targetDir, ".agents");
+export function installClaudeSkills(
+  sourceDir: string,
+  targetDir: string,
+): void {
+  const srcSkills = join(sourceDir, ".claude", "skills");
+  const srcAgents = join(sourceDir, ".claude", "agents");
+  const destSkills = join(targetDir, ".claude", "skills");
+  const destAgents = join(targetDir, ".claude", "agents");
 
-  // Install config/user-preferences.yaml
-  if (!existsSync(configDir)) {
-    mkdirSync(configDir, { recursive: true });
+  if (existsSync(srcSkills)) {
+    mkdirSync(destSkills, { recursive: true });
+    cpSync(srcSkills, destSkills, { recursive: true, force: true });
   }
 
-  const configFile = "user-preferences.yaml";
-  const configUrl = `${GITHUB_AGENT_ROOT}/config/${configFile}`;
-  const configRes = await fetch(configUrl);
-  if (configRes.ok) {
-    const content = await configRes.text();
-    writeFileSync(join(configDir, configFile), content, "utf-8");
-  }
-
-  // Install mcp.json
-  const mcpFile = "mcp.json";
-  const mcpUrl = `${GITHUB_AGENT_ROOT}/${mcpFile}`;
-  const mcpRes = await fetch(mcpUrl);
-  if (mcpRes.ok) {
-    const content = await mcpRes.text();
-    writeFileSync(join(agentDir, mcpFile), content, "utf-8");
+  if (existsSync(srcAgents)) {
+    mkdirSync(destAgents, { recursive: true });
+    cpSync(srcAgents, destAgents, { recursive: true, force: true });
   }
 }
 
@@ -338,102 +247,6 @@ export function createCliSymlinks(
   }
 
   return { created, skipped };
-}
-
-export async function installGlobalWorkflows(): Promise<void> {
-  const homeDir = process.env.HOME || process.env.USERPROFILE || "";
-  const globalWorkflowsDir = join(
-    homeDir,
-    ".gemini",
-    "antigravity",
-    "global_workflows",
-  );
-
-  if (!existsSync(globalWorkflowsDir)) {
-    mkdirSync(globalWorkflowsDir, { recursive: true });
-  }
-
-  const files = [
-    "brainstorm.md",
-    "coordinate.md",
-    "ultrawork.md",
-    "debug.md",
-    "orchestrate.md",
-    "plan.md",
-    "review.md",
-    "setup.md",
-    "tools.md",
-  ];
-
-  for (const file of files) {
-    const url = `${GITHUB_AGENT_ROOT}/workflows/${file}`;
-    const res = await fetch(url);
-    if (!res.ok) continue;
-
-    const content = await res.text();
-    writeFileSync(join(globalWorkflowsDir, file), content, "utf-8");
-  }
-}
-
-const CLAUDE_WORKFLOW_SKILLS = [
-  "brainstorm",
-  "commit",
-  "coordinate",
-  "debug",
-  "deepinit",
-  "exec-plan",
-  "orchestrate",
-  "plan",
-  "review",
-  "setup",
-  "tools",
-  "ultrawork",
-];
-
-const CLAUDE_AGENTS = [
-  "backend-impl.md",
-  "frontend-impl.md",
-  "mobile-impl.md",
-  "db-impl.md",
-  "qa-reviewer.md",
-  "debug-investigator.md",
-  "pm-planner.md",
-];
-
-export async function installClaudeSkills(targetDir: string): Promise<void> {
-  const claudeSkillsDir = join(targetDir, ".claude", "skills");
-  const claudeAgentsDir = join(targetDir, ".claude", "agents");
-
-  for (const dir of [claudeSkillsDir, claudeAgentsDir]) {
-    if (!existsSync(dir)) {
-      mkdirSync(dir, { recursive: true });
-    }
-  }
-
-  // Install workflow skills
-  for (const skill of CLAUDE_WORKFLOW_SKILLS) {
-    const skillDir = join(claudeSkillsDir, skill);
-    if (!existsSync(skillDir)) {
-      mkdirSync(skillDir, { recursive: true });
-    }
-
-    const url = `${GITHUB_CLAUDE_ROOT}/skills/${skill}/SKILL.md`;
-    const res = await fetch(url);
-    if (!res.ok) continue;
-
-    const content = await res.text();
-    writeFileSync(join(skillDir, "SKILL.md"), content, "utf-8");
-  }
-
-  // Install agent definitions
-  for (const agent of CLAUDE_AGENTS) {
-    const url = `${GITHUB_CLAUDE_ROOT}/agents/${agent}`;
-    const res = await fetch(url);
-    if (!res.ok) continue;
-
-    const content = await res.text();
-    writeFileSync(join(claudeAgentsDir, agent), content, "utf-8");
-  }
 }
 
 export function getInstalledSkillNames(targetDir: string): string[] {
