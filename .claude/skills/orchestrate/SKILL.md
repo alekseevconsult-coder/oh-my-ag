@@ -6,16 +6,6 @@ disable-model-invocation: true
 
 # /orchestrate
 
-## Required Reading Before Execution
-
-Read and follow these files in order:
-
-1. `.agents/workflows/orchestrate.md` (Official workflow)
-2. `.agents/skills/orchestrator/SKILL.md` (Orchestrator setup)
-3. `.agents/skills/orchestrator/resources/subagent-prompt-template.md` (Prompt template)
-4. `.agents/skills/_shared/skill-routing.md` (Agent routing)
-5. `.agents/skills/_shared/context-loading.md` (Resource loading)
-
 ## Claude Code Native Adaptation
 
 Spawn `.claude/agents/` subagents via Task tool instead of CLI (`oh-my-ag agent:spawn`).
@@ -29,8 +19,9 @@ Task tool returns synchronously, so no polling needed.
 ### Step 2: Initialize Session
 
 1. Load `.agents/config/user-preferences.yaml`
-2. Generate session ID (format: `session-YYYYMMDD-HHMMSS`)
-3. Show agent routing (based on skill-routing.md)
+2. Response language follows `language` setting in `.agents/config/user-preferences.yaml`
+3. Generate session ID (format: `session-YYYYMMDD-HHMMSS`)
+4. Show agent routing (based on skill-routing.md)
 
 ### Step 3: Spawn Agents (Parallel Task tool calls)
 
@@ -39,6 +30,8 @@ Spawn agents by priority tier:
 - **Multiple Task tool calls in same message** = true parallel execution
 - Each agent: Use `.claude/agents/{agent}.md` definition
 - Include in prompt: Task description, API contract, context
+- Include API contracts from `.agents/skills/_shared/api-contracts/` if they exist
+- Load only task-relevant context (check codebase structure around affected domains)
 
 Agent mapping:
 | Domain | Subagent File |
@@ -70,10 +63,15 @@ LOOP:
 
   [1] Self-Review:
       Check self-review section in implementation agent results
-      Check lint/type-check/test results (Bash tool)
-      PASS → Proceed to [3]
+      PASS → Proceed to [2]
       FAIL (self_count < MAX_SELF) → Re-spawn Task tool (with feedback) → LOOP
-      FAIL (self_count >= MAX_SELF) → Force proceed to [3]
+      FAIL (self_count >= MAX_SELF) → Force proceed to [2]
+
+  [2] Automated Verification:
+      Run lint/type-check/tests via Bash tool
+      PASS → Proceed to [3]
+      FAIL → Feed output back to agent as correction context (max 2 retries) → re-run [2]
+      FAIL (retries exhausted) → Proceed to [3] with verification failure noted
 
   [3] Cross-Review:
       Spawn `qa-reviewer` subagent via Task tool

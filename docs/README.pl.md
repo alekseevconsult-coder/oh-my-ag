@@ -201,18 +201,18 @@ bunx oh-my-agent
 → aktywuje się frontend-agent
 ```
 
-**Złożony projekt** (workflow-guide koordynuje):
+**Złożony projekt** (/coordinate workflow):
 
 ```
 "Zbuduj aplikację TODO z uwierzytelnianiem użytkownika"
 → /coordinate → PM Agent planuje → agenci uruchamiani w Agent Manager
 ```
 
-**Jawna koordynacja** (przepływ pracy wyzwalany przez użytkownika):
+**Maksymalne wdrożenie** (/ultrawork workflow):
 
 ```
-/coordinate
-→ Krok po kroku: Planowanie PM → uruchamianie agentów → przegląd QA
+"Refaktoryzacja modułu auth, dodanie testów API i aktualizacja dokumentacji"
+→ /ultrawork → Niezależne zadania wykonywane równolegle przez agentów
 ```
 
 **Zatwierdź zmiany** (conventional commits):

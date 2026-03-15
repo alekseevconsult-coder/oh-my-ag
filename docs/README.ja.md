@@ -201,18 +201,18 @@ bunx oh-my-agent
 → frontend-agentが起動
 ```
 
-**複雑なプロジェクト** (workflow-guideが調整):
+**複雑なプロジェクト** (/coordinate ワークフロー):
 
 ```
 "ユーザー認証付きのTODOアプリを構築"
 → /coordinate → PM Agentが計画 → Agent Managerでエージェントを起動
 ```
 
-**明示的な調整** (ユーザートリガーのワークフロー):
+**最大展開** (/ultrawork ワークフロー):
 
 ```
-/coordinate
-→ ステップバイステップ: PM計画 → エージェント起動 → QAレビュー
+"認証モジュールのリファクタリング、APIテストの追加、ドキュメントの更新"
+→ /ultrawork → 独立タスクがエージェント間で並列実行
 ```
 
 **変更をコミット** (conventional commits):

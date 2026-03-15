@@ -6,28 +6,23 @@ disable-model-invocation: true
 
 # /coordinate
 
-## Required Reading Before Execution
-
-Read and follow these files in order:
-
-1. `.agents/workflows/coordinate.md` (Official workflow)
-2. `.agents/skills/_shared/skill-routing.md` (Agent routing)
-3. `.agents/skills/_shared/context-loading.md` (Resource loading)
-4. `.agents/skills/_shared/prompt-structure.md` (4-element framework)
-
 ## Claude Code Native Adaptation
 
 Use Task tool + TaskCreate for task tracking and agent spawning instead of CLI spawning.
+
+Response language follows `language` setting in `.agents/config/user-preferences.yaml`.
 
 ### Step 1: Requirements Analysis
 
 - Analyze user requirements
 - Identify relevant domains (based on skill-routing.md)
+- Use code analysis (Grep/Glob/Read) to understand codebase structure around affected areas
 
 ### Step 2: PM Task Decomposition
 
 - Complex requirements: Spawn `pm-planner` subagent via Task tool
 - Simple requirements: Decompose tasks inline
+- Save plan to `.agents/plan.json`
 
 ### Step 3: User Confirmation
 
@@ -53,7 +48,7 @@ Task tool returns results directly → No polling needed.
 
 ### Step 6: QA Review
 
-Spawn `qa-reviewer` subagent via Task tool (review results)
+Spawn `qa-reviewer` subagent via Task tool (review results: OWASP Top 10, performance, accessibility, code quality)
 
 ### Step 7: Issue Remediation Loop (Native Loop)
 

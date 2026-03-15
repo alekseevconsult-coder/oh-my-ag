@@ -1,44 +1,53 @@
 ---
 name: tools
-description: Check and manage MCP tool status — Enable/disable tool groups
+description: Show available skills, agents, and their status
 disable-model-invocation: true
 ---
 
 # /tools
 
-## Required Reading Before Execution
+Response language follows `language` setting in `.agents/config/user-preferences.yaml`.
 
-Read and follow this file:
+## Default: Show Status
 
-1. `.agents/workflows/tools.md` (Official workflow — Follow all steps)
+List all available resources in this project:
 
-## Claude Code Adaptation
+### 1. Workflow Skills (`.claude/skills/`)
 
-- Execute inline
-- Read/modify `.agents/mcp.json` directly (Read, Edit tools)
+Read each `SKILL.md` frontmatter and display:
 
-## Usage
+| Skill | Description |
+|:------|:-----------|
+| `/brainstorm` | Design exploration |
+| `/commit` | Git commit |
+| `/coordinate` | Task coordination with issue remediation |
+| `/debug` | Bug investigation and fix |
+| `/deepinit` | Project initialization with AGENTS.md |
+| `/exec-plan` | Execution plan management |
+| `/orchestrate` | Parallel multi-agent orchestration |
+| `/plan` | PM analysis and task decomposition |
+| `/review` | QA review pipeline |
+| `/setup` | Project setup verification |
+| `/tools` | This command |
+| `/ultrawork` | 5-phase gate orchestration |
 
-- `/tools` — Show current tool status
-- `/tools memory only` — Enable only memory tools
-- `/tools all` — Enable all tools (reset)
-- `/tools memory only --temp` — Temporary session-only override
+### 2. Subagents (`.claude/agents/`)
 
-## Tool Groups
+List agent files with their specialization.
 
-| Group | Tools |
-|:------|:------|
-| memory | read_memory, write_memory, edit_memory, list_memories |
-| code-analysis | get_symbols_overview, find_symbol, find_referencing_symbols, search_for_pattern |
-| code-edit | apply_diff, create_file |
-| file-ops | list_dir, read_file |
-| all | All of the above |
+### 3. Domain Skills (`.agents/skills/`)
 
-## Key Steps Summary
+List installed domain skills from SSOT.
 
-1. **Show Status**: Read `.agents/mcp.json`, show active tools/groups
-2. **Parse Command**: "enable only {group}", "disable {tool}", "enable all"
-3. **Change Config**: Permanent (modify mcp.json) or temporary (--temp)
-4. **Handle Edge Cases**: Unknown tools, server conflicts, empty tool lists
+### 4. Shared Resources (`.agents/skills/_shared/`)
+
+List available shared resources (context-loading, skill-routing, etc.).
+
+## With Arguments
+
+- `/tools skills` — Show only workflow skills
+- `/tools agents` — Show only subagents
+- `/tools domains` — Show only domain skills
+- `/tools shared` — Show only shared resources
 
 $ARGUMENTS

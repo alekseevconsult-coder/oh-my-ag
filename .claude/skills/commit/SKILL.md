@@ -6,12 +6,6 @@ disable-model-invocation: true
 
 # /commit
 
-## Required Reading Before Execution
-
-Read and follow this file:
-
-1. `.agents/skills/commit/SKILL.md` (Commit spec and type definitions)
-
 ## Claude Code Adaptation
 
 - Use Claude Code's native git tools

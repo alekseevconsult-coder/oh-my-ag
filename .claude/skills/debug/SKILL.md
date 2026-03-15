@@ -6,13 +6,7 @@ disable-model-invocation: true
 
 # /debug
 
-## Required Reading Before Execution
-
-Read and follow these files in order:
-
-1. `.agents/workflows/debug.md` (Official workflow — Follow all steps)
-2. `.agents/skills/debug-agent/SKILL.md` (Debug Agent expertise)
-3. `.agents/skills/_shared/context-loading.md` (Resource loading)
+Response language follows `language` setting in `.agents/config/user-preferences.yaml`.
 
 ## Claude Code Adaptation
 
@@ -21,11 +15,12 @@ Read and follow these files in order:
 Main agent handles simple bugs directly:
 
 1. **Collect Error**: Error message, reproduction steps, environment info
-2. **Verify Reproduction**: Trace code with Grep, Read tools
-3. **Diagnose Root Cause**: null access, race condition, type mismatch, etc.
-4. **Propose Fix**: Minimal changes, apply after user confirmation
+2. **Reproduce**: Trace code with Grep, Read tools. Trace via stack trace / error message to locate exact function and file.
+3. **Diagnose Root Cause**: null/undefined, race conditions, missing error handling, wrong data types, stale state
+4. **Propose Fix**: Minimal changes. Get user confirmation before applying fix.
 5. **Write Regression Test**: Test for the fix
 6. **Scan Similar Patterns**: Check if same pattern exists elsewhere with Grep
+7. **Document**: Document the bug: symptom, root cause, fix applied, files changed, regression test location
 
 ### Complex Debug (Delegate to Subagent)
 

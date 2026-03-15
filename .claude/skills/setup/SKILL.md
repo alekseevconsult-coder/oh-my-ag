@@ -1,30 +1,60 @@
 ---
 name: setup
-description: CLI installation, MCP connection, agent-CLI mapping initial setup
+description: oh-my-agent project setup verification and configuration
 disable-model-invocation: true
 ---
 
 # /setup
 
-## Required Reading Before Execution
+Response language follows `language` setting in `.agents/config/user-preferences.yaml`.
 
-Read and follow these files in order:
+## Steps
 
-1. `.agents/workflows/setup.md` (Official workflow — Follow all steps)
-2. `.agents/config/user-preferences.yaml` (Check current settings)
+### Step 1: Verify Project Structure
 
-## Claude Code Adaptation
+Check these paths exist and report status:
 
-- Execute inline
-- Check CLI installation status: Use Bash tool for `which gemini`, `which claude`, `which codex`
-- MCP settings: Read `.agents/mcp.json`
+| Path | Purpose | Required |
+|:-----|:--------|:--------:|
+| `.agents/skills/` | Domain skills (SSOT) | Yes |
+| `.agents/workflows/` | Workflow definitions | Yes |
+| `.agents/config/user-preferences.yaml` | User preferences | Yes |
+| `.claude/skills/` | Claude Code skills | Yes |
+| `.claude/agents/` | Subagent definitions | Yes |
+| `.agents/plan.json` | Current plan | No |
 
-## Key Steps Summary
+### Step 2: Language & Preferences
 
-1. **Language Setting**: Check/create `.agents/config/user-preferences.yaml`
-2. **CLI Installation Check**: Verify gemini, claude, codex installation status
-3. **MCP Connection Check**: Check MCP settings for each CLI
-4. **Agent-CLI Mapping**: Configure `agent_cli_mapping`
-5. **Setup Complete Summary**: Report current status
+- Read `.agents/config/user-preferences.yaml`
+- Show current settings: language, date_format, timezone
+- If file doesn't exist: create with defaults (language: en, date_format: ISO)
+- Offer to change settings if needed
+
+### Step 3: Available Skills
+
+List all skills in `.claude/skills/` with their descriptions (from frontmatter).
+
+### Step 4: Available Subagents
+
+List all agents in `.claude/agents/` with their domains:
+
+| Domain | Agent File |
+|:-------|:-----------|
+| backend | `backend-impl.md` |
+| frontend | `frontend-impl.md` |
+| mobile | `mobile-impl.md` |
+| db | `db-impl.md` |
+| qa | `qa-reviewer.md` |
+| debug | `debug-investigator.md` |
+| pm | `pm-planner.md` |
+
+### Step 5: Summary
+
+Report setup status with counts:
+- Skills available
+- Agents available
+- Current language
+- Plan status (exists / not found)
+- Suggest next action: `/plan` if no plan, `/orchestrate` or `/coordinate` if plan exists
 
 $ARGUMENTS

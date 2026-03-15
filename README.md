@@ -184,18 +184,18 @@ You'll also need at least one CLI tool:
 
 ### 2. Chat
 
-**Explicit coordination** (user-triggered workflow):
-
-```
-/coordinate
-→ Step-by-step: PM planning → agent spawning → QA review
-```
-
-**Complex project** (/coordinate workflow)::
+**Complex project** (/coordinate workflow):
 
 ```
 "Build a TODO app with user authentication"
 → /coordinate → PM Agent plans → agents spawned in Agent Manager
+```
+
+**Maximum deployment** (/ultrawork workflow):
+
+```
+"Refactor auth module, add API tests, and update docs"
+→ /ultrawork → Independent tasks execute in parallel across agents
 ```
 
 **Simple task** (single agent auto-activates):

@@ -6,15 +6,7 @@ disable-model-invocation: true
 
 # /ultrawork
 
-## Required Reading Before Execution
-
-Read and follow these files in order:
-
-1. `.agents/workflows/ultrawork.md` (Official workflow — 5 Phases, 17 Steps)
-2. `.agents/skills/orchestrator/SKILL.md` (Orchestrator setup)
-3. `.agents/skills/_shared/multi-review-protocol.md` (11 review steps)
-4. `.agents/skills/_shared/skill-routing.md` (Agent routing)
-5. `.agents/skills/_shared/context-loading.md` (Resource loading)
+Response language follows `language` setting in `.agents/config/user-preferences.yaml`.
 
 ## Claude Code Native Adaptation
 
@@ -43,7 +35,7 @@ for each PHASE in [PLAN, IMPL, VERIFY, REFINE, SHIP]:
 
 Main agent performs PM analysis directly:
 
-1. **Step 1**: Requirements analysis, domain identification
+1. **Step 1**: Requirements analysis, domain identification — save plan to `.agents/plan.json`
 2. **Step 2**: Completeness Review — Verify requirements completeness
 3. **Step 3**: Meta Review — Review adequacy
 4. **Step 4**: Over-Engineering Review — Eliminate unnecessary complexity
@@ -66,9 +58,9 @@ Spawn implementation agents via Task tool:
 
 ### VERIFY Phase (Steps 6-8): Spawn qa-reviewer Task tool
 
-1. **Step 6**: Alignment Review — Implementation == Requirements
-2. **Step 7**: Security/Bug Review — OWASP Top 10
-3. **Step 8**: Regression Review — Impact on existing features
+1. **Step 6**: Alignment Review — Compare implementation vs plan requirements point by point
+2. **Step 7**: Security/Bug Review — OWASP Top 10 check: injection, broken auth, sensitive data, access control, security misconfig
+3. **Step 8**: Regression Review — Run existing tests, verify no regressions in affected modules
 
 Spawn `qa-reviewer` subagent via Task tool for 3 review steps.
 
@@ -85,11 +77,11 @@ Parse VERIFY results:
 
 ### REFINE Phase (Steps 9-13): Spawn debug-investigator Task tool
 
-1. **Step 9**: Split large files/functions
-2. **Step 10**: Capture integration opportunities
-3. **Step 11**: Side effect analysis
-4. **Step 12**: Consistency review
-5. **Step 13**: Cleanup
+1. **Step 9**: Split large files/functions — files >500 lines, functions >50 lines → split
+2. **Step 10**: Capture integration opportunities — check for duplicate logic across changed files
+3. **Step 11**: Side effect analysis — analyze cascade impact via references
+4. **Step 12**: Consistency review — naming/style consistency review
+5. **Step 13**: Cleanup — remove newly created dead code
 
 Spawn `debug-investigator` subagent.
 
@@ -101,10 +93,10 @@ Spawn `debug-investigator` subagent.
 
 ### SHIP Phase (Steps 14-17): Final QA + Deployment checklist
 
-1. **Step 14**: Quality Review — lint/type/coverage
-2. **Step 15**: UX Flow verification
-3. **Step 16**: Check Related Issues
-4. **Step 17**: Deployment Readiness
+1. **Step 14**: Quality Review — run lint, type-check, verify coverage
+2. **Step 15**: UX Flow verification — verify user journey flows
+3. **Step 16**: Check cascade impact (2nd pass)
+4. **Step 17**: Deployment Readiness — verify: no secrets committed, migrations ready, deployment checklist complete
 
 Spawn `qa-reviewer` subagent (final review).
 

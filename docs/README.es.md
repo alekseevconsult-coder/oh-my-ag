@@ -201,18 +201,18 @@ bunx oh-my-agent
 → frontend-agent se activa
 ```
 
-**Proyecto complejo** (workflow-guide coordina):
+**Proyecto complejo** (/coordinate workflow):
 
 ```
 "Construir una app TODO con autenticación de usuarios"
 → /coordinate → PM Agent planifica → agentes generados en Agent Manager
 ```
 
-**Coordinación explícita** (workflow activado por usuario):
+**Despliegue máximo** (/ultrawork workflow):
 
 ```
-/coordinate
-→ Paso a paso: planificación PM → generación de agentes → revisión QA
+"Refactorizar módulo de auth, agregar tests de API y actualizar docs"
+→ /ultrawork → Tareas independientes se ejecutan en paralelo entre agentes
 ```
 
 **Commitear cambios** (conventional commits):

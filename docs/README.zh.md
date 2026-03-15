@@ -188,18 +188,18 @@ bunx oh-my-agent
 
 ### 2. 对话
 
-**显式协调**（用户触发的工作流）：
-
-```
-/coordinate
-→ Step-by-step: PM planning → agent spawning → QA review
-```
-
-**复杂项目**（workflow-guide 协调）：
+**复杂项目**（/coordinate 工作流）：
 
 ```
 "Build a TODO app with user authentication"
 → /coordinate → PM Agent plans → agents spawned in Agent Manager
+```
+
+**全面部署**（/ultrawork 工作流）：
+
+```
+"Refactor auth module, add API tests, and update docs"
+→ /ultrawork → Independent tasks execute in parallel across agents
 ```
 
 **简单任务**（单个代理自动激活）：
