@@ -1,7 +1,7 @@
 {
   "name": "oh-my-agent",
   "version": "2.9.1",
-  "releaseDate": "2026-03-16T22:14:06.881Z",
+  "releaseDate": "2026-03-16T22:39:40.229Z",
   "repository": "https://github.com/first-fluke/oh-my-agent",
   "files": [
     {
@@ -536,13 +536,33 @@
     },
     {
       "path": ".agents/skills/tf-infra-agent/SKILL.md",
-      "sha256": "5403ed8a80d6e885224101fedfe64f0cbcc1d5b6c612cafb8d80d1cb028cf0df",
-      "size": 16324
+      "sha256": "cbf7b4b27f050d3c6d8f66d641290e40eb69f1145cd781b128cf61bf9d813d8d",
+      "size": 6548
+    },
+    {
+      "path": ".agents/skills/tf-infra-agent/resources/checklist.md",
+      "sha256": "d5b4cbb8a183f8e7ad80b0678789116abb7d809ec41f1c4d1ccda4ba9671ac4a",
+      "size": 2192
     },
     {
       "path": ".agents/skills/tf-infra-agent/resources/cost-optimization.md",
       "sha256": "c923dcf10b373a7eefd2ff788b5010f1ba23713e666473625d3717222a869b70",
       "size": 12742
+    },
+    {
+      "path": ".agents/skills/tf-infra-agent/resources/error-playbook.md",
+      "sha256": "12f13ffc3d32b890952dc8595f1ceb612410a2640026176d6e2fdec10dd7c5d9",
+      "size": 2283
+    },
+    {
+      "path": ".agents/skills/tf-infra-agent/resources/examples.md",
+      "sha256": "e4b03bb63c903d0ff5f7ebc52e7c2ca888ca3c1accb7e70b6f1b5819598175f1",
+      "size": 1570
+    },
+    {
+      "path": ".agents/skills/tf-infra-agent/resources/execution-protocol.md",
+      "sha256": "012da052cd0c2e9fda82316322115b77a599b590aeccec603cdc0bcc956f30b5",
+      "size": 5641
     },
     {
       "path": ".agents/skills/tf-infra-agent/resources/iso-42001-infra.md",
@@ -741,6 +761,6 @@
   "metadata": {
     "skillCount": 26,
     "workflowCount": 11,
-    "totalFiles": 146
+    "totalFiles": 150
   }
 }
