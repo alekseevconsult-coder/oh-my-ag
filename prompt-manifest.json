@@ -1,7 +1,7 @@
 {
   "name": "oh-my-agent",
   "version": "2.9.1",
-  "releaseDate": "2026-03-15T09:42:30.289Z",
+  "releaseDate": "2026-03-16T22:14:06.881Z",
   "repository": "https://github.com/first-fluke/oh-my-agent",
   "files": [
     {
@@ -560,6 +560,21 @@
       "size": 6038
     },
     {
+      "path": ".agents/skills/translator/SKILL.md",
+      "sha256": "5803ac476f67646b48be6c1a47936257eabee0f4006e7dd8baa2f54f4a37a16e",
+      "size": 7120
+    },
+    {
+      "path": ".agents/skills/translator/resources/anti-ai-patterns.md",
+      "sha256": "5f93be94ccd6839e0c1d110e126a6c431bd01b35c54b049abbd12a9d52a6b3ff",
+      "size": 8035
+    },
+    {
+      "path": ".agents/skills/translator/resources/translation-rubric.md",
+      "sha256": "64be37fff7d865a2eeadbeca54ebc323dff52605818a915b900e009585763c94",
+      "size": 3373
+    },
+    {
       "path": ".agents/skills/workflow-guide/SKILL.md",
       "sha256": "253425aab45cb4738eab9de56f5b53cada8187dc05341937546517d76256f010",
       "size": 2150
@@ -724,8 +739,8 @@
     "algorithm": "sha256"
   },
   "metadata": {
-    "skillCount": 25,
+    "skillCount": 26,
     "workflowCount": 11,
-    "totalFiles": 143
+    "totalFiles": 146
   }
 }
