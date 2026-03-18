@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.11.2](https://github.com/first-fluke/oh-my-agent/compare/cli-v2.11.1...cli-v2.11.2) (2026-03-18)
+
+
+### Documentation
+
+* **skills:** modernize frontend-agent stack and fix inconsistencies ([b4622a1](https://github.com/first-fluke/oh-my-agent/commit/b4622a1387d7b43f5bb8912a5d87e702d829c497))
+* **web:** add missing agents and workflows across all 11 languages ([998924f](https://github.com/first-fluke/oh-my-agent/commit/998924fb38da8ec59cb93910217c40f149d478b7))
+
+
+### Miscellaneous
+
+* **main:** release web 0.2.6 ([ace79de](https://github.com/first-fluke/oh-my-agent/commit/ace79ded4d27b3be80aa114a14f9523cf485f1af))
+* **main:** release web 0.2.6 ([30567fa](https://github.com/first-fluke/oh-my-agent/commit/30567fae104344798881e2cb19bc616303246158))
+
 ## [2.11.1](https://github.com/first-fluke/oh-my-agent/compare/cli-v2.11.0...cli-v2.11.1) (2026-03-18)
 
 
