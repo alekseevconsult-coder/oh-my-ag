@@ -5,13 +5,7 @@ description: Context-aware translation that preserves tone, style, and natural w
 
 # Translator - Context-Aware Translation
 
-Multilingual translator that prioritizes natural expression over literal conversion.
-
-## Role Definition
-
-You are a professional translator with deep understanding of linguistic nuance, cultural context, and domain terminology. You translate meaning, not words. You restructure sentences to feel native in the target language rather than producing "translationese."
-
-## When to Use This Skill
+## When to use
 
 - Translating UI strings, error messages, or microcopy
 - Translating documentation, README, or guides
@@ -20,11 +14,28 @@ You are a professional translator with deep understanding of linguistic nuance, 
 - Creating glossaries or translation style guides
 - Any task involving multilingual content
 
-## When NOT to Use
+## When NOT to use
 
 - i18n infrastructure setup (key extraction, routing, build) -> use dev-workflow
 - Adding new locale to framework config -> use dev-workflow
 - Code-level l10n patterns (date formatting, pluralization API) -> use relevant agent
+
+## Core Rules
+
+1. Scan existing locale files before translating to align with project conventions
+2. Preserve placeholders and interpolation syntax
+3. Translate meaning, not words
+4. Match register consistently throughout a single piece
+5. Split/restructure sentences for target language naturalness
+6. Flag ambiguous source text rather than guessing
+7. Preserve domain terminology as-is — if a term has established meaning in the field (e.g., harness, scaffold, shim, polyfill, middleware), keep it even if a "simpler" native word exists
+8. Never produce literal word-for-word translations
+9. Never mix registers within a single piece (formal + casual)
+10. Never replace domain-specific terms with generic equivalents (e.g., "harness" → "framework", "shim" → "wrapper")
+11. Never translate proper nouns unless existing translations do so
+12. Never change the meaning to "sound better"
+13. Never skip verification stage for batches > 10 strings
+14. Never modify source file structure (keys, nesting, comments)
 
 ## Context Inference
 
@@ -134,26 +145,6 @@ Why:
 - [specific issues: unnatural word order, wrong register, inconsistent term, etc.]
 ```
 
-## Constraints
-
-### MUST DO
-- Scan existing locale files before translating to align with project conventions
-- Preserve placeholders and interpolation syntax
-- Translate meaning, not words
-- Match register consistently throughout a single piece
-- Split/restructure sentences for target language naturalness
-- Flag ambiguous source text rather than guessing
-- Preserve domain terminology as-is — if a term has established meaning in the field (e.g., harness, scaffold, shim, polyfill, middleware), keep it even if a "simpler" native word exists. Replacing a domain term with a generic synonym loses precision and confuses readers who know the domain.
-
-### MUST NOT DO
-- Never produce literal word-for-word translations
-- Never mix registers within a single piece (formal + casual)
-- Never replace domain-specific terms with generic equivalents (e.g., "harness" → "framework", "shim" → "wrapper") — these are not the same thing
-- Never translate proper nouns unless existing translations do so
-- Never change the meaning to "sound better"
-- Never skip verification stage for batches > 10 strings
-- Never modify source file structure (keys, nesting, comments)
-
 ## Troubleshooting
 
 | Issue | Solution |
@@ -163,6 +154,16 @@ Why:
 | Register conflict in source | Follow project's existing register, note the inconsistency |
 | Placeholder in middle of sentence | Restructure around it; never break placeholder syntax |
 | Translation too long for UI | Provide a shorter alternative with note |
+
+## How to Execute
+
+Follow the translation method (Stage 1-4) step by step.
+Before submitting, verify against `resources/translation-rubric.md` and `resources/anti-ai-patterns.md`.
+
+## Execution Protocol (CLI Mode)
+
+See `../_shared/execution-protocols/` for vendor-specific protocols.
+When spawned via `oh-my-ag agent:spawn`, the protocol is injected automatically.
 
 ## References
 

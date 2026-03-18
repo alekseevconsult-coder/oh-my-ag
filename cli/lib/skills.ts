@@ -34,6 +34,7 @@ export const SKILLS: SkillsRegistry = {
   utility: [
     { name: "debug-agent", desc: "Bug fixing specialist" },
     { name: "commit", desc: "Conventional Commits helper" },
+    { name: "translator", desc: "Context-aware multilingual translation" },
   ],
   infrastructure: [
     {
