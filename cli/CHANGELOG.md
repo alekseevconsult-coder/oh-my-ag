@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.11.0](https://github.com/first-fluke/oh-my-agent/compare/cli-v2.10.2...cli-v2.11.0) (2026-03-18)
+
+
+### Features
+
+* **cli:** preserve user-customized config files during update ([bb80216](https://github.com/first-fluke/oh-my-agent/commit/bb802168834343b5bc108601ef39edcc83d9d322))
+
+
+### Bug Fixes
+
+* align marketplace plugin name with plugin.json ([f82f871](https://github.com/first-fluke/oh-my-agent/commit/f82f8715042cf29dc0ef8990607085d06b37af77))
+
+
+### Refactoring
+
+* **cli:** remove non-null assertions and fix lint issues ([0c76aa4](https://github.com/first-fluke/oh-my-agent/commit/0c76aa4f000718789fc0b39aea0d8df8dff6a652))
+
 ## [2.10.2](https://github.com/first-fluke/oh-my-agent/compare/cli-v2.10.1...cli-v2.10.2) (2026-03-17)
 
 
