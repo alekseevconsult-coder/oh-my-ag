@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.7](https://github.com/first-fluke/oh-my-agent/compare/web-v0.2.6...web-v0.2.7) (2026-03-18)
+
+
+### Bug Fixes
+
+* **demo:** use Hack Nerd Font for VHS recording ([b16bdd7](https://github.com/first-fluke/oh-my-agent/commit/b16bdd711e38ba4c58bca589926d8d5488480839))
+
 ## [0.2.6](https://github.com/first-fluke/oh-my-agent/compare/web-v0.2.5...web-v0.2.6) (2026-03-18)
 
 
